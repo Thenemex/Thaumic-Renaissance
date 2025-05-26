@@ -1,0 +1,15 @@
+[
+    {
+        "modid": "TCReborn",
+        "name": "Thaumic Renaissance",
+        "description": "Addon for Thaumcraft 4. Try to bring a modern and fresh air",
+        "version": ${version},
+        "mcversion": ${mcversion},
+        "url": "",
+        "updateUrl": "",
+        "authorList": ["Thenemex"],
+        "logoFile": "",
+        "screenshots": [],
+        "dependencies": ["thaumcraft"]
+    }
+]
