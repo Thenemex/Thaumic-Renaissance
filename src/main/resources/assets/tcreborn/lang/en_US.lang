@@ -17,4 +17,5 @@ tc.research_category.LUMBERJACK=Lumberjack
 #
 tcreborn_research_name.WOODBASICRECIPES=Basic Recipes
 tcreborn_research_text.WOODBASICRECIPES=Processing Wood
-tcreborn_research_page.WOODBASICRECIPES.1=.
+tcreborn_research_page.WOODBASICRECIPES.1=While chopping some poor trees and making yourself a workbench, you noticed something wasn't right ...<BR>The logs would only give you one plank, and the same happened when making sticks.<LINE>You swore in bad words that you will find some way or another to get more planks and sticks out of these damn wood logs !
+#
