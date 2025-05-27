@@ -17,9 +17,8 @@ public class Tests {
         API.newCategory(tabName, new ResourceLocation("minecraft", "textures/items/stone_axe.png"));
         // Making new research
         Research res = API.newResearch("WOODBASICRECIPES", tabName, null, 0, 0, 1, new ItemStack(Blocks.planks));
-        res.setPages(new ResearchPage(res.getPage(1)))
-                .setAutoUnlock().setRound().registerResearchItem();
-        RecipeRemover.remove(new ItemStack(Blocks.planks, 1, 0)); // Block, Amount, Meta
+        res.setPages(new ResearchPage(res.getPage(1))).setAutoUnlock().setRound().registerResearchItem();
+        RecipeRemover.removeItem(new ItemStack(Blocks.planks));
         // ToDo Remove wood recipes, re add them in HashMap and loop on them for adding them to page
     }
 }
