@@ -24,6 +24,10 @@ public class Research extends ResearchItem {
         super(tag, tab, aspects, x, y, complexity, icon);
     }
 
+    /**
+     * Adds warp to a research
+     * @param warp The amount of warp
+     */
     public Research addWarp(int warp) {
         ThaumcraftApi.addWarpToResearch(key, warp);
         return this;
@@ -38,8 +42,8 @@ public class Research extends ResearchItem {
         return StatCollector.translateToLocal(getPrefix().concat("text.").concat(key));
     }
 
-    public String getPage(String number) {
-        return getPrefix().concat("page.").concat(key).concat(".").concat(number);
+    public String getPage(int number) {
+        return getPrefix().concat("page.").concat(key).concat(".").concat(String.valueOf(number));
     }
 
     private static String getPrefix() {
