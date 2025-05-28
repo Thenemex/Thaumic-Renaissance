@@ -10,10 +10,6 @@ public class RecipeAdder {
         // GameRegistry.addRecipe(new ItemStack(blockTable, 8), new Object[]{"CRC","RRR","CRC", 'C', Blocks.coal_block, 'R', Items.redstone}); // Gives x8 output
         if (isShapeless) GameRegistry.addShapelessRecipe(output, recipe);
         else GameRegistry.addShapedRecipe(output, recipe);
-        return getLastRecipeAdded();
-    }
-
-    public static IRecipe getLastRecipeAdded() {
-        return (IRecipe) RecipeRemover.refresh().get(RecipeRemover.recipes.size() - 1);
+        return RecipeRemover.getLastRecipeAdded();
     }
 }

@@ -67,7 +67,6 @@ public class RecipeRemover {
         }
     }
 
-
     /**
      * Remove a recipe if it suits the condition
      * @param r The recipe to check
@@ -91,5 +90,9 @@ public class RecipeRemover {
     @SuppressWarnings("rawtypes")
     public static List refresh() {
         return recipes = CraftingManager.getInstance().getRecipeList();
+    }
+
+    public static IRecipe getLastRecipeAdded() {
+        return (IRecipe) recipes.get(recipes.size() - 1);
     }
 }
