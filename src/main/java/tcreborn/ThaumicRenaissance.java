@@ -21,6 +21,6 @@ public class ThaumicRenaissance {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent ignoredEvent) {
         RecipeRemover.refresh();
-        Tests.init();
+        new Tests().init();
     }
 }

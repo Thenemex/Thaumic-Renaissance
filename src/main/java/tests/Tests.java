@@ -5,18 +5,25 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import tcreborn.api.API;
+import tcreborn.api.AResearch;
 import tcreborn.api.recipes.RecipeAdder;
 import tcreborn.api.recipes.RecipeRemover;
 import tcreborn.api.thaumcraft.Research;
 import thaumcraft.api.research.ResearchPage;
 
-public class Tests {
+public class Tests extends AResearch {
 
-    public static final String tabName = "LUMBERJACK";
+    public void init() {
+        setTabTag("LUMBERJACK", "WOODBASICRECIPES");
+        // ToDo Abstract API Tabs
+        API.newCategory(tab, new ResourceLocation("minecraft", "textures/items/stone_axe.png"));
+        setIcon(new ItemStack(Blocks.planks));
+        setNewResearch(0, 0, 1);
+    }
 
-    public static void init() {
+    public static void initOld() {
+        String tabName = "LUMBERJACK";
         // Making new tab test
-        API.newCategory(tabName, new ResourceLocation("minecraft", "textures/items/stone_axe.png"));
         // Making new research
         Research res = API.newResearch("WOODBASICRECIPES", tabName, null, 0, 0, 1, new ItemStack(Blocks.planks));
         RecipeRemover.removeItem(new ItemStack(Blocks.planks)); // Remove all planks recipes
