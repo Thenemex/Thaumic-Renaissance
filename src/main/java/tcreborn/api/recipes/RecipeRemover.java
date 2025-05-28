@@ -23,8 +23,9 @@ public class RecipeRemover {
             IRecipe r = (IRecipe) recipe;
             boolean condition = r.getRecipeOutput() != null
                     && r.getRecipeOutput().getItem().equals(output.getItem());
-            remove(r, condition);
+            if (condition) recipesToRemove.add(r);
         }
+        removeFoundRecipes();
     }
     /**
      * Remove all recipes that have the ItemStack as output.
@@ -36,8 +37,9 @@ public class RecipeRemover {
             boolean condition = r.getRecipeOutput() != null
                     && r.getRecipeOutput().getItem().equals(output.getItem())
                     && r.getRecipeOutput().stackSize == output.stackSize;
-            remove(r, condition);
+            if (condition) recipesToRemove.add(r);
         }
+        removeFoundRecipes();
     }
     /**
      * Remove all recipes that have the ItemStack as output.
@@ -49,8 +51,9 @@ public class RecipeRemover {
             boolean condition = r.getRecipeOutput() != null
                     && r.getRecipeOutput().getItem().equals(output.getItem())
                     && r.getRecipeOutput().getItemDamage() == output.getItemDamage();
-            remove(r, condition);
+            if (condition) recipesToRemove.add(r);
         }
+        removeFoundRecipes();
     }
     /**
      * Remove all recipes that have the ItemStack as output.
@@ -63,36 +66,36 @@ public class RecipeRemover {
                     && r.getRecipeOutput().getItem().equals(output.getItem())
                     && r.getRecipeOutput().stackSize == output.stackSize
                     && r.getRecipeOutput().getItemDamage() == output.getItemDamage();
-            remove(r, condition);
+            if (condition) recipesToRemove.add(r);
         }
+        removeFoundRecipes();
     }
 
     /**
-     * Remove a recipe if it suits the condition
-     * @param r The recipe to check
-     * @param condition The condition
+     * Remove all recipes found by the other methods from the recipes list from CraftingManager.
      */
-    private static void remove(IRecipe r, boolean condition) {
-        // Not null + Same Item + Same Meta
-        if (condition)
-            recipesToRemove.add(r);
-        for (Object removedRecipe : recipesToRemove) {
+    private static void removeFoundRecipes() {
+        for (Object removedRecipe : recipesToRemove)
             recipes.remove(removedRecipe);
-            Logger.logInfo("Removed ", recipesToRemove.size(), " recipes");
-        }
+        Logger.logInfo("Removed ", recipesToRemove.size(), " recipes");
         recipesToRemove.clear();
     }
 
     /**
-     * Refresh the list of recipes.
+     * Refresh the list of recipes from CraftingManager.
      * <p>Method to call when all recipes are initialized</p>
+     * @return The recipes list refreshed
      */
     @SuppressWarnings("rawtypes")
     public static List refresh() {
         return recipes = CraftingManager.getInstance().getRecipeList();
     }
 
+    /**
+     * Returns the last recipe added to the CraftingManager.
+     * @return The last object of the recipes list
+     */
     public static IRecipe getLastRecipeAdded() {
-        return (IRecipe) recipes.get(recipes.size() - 1);
+        return (IRecipe) refresh().get(recipes.size() - 1);
     }
 }
