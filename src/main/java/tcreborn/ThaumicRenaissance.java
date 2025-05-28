@@ -13,13 +13,13 @@ public class ThaumicRenaissance {
     public static final String modID = "TCReborn";
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
+    public void preInit(FMLPreInitializationEvent ignoredEvent) {
     }
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
+    public void init(FMLInitializationEvent ignoredEvent) {
     }
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
+    public void postInit(FMLPostInitializationEvent ignoredEvent) {
         RecipeRemover.refresh();
         Tests.init();
     }

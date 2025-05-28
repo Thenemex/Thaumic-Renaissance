@@ -2,7 +2,7 @@ package tcreborn.api;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import tcreborn.api.research.Research;
+import tcreborn.api.thaumcraft.Research;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.research.ResearchCategories;
 

@@ -1,6 +1,5 @@
 package tcreborn.api.recipes;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
@@ -12,7 +11,7 @@ import java.util.List;
 public class RecipeRemover {
 
     @SuppressWarnings("rawtypes")
-    private static List recipes;
+    public static List recipes;
     private static final ArrayList<Object> recipesToRemove = new ArrayList<>();
 
     /**
@@ -89,7 +88,8 @@ public class RecipeRemover {
      * Refresh the list of recipes.
      * <p>Method to call when all recipes are initialized</p>
      */
-    public static void refresh() {
-        recipes = CraftingManager.getInstance().getRecipeList();
+    @SuppressWarnings("rawtypes")
+    public static List refresh() {
+        return recipes = CraftingManager.getInstance().getRecipeList();
     }
 }

@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import tcreborn.api.API;
 import tcreborn.api.recipes.RecipeRemover;
-import tcreborn.api.research.Research;
+import tcreborn.api.thaumcraft.Research;
 import thaumcraft.api.research.ResearchPage;
 
 public class Tests {
@@ -18,7 +18,7 @@ public class Tests {
         // Making new research
         Research res = API.newResearch("WOODBASICRECIPES", tabName, null, 0, 0, 1, new ItemStack(Blocks.planks));
         res.setPages(new ResearchPage(res.getPage(1))).setAutoUnlock().setRound().registerResearchItem();
-        RecipeRemover.removeItem(new ItemStack(Blocks.planks));
+        RecipeRemover.removeItem(new ItemStack(Blocks.planks)); // Remove all planks recipes
         // ToDo Remove wood recipes, re add them in HashMap and loop on them for adding them to page
     }
 }
