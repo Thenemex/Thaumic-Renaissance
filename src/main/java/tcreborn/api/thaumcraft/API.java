@@ -1,8 +1,7 @@
-package tcreborn.api;
+package tcreborn.api.thaumcraft;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import tcreborn.api.thaumcraft.Research;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.research.ResearchCategories;
 

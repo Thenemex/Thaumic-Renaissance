@@ -5,7 +5,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import tcreborn.api.recipes.RecipeRemover;
-import tests.Tests;
+import tcreborn.model.config.ConfigResearch;
 
 @Mod(modid = "Thaumic Renaissance", dependencies = "required-after:Thaumcraft@[4.2.3.5,)", useMetadata = true)
 public class ThaumicRenaissance {
@@ -21,6 +21,6 @@ public class ThaumicRenaissance {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent ignoredEvent) {
         RecipeRemover.refresh();
-        new Tests().init();
+        ConfigResearch.init();
     }
 }
