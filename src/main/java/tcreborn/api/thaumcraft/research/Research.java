@@ -1,4 +1,4 @@
-package tcreborn.api.thaumcraft;
+package tcreborn.api.thaumcraft.research;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;

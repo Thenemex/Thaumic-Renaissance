@@ -3,23 +3,20 @@ package tcreborn.model.research;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.util.ResourceLocation;
-import tcreborn.api.thaumcraft.API;
-import tcreborn.api.thaumcraft.AResearch;
+import tcreborn.api.thaumcraft.research.AResearch;
 import tcreborn.api.recipes.RecipeAdder;
 import tcreborn.api.recipes.RecipeRemover;
+import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.research.ResearchPage;
 
 public class WoodBasicRecipes extends AResearch {
 
     public WoodBasicRecipes() {
-        super("LUMBERJACK", "WOODBASICRECIPES", new ItemStack(Blocks.planks));
+        super(ConfigTab.tabLumberjack, "WOODBASICRECIPES", new ItemStack(Blocks.planks));
     }
 
     @Override
     public void init() {
-        API.newCategory(tab, new ResourceLocation("minecraft", "textures/items/stone_axe.png"));
-        // ToDo Abstract API Tabs
         this.setNewResearch(0, 0, 1).setResearchProperties();
         this.setPages(new ResearchPage(research.getPage(1)), new ResearchPage(addRecipes())).removeRecipes();
     }
