@@ -6,6 +6,8 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import tcreborn.api.recipes.RecipeRemover;
 import tcreborn.config.Config;
+import tcreborn.model.ArrayCollector;
+import tcreborn.model.config.ConfigIntegrations;
 import tcreborn.model.config.ConfigOreDict;
 import tcreborn.model.config.ConfigResearch;
 
@@ -27,6 +29,8 @@ public class ThaumicRenaissance {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent ignoredEvent) {
         RecipeRemover.refresh();
+        ConfigIntegrations.init();
+        ArrayCollector.init();
         ConfigResearch.init();
     }
 }

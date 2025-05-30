@@ -11,6 +11,7 @@ public class Config {
     private static Configuration config;
     public static File configDir;
     public static boolean expertWoodRecipesEnabled;
+    public static boolean forbiddenMagicCompat;
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void init(File configFolder) {
@@ -23,8 +24,10 @@ public class Config {
     }
 
     private static void loadConfig() {
-        String expertCat = "Expert";
-        config.addCustomCategoryComment(expertCat, "You can disable/enable expert configurations from the mod.");
+        String integCat = "ConfigIntegrations", expertCat = "Expert";
+        config.addCustomCategoryComment(expertCat, "You can disable/enable expert configurations from the mod here.");
         expertWoodRecipesEnabled = config.get(expertCat,"Planks/Sticks recipes", true).getBoolean(true);
+        config.addCustomCategoryComment(integCat, "You can disable/enable mod integrations here.");
+        forbiddenMagicCompat = config.get(integCat, "Forbidden Magic", true).getBoolean(true);
     }
 }

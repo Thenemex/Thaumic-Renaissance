@@ -36,7 +36,7 @@ public class WoodBasicRecipes extends AResearch {
     }
     @Override
     public IRecipe[] addRecipes() {
-        return RecipeAdder.addMultipleSingleShapelessRecipes(mundanePlanks, mundaneLogs);
+        return RecipeAdder.addMultipleSingleShapelessRecipes(getMundanePlanks(), getMundaneLogs());
     }
     private IRecipe[] addRecipesStickMundane() {
         return RecipeAdder.addSingleShapelessRecipes(new ItemStack(Items.stick), getOres(mundanePlanksTag));

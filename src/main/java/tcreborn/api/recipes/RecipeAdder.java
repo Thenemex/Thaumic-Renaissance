@@ -3,7 +3,7 @@ package tcreborn.api.recipes;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import tcreborn.api.exceptions.ParameterArrayIsNull;
+import tcreborn.api.exceptions.ParameterIsNull;
 import tcreborn.api.exceptions.ParameterArraysSizeException;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class RecipeAdder {
      * @return The recipe generated
      */
     public static IRecipe addRecipe(ItemStack output, boolean isShapeless, Object ... recipe) {
-        if (output == null || recipe == null || recipe.length == 0) throw new ParameterArrayIsNull();
+        if (output == null || recipe == null || recipe.length == 0) throw new ParameterIsNull();
         // Example for Object : new Object[]{"CRC","RRR","CRC", 'C', Blocks.coal_block, 'R', Items.redstone}); // Gives x8 output
         if (isShapeless) GameRegistry.addShapelessRecipe(output, recipe);
         else GameRegistry.addShapedRecipe(output, recipe);
