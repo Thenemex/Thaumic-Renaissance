@@ -45,7 +45,7 @@ public class RecipeAdder {
      * @return The recipes generated
      */
     public static IRecipe[] addMultipleSingleShapelessRecipes(ItemStack[] output, ItemStack[] input) {
-        if (output.length != input.length) throw new ParameterArraysSizeException(output.length + " " + input.length);
+        if (output.length != input.length) throw new ParameterArraysSizeException(output.length, input.length);
         IRecipe[] recipes = new IRecipe[output.length];
         for (int i = 0; i < output.length; i++)
             recipes[i] = addRecipe(output[i], true, input[i]);
