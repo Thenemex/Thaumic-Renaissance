@@ -1,6 +1,7 @@
 package tcreborn.model.research;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import tcreborn.api.thaumcraft.research.AResearch;
@@ -8,6 +9,10 @@ import tcreborn.api.recipes.RecipeAdder;
 import tcreborn.api.recipes.RecipeRemover;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.research.ResearchPage;
+
+import static tcreborn.model.ArrayCollector.*;
+import static tcreborn.model.config.ConfigOreDict.getOres;
+import static tcreborn.model.config.ConfigOreDict.mundanePlanksTag;
 
 public class WoodBasicRecipes extends AResearch {
 
@@ -18,26 +23,27 @@ public class WoodBasicRecipes extends AResearch {
     @Override
     public void init() {
         this.setNewResearch(0, 0, 1).setResearchProperties();
-        this.setPages(new ResearchPage(research.getPage(1)), new ResearchPage(addRecipes())).removeRecipes();
+        this.removeRecipes();
+        this.setPages(new ResearchPage(research.getPage(1)),
+                new ResearchPage(addRecipes()),
+                new ResearchPage(addRecipesStickMundane()));
     }
 
     @Override
     public void removeRecipes() {
         RecipeRemover.removeItem(new ItemStack(Blocks.planks)); // Remove all vanilla planks recipes
+        RecipeRemover.removeItem(new ItemStack(Items.stick)); // Remove all stick recipes
     }
     @Override
     public IRecipe[] addRecipes() {
-        IRecipe[] recipes = new IRecipe[6];
-        for (int i = 0; i < 6; i++) // 1 Log = 1 Plank
-            if (i < 4)
-                recipes[i] = RecipeAdder.addRecipe(
-                        new ItemStack(Blocks.planks, 1, i), true,
-                        new ItemStack(Blocks.log, 1, i));
-            else
-                recipes[i] = RecipeAdder.addRecipe(
-                        new ItemStack(Blocks.planks, 1, i), true,
-                        new ItemStack(Blocks.log2, 1, i - 4));
+        IRecipe[] recipes = new IRecipe[nbMundane];
+        for (int i = 0; i < recipes.length; i++) // 1 Plank <- 1 Log
+            recipes[i] = RecipeAdder.addRecipe(mundanePlanks[i], true, mundaneLogs[i]);
         return recipes;
+    }
+
+    private IRecipe[] addRecipesStickMundane() {
+        return RecipeAdder.addSingleShapelessRecipes(new ItemStack(Items.stick), getOres(mundanePlanksTag));
     }
 
     @Override

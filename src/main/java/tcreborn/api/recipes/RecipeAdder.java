@@ -5,6 +5,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import tcreborn.api.Logger;
 
+import java.util.ArrayList;
+
 public class RecipeAdder {
 
     public static IRecipe addRecipe(ItemStack output, boolean isShapeless, Object ... recipe) {
@@ -13,5 +15,18 @@ public class RecipeAdder {
         else GameRegistry.addShapedRecipe(output, recipe);
         Logger.logInfo("Recipe added for ", output.getItem().getUnlocalizedName(), ":", output.getItemDamage());
         return RecipeRemover.getLastRecipeAdded();
+    }
+
+    /**
+     * Adds recipes that contains one unique item into another.
+     * @param output The single output of the recipe
+     * @param inputs The inputs, likely from OreDictionnary
+     * @return The recipes generated
+     */
+    public static IRecipe[] addSingleShapelessRecipes(ItemStack output, ItemStack ... inputs) {
+        ArrayList<IRecipe> recipes = new ArrayList<>(inputs.length);
+        for (ItemStack input : inputs)
+            recipes.add(addRecipe(output, true, input));
+        return recipes.toArray(new IRecipe[0]);
     }
 }
