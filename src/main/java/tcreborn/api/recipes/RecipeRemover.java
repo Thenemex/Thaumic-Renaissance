@@ -3,7 +3,6 @@ package tcreborn.api.recipes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
-import tcreborn.api.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +76,6 @@ public class RecipeRemover {
     private static void removeFoundRecipes() {
         for (Object removedRecipe : recipesToRemove)
             recipes.remove(removedRecipe);
-        Logger.logInfo("Removed ", recipesToRemove.size(), " recipes");
         recipesToRemove.clear();
     }
 

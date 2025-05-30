@@ -3,14 +3,17 @@ package tcreborn.model.config;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import tcreborn.api.oredict.AOreDict;
-import tcreborn.model.ArrayCollector;
+
+import static tcreborn.model.ArrayCollector.*;
 
 public class ConfigOreDict {
 
-    public static String mundanePlanksTag = "mundanePlanks", magicalPlanksTag = "magicalPlanks";
+    public static String mundaneLogsTag = "mundaneLogs", mundanePlanksTag = "mundanePlanks",
+            magicalPlanksTag = "magicalPlanks";
 
     public static void init() {
-        new AOreDict(mundanePlanksTag, ArrayCollector.mundanePlanks);
+        new AOreDict(mundaneLogsTag, mundaneLogs);
+        new AOreDict(mundanePlanksTag, mundanePlanks);
         //new AOreDict(magicalPlanksTag, ArrayCollector.magicalPlanks);
         // ToDo Do a class to store all planks array for easier oredict
     }

@@ -36,12 +36,8 @@ public class WoodBasicRecipes extends AResearch {
     }
     @Override
     public IRecipe[] addRecipes() {
-        IRecipe[] recipes = new IRecipe[nbMundane];
-        for (int i = 0; i < recipes.length; i++) // 1 Plank <- 1 Log
-            recipes[i] = RecipeAdder.addRecipe(mundanePlanks[i], true, mundaneLogs[i]);
-        return recipes;
+        return RecipeAdder.addMultipleSingleShapelessRecipes(mundanePlanks, mundaneLogs);
     }
-
     private IRecipe[] addRecipesStickMundane() {
         return RecipeAdder.addSingleShapelessRecipes(new ItemStack(Items.stick), getOres(mundanePlanksTag));
     }
