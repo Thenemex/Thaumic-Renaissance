@@ -9,7 +9,7 @@ import tcreborn.api.exceptions.ParameterArraysSizeException;
 import java.util.ArrayList;
 
 public class RecipeAdder {
-// Example for Object : new Object[]{"CRC","RRR","CRC", 'C', Blocks.coal_block, 'R', Items.redstone}); // Gives x8 output
+// Example for Object : new Object[]{"CRC","RRR","CRC", 'C', Blocks.coal_block, 'R', Items.redstone});
     /**
      * Adds a single recipe from multiple items
      * @param output The output ItemStack
@@ -22,19 +22,6 @@ public class RecipeAdder {
         if (isShapeless) GameRegistry.addShapelessRecipe(output, recipes);
         else GameRegistry.addShapedRecipe(output, recipes);
         return RecipeRemover.getLastRecipeAdded();
-    }
-
-    /**
-     * Adds recipes that contain one unique item into the same output.
-     * @param output The single output of the recipe
-     * @param inputs The inputs, likely from OreDictionnary
-     * @return The recipes generated
-     */
-    public static IRecipe[] addSingleRecipes(ItemStack output, boolean isShapeless, ItemStack ... inputs) {
-        ArrayList<IRecipe> recipes = new ArrayList<>(inputs.length);
-        for (ItemStack input : inputs)
-            recipes.add(addRecipe(output, isShapeless, input));
-        return recipes.toArray(new IRecipe[0]);
     }
 
     /**
@@ -62,6 +49,22 @@ public class RecipeAdder {
         if (output.length != input.length) throw new ParameterArraysSizeException(output.length, input.length);
         IRecipe[] recipes = new IRecipe[output.length];
         for (int i = 0; i < output.length; i++)
+            recipes[i] = addRecipe(output[i], true, input[i]);
+        return recipes;
+    }
+
+    /**
+     * Adds recipes that contain one item into another
+     * <p>The method will set the recipe as for exemple : input[0] -> output[0], etc ...</p>
+     * @param output The output items
+     * @param nb The number of output items wanted
+     * @param input The input items
+     * @return The recipes generated
+     */
+    public static IRecipe[] addMultipleSingleShapelessRecipesWithNB(ItemStack[] output, int nb, ItemStack[] input) {
+        if (output.length != input.length) throw new ParameterArraysSizeException(output.length, input.length);
+        IRecipe[] recipes = new IRecipe[output.length];
+        for (int i = 0; i < output.length; output[i].stackSize = nb, i++)
             recipes[i] = addRecipe(output[i], true, input[i]);
         return recipes;
     }

@@ -1,7 +1,6 @@
 package tcreborn.api.thaumcraft.research;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import tcreborn.api.thaumcraft.API;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.research.ResearchPage;
@@ -30,12 +29,10 @@ public abstract class AResearch {
         this.research = API.newResearch(tag, tab, aspects, x, y, complexity, icon);
         return this.register();
     }
-    public void removeRecipes(){}
+    public abstract void removeRecipes();
 
-    public abstract IRecipe[] addRecipes();
-    public AResearch setPages(ResearchPage ... pages) {
+    public void setPages(ResearchPage ... pages) {
         research.setPages(pages);
-        return this;
     }
     public abstract void setResearchProperties();
 

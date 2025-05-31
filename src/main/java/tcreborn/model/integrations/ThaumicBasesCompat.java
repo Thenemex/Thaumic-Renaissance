@@ -4,6 +4,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.integrations.ACompat;
 import tcreborn.api.items.ItemFinder;
+import tcreborn.api.recipes.RecipeRemover;
 import tcreborn.model.ArrayCollector;
 
 public class ThaumicBasesCompat extends ACompat {
@@ -19,7 +20,8 @@ public class ThaumicBasesCompat extends ACompat {
         ArrayCollector.addPlankResultOfMagical(
                 new ItemStack(Blocks.planks, 1, 2),
                 new ItemStack(Blocks.planks, 1, 1));
-        ArrayCollector.addSameMagicalResultPlank(
-                ItemFinder.findItem(mod, "enderPlanks")); // Ender Planks
+        ItemStack plank = ItemFinder.findItem(mod, "enderPlanks");
+        RecipeRemover.removeItem(plank);
+        ArrayCollector.addSameMagicalResultPlank(plank); // Ender Planks
     }
 }
