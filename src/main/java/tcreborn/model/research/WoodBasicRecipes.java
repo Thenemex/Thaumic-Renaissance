@@ -10,9 +10,9 @@ import tcreborn.api.recipes.RecipeRemover;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.research.ResearchPage;
 
-import static tcreborn.model.ArrayCollector.*;
-import static tcreborn.model.config.ConfigOreDict.getOres;
-import static tcreborn.model.config.ConfigOreDict.mundanePlanksTag;
+import java.util.ArrayList;
+
+import static tcreborn.model.config.ConfigOreDict.*;
 
 public class WoodBasicRecipes extends AResearch {
 
@@ -36,10 +36,18 @@ public class WoodBasicRecipes extends AResearch {
     }
     @Override
     public IRecipe[] addRecipes() {
-        return RecipeAdder.addMultipleSingleShapelessRecipes(getMundanePlanks(), getMundaneLogs());
+        // Example for Object : new Object[]{"CRC","RRR","CRC", 'C', Blocks.coal_block, 'R', Items.redstone}); // Gives x8 output
+        return RecipeAdder.addMultipleSingleShapelessRecipes(getOres(mundanePlanksTag), getOres(mundaneLogsTag));
     }
     private IRecipe[] addRecipesStickMundane() {
-        return RecipeAdder.addSingleShapelessRecipes(new ItemStack(Items.stick), getOres(mundanePlanksTag));
+        ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundanePlanksTag).length);
+        for (ItemStack plank : getOres(mundanePlanksTag))
+            recipes.add(new Object[]{"P ", "P ", 'P', plank});
+        return RecipeAdder.addMultipleSingleRecipes(new ItemStack(Items.stick), false, recipes);
+    }
+    private IRecipe[] addRecipesPlanksMagical() {
+        //ToDo return RecipeAdder.addMultipleSingleShapelessRecipes(getOres(), )
+        return null;
     }
 
     @Override

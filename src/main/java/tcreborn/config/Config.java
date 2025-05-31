@@ -11,7 +11,7 @@ public class Config {
     private static Configuration config;
     public static File configDir;
     public static boolean expertWoodRecipesEnabled;
-    public static boolean forbiddenMagicCompat;
+    public static boolean forbiddenMagicCompat, taintedMagicCompat, thaumicBasesCompat;
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void init(File configFolder) {
@@ -24,10 +24,19 @@ public class Config {
     }
 
     private static void loadConfig() {
-        String integCat = "ConfigIntegrations", expertCat = "Expert";
+        String integCat = "Integrations", expertCat = "Expert";
         config.addCustomCategoryComment(expertCat, "You can disable/enable expert configurations from the mod here.");
-        expertWoodRecipesEnabled = config.get(expertCat,"Planks/Sticks recipes", true).getBoolean(true);
+        expertWoodRecipesEnabled = newEntry(expertCat,"Planks/Sticks recipes");
         config.addCustomCategoryComment(integCat, "You can disable/enable mod integrations here.");
-        forbiddenMagicCompat = config.get(integCat, "Forbidden Magic", true).getBoolean(true);
+        forbiddenMagicCompat = newEntry(integCat, "Forbidden Magic");
+        taintedMagicCompat = newEntry(integCat, "Tainted Magic");
+        thaumicBasesCompat = newEntry(integCat, "Thaumic Bases");
+    }
+
+    public static boolean newEntry(String tag, String key) {
+        return config.get(tag, key, true).getBoolean(true);
+    }
+    public static boolean newEntry(String tag, String key, boolean def) {
+        return config.get(tag, key, def).getBoolean(def);
     }
 }

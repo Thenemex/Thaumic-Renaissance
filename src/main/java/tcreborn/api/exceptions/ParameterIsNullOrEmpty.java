@@ -1,8 +1,8 @@
 package tcreborn.api.exceptions;
 
-public class ParameterIsNull extends TCRException{
+public class ParameterIsNullOrEmpty extends TCRException{
 
-    public ParameterIsNull() {
+    public ParameterIsNullOrEmpty() {
         super("One of the parameters is null or empty.");
     }
 }

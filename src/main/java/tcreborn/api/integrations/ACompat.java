@@ -9,6 +9,9 @@ public abstract class ACompat {
         init();
     }
 
-    public abstract void init();
+    public void init() {
+        loadLogsPlanksSticks();
+    }
 
+    public abstract void loadLogsPlanksSticks();
 }

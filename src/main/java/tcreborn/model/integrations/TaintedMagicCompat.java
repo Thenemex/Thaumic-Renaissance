@@ -5,16 +5,17 @@ import tcreborn.api.integrations.ACompat;
 import tcreborn.api.items.ItemFinder;
 import tcreborn.model.ArrayCollector;
 
-public class ForbiddenMagicCompat extends ACompat {
+public class TaintedMagicCompat extends ACompat {
 
-    public ForbiddenMagicCompat(String mod) {
+    public TaintedMagicCompat(String mod) {
         super(mod);
     }
 
+    @Override
     public void loadLogsPlanksSticks() {
         ItemStack log, plank;
-        log = ItemFinder.findItem(mod, "TaintLog"); // Tainted Log
-        plank = ItemFinder.findItem(mod, "TaintPlank"); // Tainted Planks
+        log = ItemFinder.findItem(mod, "BlockWarpwoodLog"); // Warpwood Log
+        plank = ItemFinder.findItem(mod, "BlockWarpwoodPlanks"); // Warpwood Planks
         ArrayCollector.addMagicalLogAndPlank(log, plank);
         ArrayCollector.addMagicalPlank(plank);
     }
