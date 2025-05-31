@@ -8,7 +8,7 @@ import static tcreborn.model.ArrayCollector.*;
 
 public class ConfigOreDict {
 
-    public static String mundaneLogsTag = "mundaneLogs", mundanePlanksTag = "mundanePlanks",
+    public static final String mundaneLogsTag = "mundaneLogs", mundanePlanksTag = "mundanePlanks",
             magicalLogsTag = "magicalLogs", magicalPlanksTag = "magicalPlanks";
 
     public static void init() {

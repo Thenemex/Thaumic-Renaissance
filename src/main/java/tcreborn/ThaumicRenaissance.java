@@ -13,7 +13,10 @@ import tcreborn.model.config.ConfigResearch;
 
 import java.io.File;
 
-@Mod(modid = "Thaumic Renaissance", dependencies = "required-after:Thaumcraft@[4.2.3.5,)", useMetadata = true)
+@Mod(modid = "Thaumic Renaissance", useMetadata = true, dependencies = "required-after:Thaumcraft@[4.2.3.5,);" +
+                "after:ForbiddenMagic;" +
+                "after:TaintedMagic;" +
+                "after:thaumicbases")
 public class ThaumicRenaissance {
 
     public static final String modID = "TCReborn";
@@ -23,14 +26,14 @@ public class ThaumicRenaissance {
         Config.init(new File(event.getModConfigurationDirectory(), modID));
     }
     @Mod.EventHandler
-    public void init(FMLInitializationEvent ignoredEvent) {
-        ArrayCollector.init();
-        ConfigOreDict.init();
-        RecipeRemover.refresh();
-    }
+    public void init(FMLInitializationEvent ignoredEvent) {}
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent ignoredEvent) {
+        RecipeRemover.refresh();
+        ArrayCollector.init();
         ConfigIntegrations.init();
+        ConfigOreDict.init();
+
         ConfigResearch.init();
     }
 }

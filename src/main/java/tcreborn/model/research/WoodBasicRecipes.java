@@ -13,6 +13,7 @@ import thaumcraft.api.research.ResearchPage;
 import thaumcraft.common.Thaumcraft;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static tcreborn.api.items.ItemFinder.findItem;
 import static tcreborn.model.config.ConfigOreDict.*;
@@ -53,16 +54,18 @@ public class WoodBasicRecipes extends AResearch {
         return RecipeAdder.addMultipleSingleRecipes(new ItemStack(Items.stick), false, recipes);
     }
     private IRecipe[] addRecipesMagicalPlanks() {
-        return RecipeAdder.addMultipleSingleShapelessRecipesWithNB(
+        IRecipe[] recipes = RecipeAdder.addMultipleSingleShapelessRecipesWithNB(
                 ArrayCollector.getMagicalLogsToPlanks(), 2, getOres(magicalLogsTag));
+        return Arrays.copyOfRange(recipes, 0, 2);
     }
     private IRecipe[] addRecipesMagicalSticks() {
-        ArrayList<Object[]> recipes = new ArrayList<>(getOres(magicalPlanksTag).length);
+        ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(magicalPlanksTag).length);
         for (ItemStack plank : getOres(magicalPlanksTag)) {
             plank.stackSize = 2;
-            recipes.add(new Object[]{"P ", "P ", 'P', plank});
+            inputRecipes.add(new Object[]{"P ", "P ", 'P', plank});
         }
-        return RecipeAdder.addMultipleSingleRecipes(new ItemStack(Items.stick, 2), false, recipes);
+        IRecipe[] recipes = RecipeAdder.addMultipleSingleRecipes(new ItemStack(Items.stick, 2), false, inputRecipes);
+        return Arrays.copyOfRange(recipes, 0, 2);
     }
 
     @Override
