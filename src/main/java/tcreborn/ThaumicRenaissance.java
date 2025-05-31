@@ -22,15 +22,15 @@ public class ThaumicRenaissance {
     public void preInit(FMLPreInitializationEvent event) {
         Config.init(new File(event.getModConfigurationDirectory(), modID));
     }
-    @Mod.EventHandler @SuppressWarnings("EmptyMethod")
+    @Mod.EventHandler
     public void init(FMLInitializationEvent ignoredEvent) {
+        ArrayCollector.init();
         ConfigOreDict.init();
+        RecipeRemover.refresh();
     }
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent ignoredEvent) {
-        RecipeRemover.refresh();
         ConfigIntegrations.init();
-        ArrayCollector.init();
         ConfigResearch.init();
     }
 }

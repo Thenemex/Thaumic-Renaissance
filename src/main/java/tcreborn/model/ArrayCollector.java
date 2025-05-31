@@ -2,6 +2,7 @@ package tcreborn.model;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import thaumcraft.common.Thaumcraft;
 
 import java.util.ArrayList;
 
@@ -21,17 +22,14 @@ public class ArrayCollector {
 
     public static void init() {
         // Add all metadata of vanilla logs/planks
-        for (int i = 0; i < 6; i++) {
-            mundanePlanks.add(new ItemStack(Blocks.planks, 1, i));
+        for (int i = 0; i < 6; i++)
             if (i < 4)
-                mundaneLogs.add(new ItemStack(Blocks.log, 1, i));
+                addMundaneLogAndPlank(new ItemStack(Blocks.log, 1, i), new ItemStack(Blocks.planks, 1, i));
             else
-                mundaneLogs.add(new ItemStack(Blocks.log2, 1, i - 4));
-        }
+                addMundaneLogAndPlank(new ItemStack(Blocks.log2, 1, i - 4), new ItemStack(Blocks.planks, 1, i));
         // Adding Magical Logs
-        ArrayList<ItemStack> list = new ArrayList<>();
-        list.add(findItem("thaumcraft", "tile.blockMagicalLog", 0)); // Greatwood
-        list.add(findItem("thaumcraft", "tile.blockMagicalLog", 1)); // Silverwood
+        magicalLogs.add(findItem(Thaumcraft.MODID, "blockMagicalLog", 0)); // Greatwood
+        magicalLogs.add(findItem(Thaumcraft.MODID, "blockMagicalLog", 1)); // Silverwood
     }
 
     public static void addMundaneLogAndPlank(ItemStack log, ItemStack plank) {

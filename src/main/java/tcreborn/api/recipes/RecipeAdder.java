@@ -33,8 +33,9 @@ public class RecipeAdder {
      */
     public static IRecipe[] addSingleShapelessRecipes(ItemStack output, ItemStack ... inputs) {
         ArrayList<IRecipe> recipes = new ArrayList<>(inputs.length);
-        for (ItemStack input : inputs)
+        for (ItemStack input : inputs) {
             recipes.add(addRecipe(output, true, input));
+        }
         return recipes.toArray(new IRecipe[0]);
     }
     /**
