@@ -10,18 +10,17 @@ import tcreborn.api.recipes.RecipeRemover;
 import tcreborn.model.ArrayCollector;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.research.ResearchPage;
-import thaumcraft.common.Thaumcraft;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static tcreborn.api.items.ItemFinder.findItem;
+import static tcreborn.api.items.ItemFinder.findItemTC;
 import static tcreborn.model.config.ConfigOreDict.*;
 
 public class WoodBasicRecipes extends AResearch {
 
     public WoodBasicRecipes() {
-        super(ConfigTab.tabLumberjack, "WOODBASICRECIPES", new ItemStack(Blocks.planks));
+        super(ConfigTab.lumberjack, "WOODBASICRECIPES", new ItemStack(Blocks.crafting_table));
     }
 
     @Override
@@ -39,8 +38,8 @@ public class WoodBasicRecipes extends AResearch {
     public void removeRecipes() {
         RecipeRemover.removeItem(new ItemStack(Blocks.planks)); // Remove all vanilla planks recipes
         RecipeRemover.removeItem(new ItemStack(Items.stick)); // Remove all stick recipes
-        RecipeRemover.removeMeta(findItem(Thaumcraft.MODID, "blockWoodenDevice", 6)); // Remove Greatwood Plank recipe
-        RecipeRemover.removeMeta(findItem(Thaumcraft.MODID, "blockWoodenDevice", 7)); // Remove Silverwood Plank recipe
+        RecipeRemover.removeMeta(findItemTC("blockWoodenDevice", 6)); // Remove Greatwood Plank recipe
+        RecipeRemover.removeMeta(findItemTC("blockWoodenDevice", 7)); // Remove Silverwood Plank recipe
     }
 
     private IRecipe[] addRecipesMundanePlanks() {

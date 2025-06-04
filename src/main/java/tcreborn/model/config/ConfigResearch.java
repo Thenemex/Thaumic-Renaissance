@@ -1,6 +1,7 @@
 package tcreborn.model.config;
 
 import tcreborn.config.Config;
+import tcreborn.model.research.WoodArcaneRecipes;
 import tcreborn.model.research.WoodBasicRecipes;
 
 public class ConfigResearch {
@@ -9,6 +10,7 @@ public class ConfigResearch {
         if (Config.expertWoodRecipesEnabled) {
             ConfigTab.initTab_LUMBERJACK();
             new WoodBasicRecipes();
+            new WoodArcaneRecipes();
         }
         // Add new AResearch here
     }

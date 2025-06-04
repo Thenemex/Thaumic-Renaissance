@@ -25,7 +25,7 @@ public class ThaumicRenaissance {
     public void preInit(FMLPreInitializationEvent event) {
         Config.init(new File(event.getModConfigurationDirectory(), modID));
     }
-    @Mod.EventHandler
+    @Mod.EventHandler @SuppressWarnings("EmptyMethod")
     public void init(FMLInitializationEvent ignoredEvent) {}
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent ignoredEvent) {

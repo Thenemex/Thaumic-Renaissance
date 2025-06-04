@@ -5,9 +5,9 @@ import tcreborn.api.thaumcraft.API;
 
 public class ConfigTab {
 
-    public static final String tabLumberjack = "LUMBERJACK";
+    public static final String lumberjack = "LUMBERJACK";
 
     public static void initTab_LUMBERJACK() {
-        API.newCategory(tabLumberjack, new ResourceLocation("minecraft", "textures/items/stone_axe.png"));
+        API.newCategory(lumberjack, new ResourceLocation("thaumcraft", "textures/items/elementalaxe.png"));
     }
 }

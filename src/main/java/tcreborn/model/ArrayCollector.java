@@ -3,12 +3,11 @@ package tcreborn.model;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.exceptions.ParameterIsNullOrEmpty;
-import thaumcraft.common.Thaumcraft;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static tcreborn.api.items.ItemFinder.findItem;
+import static tcreborn.api.items.ItemFinder.findItemTC;
 
 public class ArrayCollector {
 
@@ -33,10 +32,10 @@ public class ArrayCollector {
                         new ItemStack(Blocks.log2, 1, i - 4),
                         new ItemStack(Blocks.planks, 1, i));
         // Adding Magical Logs & Planks - Other will be added by integrated mods
-        addMagicalLog(findItem(Thaumcraft.MODID, "blockMagicalLog", 0)); // Greatwood Log
-        addMagicalLog(findItem(Thaumcraft.MODID, "blockMagicalLog", 1)); // Silverwood Log
-        addSameMagicalResultPlank(findItem(Thaumcraft.MODID, "blockWoodenDevice", 6)); // Greatwood Planks
-        addSameMagicalResultPlank(findItem(Thaumcraft.MODID, "blockWoodenDevice", 7)); // Silverwood Planks
+        addMagicalLog(findItemTC("blockMagicalLog", 0)); // Greatwood Log
+        addMagicalLog(findItemTC("blockMagicalLog", 1)); // Silverwood Log
+        addSameMagicalResultPlank(findItemTC("blockWoodenDevice", 6)); // Greatwood Planks
+        addSameMagicalResultPlank(findItemTC("blockWoodenDevice", 7)); // Silverwood Planks
     }
 
     public static void addMundaneLogAndPlank(ItemStack log, ItemStack plank) {

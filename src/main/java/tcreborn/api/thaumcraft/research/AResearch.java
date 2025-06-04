@@ -2,13 +2,13 @@ package tcreborn.api.thaumcraft.research;
 
 import net.minecraft.item.ItemStack;
 import tcreborn.api.thaumcraft.API;
-import thaumcraft.api.aspects.AspectList;
+import tcreborn.api.thaumcraft.aspects.Aspects;
 import thaumcraft.api.research.ResearchPage;
 
 public abstract class AResearch {
 
     protected final String tab, tag;
-    protected AspectList aspects = null;
+    protected Aspects aspects = null;
     protected final ItemStack icon;
     protected Research research;
 
@@ -21,15 +21,14 @@ public abstract class AResearch {
 
     public abstract void init();
 
-    public AResearch setResearchAspects(AspectList aspects) {
+    public void setResearchAspects(Aspects aspects) {
         this.aspects = aspects;
-        return this;
     }
     public AResearch setNewResearch(int x, int y, int complexity) {
         this.research = API.newResearch(tag, tab, aspects, x, y, complexity, icon);
         return this.register();
     }
-    public abstract void removeRecipes();
+    public void removeRecipes() {}
 
     public void setPages(ResearchPage ... pages) {
         research.setPages(pages);
