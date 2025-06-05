@@ -16,6 +16,7 @@ public abstract class AResearch {
         this.tab = tab;
         this.tag = tag;
         this.icon = icon;
+        removeRecipes();
         init();
     }
 

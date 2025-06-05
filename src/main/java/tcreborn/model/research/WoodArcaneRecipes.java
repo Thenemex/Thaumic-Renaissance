@@ -20,6 +20,7 @@ public class WoodArcaneRecipes extends AResearch {
         this.setResearchAspects(new Aspects(new Aspect[]{EARTH}, 3));
         this.setNewResearch(2,-1, 1).setResearchProperties();
         this.setPages(new ResearchPage(research.getPage(1)));
+        // ToDo Pages
     }
 
     @Override
