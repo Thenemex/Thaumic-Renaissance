@@ -3,6 +3,7 @@ package tcreborn.api.thaumcraft.research;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.thaumcraft.API;
 import tcreborn.api.thaumcraft.aspects.Aspects;
+import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.research.ResearchPage;
 
 public abstract class AResearch {
@@ -22,8 +23,8 @@ public abstract class AResearch {
 
     public abstract void init();
 
-    public void setResearchAspects(Aspects aspects) {
-        this.aspects = aspects;
+    public void setResearchAspects(Aspect[] aspects, int ... amounts) {
+        this.aspects = new Aspects(aspects, amounts);
     }
     public AResearch setNewResearch(int x, int y, int complexity) {
         this.research = API.newResearch(tag, tab, aspects, x, y, complexity, icon);

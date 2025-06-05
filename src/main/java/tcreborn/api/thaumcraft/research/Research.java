@@ -42,7 +42,7 @@ public class Research extends ResearchItem {
         return StatCollector.translateToLocal(getPrefix().concat("text.").concat(key));
     }
 
-    public String getPage(int number) {
+    public String getPageTag(int number) {
         return getPrefix().concat("page.").concat(key).concat(".").concat(String.valueOf(number));
     }
 

@@ -1,6 +1,5 @@
 package tcreborn.model.research;
 
-import tcreborn.api.thaumcraft.aspects.Aspects;
 import tcreborn.api.thaumcraft.research.AResearch;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.aspects.Aspect;
@@ -17,9 +16,9 @@ public class WoodArcaneRecipes extends AResearch {
 
     @Override
     public void init() {
-        this.setResearchAspects(new Aspects(new Aspect[]{EARTH}, 3));
+        this.setResearchAspects(new Aspect[]{EARTH}, 3);
         this.setNewResearch(2,-1, 1).setResearchProperties();
-        this.setPages(new ResearchPage(research.getPage(1)));
+        this.setPages(new ResearchPage(research.getPageTag(1)));
         // ToDo Pages
     }
 
