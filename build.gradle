@@ -24,7 +24,6 @@ compileJava {
     targetCompatibility = '1.8'
 }
 
-version = "2.1"
 group = "com.thenemex.tcreborn" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Thaumic_Renaissance"
 
