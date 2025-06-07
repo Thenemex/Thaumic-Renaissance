@@ -1,5 +1,6 @@
 package tcreborn.model.research;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.recipes.arcane.ArcaneAdder;
 import tcreborn.api.thaumcraft.aspects.Aspects;
@@ -26,17 +27,23 @@ public class WoodArcaneRecipes extends AResearch {
         this.setResearchAspects(new Aspect[]{EARTH}, 3);
         this.setNewResearch(2,-1, 1).setResearchProperties();
         this.setPages(new ResearchPage(research.getPageTag(1)),
-                new ResearchPage(addRecipesMundanePlanks()));
+                new ResearchPage(addRecipesMundanePlanks()),
+                new ResearchPage(addRecipesMundaneSticks()));
         // Recipes already removed in WoodBasicRecipes
     }
 
-    private IArcaneRecipe[] addRecipesMundanePlanks() {
+    protected IArcaneRecipe[] addRecipesMundanePlanks() {
         ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundaneLogsTag).length);
         for (ItemStack log : getOres(mundaneLogsTag))
             recipes.add(new Object[]{"LL", "LL", 'L', log});
         return ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 1), getOres(mundanePlanksTag), 8, recipes);
     }
-    //private IArcaneRecipe[] addRecipesMundaneSticks() {}
+    protected IArcaneRecipe[] addRecipesMundaneSticks() {
+        ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundanePlanksTag).length);
+        for (ItemStack plank : getOres(mundanePlanksTag))
+            recipes.add(new Object[]{" P", "P ", 'P', plank});
+        return ArcaneAdder.addMultipleSingleArcane(tag, new Aspects(ENTROPY, 1), new ItemStack(Items.stick, 2), recipes);
+    }
     //private IArcaneRecipe[] addRecipesMagicalPlanks() {}
     //private IArcaneRecipe[] addRecipesMagicalSticks() {}
 

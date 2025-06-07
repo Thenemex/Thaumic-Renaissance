@@ -6,6 +6,7 @@ import net.minecraft.item.crafting.IRecipe;
 import tcreborn.api.recipes.ARecipeRemover;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 
+@SuppressWarnings("unused")
 public class WorkbenchRemover extends ARecipeRemover {
 
     protected static final WorkbenchRemover instance = new WorkbenchRemover();

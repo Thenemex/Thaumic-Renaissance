@@ -41,21 +41,21 @@ public class WoodBasicRecipes extends AResearch {
         WorkbenchRemover.i().removeMeta(findItemTC("blockWoodenDevice", 7)); // Remove Silverwood Plank recipe
     }
 
-    private IRecipe[] addRecipesMundanePlanks() {
+    protected IRecipe[] addRecipesMundanePlanks() {
         return WorkbenchAdder.addMultipleSingleShapelessRecipes(getOres(mundanePlanksTag), getOres(mundaneLogsTag));
     }
-    private IRecipe[] addRecipesMundaneSticks() {
+    protected IRecipe[] addRecipesMundaneSticks() {
         ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundanePlanksTag).length);
         for (ItemStack plank : getOres(mundanePlanksTag))
             recipes.add(new Object[]{"P ", "P ", 'P', plank});
         return WorkbenchAdder.addMultipleSingleRecipes(new ItemStack(Items.stick), false, recipes);
     }
-    private IRecipe[] addRecipesMagicalPlanks() {
+    protected IRecipe[] addRecipesMagicalPlanks() {
         IRecipe[] recipes = WorkbenchAdder.addMultipleSingleShapelessRecipes(
                 ArrayCollector.getMagicalLogsToPlanks(), 2, getOres(magicalLogsTag));
         return Arrays.copyOfRange(recipes, 0, 2);
     }
-    private IRecipe[] addRecipesMagicalSticks() {
+    protected IRecipe[] addRecipesMagicalSticks() {
         ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(magicalPlanksTag).length);
         for (ItemStack plank : getOres(magicalPlanksTag))
             inputRecipes.add(new Object[]{"P ", "P ", 'P', plank});
