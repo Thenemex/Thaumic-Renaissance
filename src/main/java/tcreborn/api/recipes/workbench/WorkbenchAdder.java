@@ -8,7 +8,7 @@ import tcreborn.api.util.exceptions.ParameterArraysSizeException;
 
 import java.util.ArrayList;
 
-public class RecipeAdder {
+public class WorkbenchAdder {
 // Example for Object : new Object[]{"CRC","RRR","CRC", 'C', Blocks.coal_block, 'R', Items.redstone});
 
     /**
@@ -22,7 +22,7 @@ public class RecipeAdder {
         if (output == null || recipe == null || recipe.length == 0) throw new ParameterIsNullOrEmpty();
         if (isShapeless) GameRegistry.addShapelessRecipe(output, recipe);
         else GameRegistry.addShapedRecipe(output, recipe);
-        return RecipeRemover.getLastRecipeAdded();
+        return WorkbenchRemover.i().getLastRecipeAdded();
     }
 
     /**
@@ -64,10 +64,14 @@ public class RecipeAdder {
      * @return The recipes generated
      */
     public static IRecipe[] addMultipleSingleShapelessRecipes(ItemStack[] output, int nb, ItemStack[] input) {
+        if (output == null || input == null) throw new ParameterIsNullOrEmpty();
         if (output.length != input.length) throw new ParameterArraysSizeException(output.length, input.length);
         IRecipe[] recipes = new IRecipe[output.length];
-        for (int i = 0; i < output.length; output[i].stackSize = nb, i++)
-            recipes[i] = addRecipe(output[i], true, input[i]);
+        ItemStack item;
+        for (int i = 0; i < output.length; i++) {
+            item = new ItemStack(output[i].getItem(), nb, output[i].getItemDamage());
+            recipes[i] = addRecipe(item, true, input[i]);
+        }
         return recipes;
     }
 }

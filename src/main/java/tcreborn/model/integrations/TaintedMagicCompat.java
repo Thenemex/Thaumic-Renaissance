@@ -3,7 +3,7 @@ package tcreborn.model.integrations;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.integrations.ACompat;
 import tcreborn.api.items.ItemFinder;
-import tcreborn.api.recipes.workbench.RecipeRemover;
+import tcreborn.api.recipes.workbench.WorkbenchRemover;
 import tcreborn.model.ArrayCollector;
 
 public class TaintedMagicCompat extends ACompat {
@@ -17,7 +17,7 @@ public class TaintedMagicCompat extends ACompat {
         ItemStack log, plank;
         log = ItemFinder.findItem(mod, "BlockWarpwoodLog"); // Warpwood Log
         plank = ItemFinder.findItem(mod, "BlockWarpwoodPlanks"); // Warpwood Planks
-        RecipeRemover.removeItem(plank);
+        WorkbenchRemover.i().removeItem(plank);
         ArrayCollector.addMagicalLogAndPlank(log, plank);
         ArrayCollector.addMagicalPlank(plank);
     }

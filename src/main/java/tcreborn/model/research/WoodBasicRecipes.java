@@ -5,8 +5,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import tcreborn.api.thaumcraft.research.AResearch;
-import tcreborn.api.recipes.workbench.RecipeAdder;
-import tcreborn.api.recipes.workbench.RecipeRemover;
+import tcreborn.api.recipes.workbench.WorkbenchAdder;
+import tcreborn.api.recipes.workbench.WorkbenchRemover;
 import tcreborn.model.ArrayCollector;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.research.ResearchPage;
@@ -35,34 +35,31 @@ public class WoodBasicRecipes extends AResearch {
 
     @Override
     public void removeRecipes() {
-        RecipeRemover.removeItem(new ItemStack(Blocks.planks)); // Remove all vanilla planks recipes
-        RecipeRemover.removeItem(new ItemStack(Items.stick)); // Remove all stick recipes
-        RecipeRemover.removeMeta(findItemTC("blockWoodenDevice", 6)); // Remove Greatwood Plank recipe
-        RecipeRemover.removeMeta(findItemTC("blockWoodenDevice", 7)); // Remove Silverwood Plank recipe
+        WorkbenchRemover.i().removeItem(new ItemStack(Blocks.planks)); // Remove all vanilla planks recipes
+        WorkbenchRemover.i().removeItem(new ItemStack(Items.stick)); // Remove all stick recipes
+        WorkbenchRemover.i().removeMeta(findItemTC("blockWoodenDevice", 6)); // Remove Greatwood Plank recipe
+        WorkbenchRemover.i().removeMeta(findItemTC("blockWoodenDevice", 7)); // Remove Silverwood Plank recipe
     }
 
     private IRecipe[] addRecipesMundanePlanks() {
-        // Example for Object : new Object[]{"CRC","RRR","CRC", 'C', Blocks.coal_block, 'R', Items.redstone}); // Gives x8 output
-        return RecipeAdder.addMultipleSingleShapelessRecipes(getOres(mundanePlanksTag), getOres(mundaneLogsTag));
+        return WorkbenchAdder.addMultipleSingleShapelessRecipes(getOres(mundanePlanksTag), getOres(mundaneLogsTag));
     }
     private IRecipe[] addRecipesMundaneSticks() {
         ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundanePlanksTag).length);
         for (ItemStack plank : getOres(mundanePlanksTag))
             recipes.add(new Object[]{"P ", "P ", 'P', plank});
-        return RecipeAdder.addMultipleSingleRecipes(new ItemStack(Items.stick), false, recipes);
+        return WorkbenchAdder.addMultipleSingleRecipes(new ItemStack(Items.stick), false, recipes);
     }
     private IRecipe[] addRecipesMagicalPlanks() {
-        IRecipe[] recipes = RecipeAdder.addMultipleSingleShapelessRecipes(
+        IRecipe[] recipes = WorkbenchAdder.addMultipleSingleShapelessRecipes(
                 ArrayCollector.getMagicalLogsToPlanks(), 2, getOres(magicalLogsTag));
         return Arrays.copyOfRange(recipes, 0, 2);
     }
     private IRecipe[] addRecipesMagicalSticks() {
         ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(magicalPlanksTag).length);
-        for (ItemStack plank : getOres(magicalPlanksTag)) {
-            plank.stackSize = 2;
+        for (ItemStack plank : getOres(magicalPlanksTag))
             inputRecipes.add(new Object[]{"P ", "P ", 'P', plank});
-        }
-        IRecipe[] recipes = RecipeAdder.addMultipleSingleRecipes(new ItemStack(Items.stick, 2), false, inputRecipes);
+        IRecipe[] recipes = WorkbenchAdder.addMultipleSingleRecipes(new ItemStack(Items.stick, 2), false, inputRecipes);
         return Arrays.copyOfRange(recipes, 0, 2);
     }
 

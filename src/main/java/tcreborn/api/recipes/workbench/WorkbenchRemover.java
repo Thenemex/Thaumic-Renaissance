@@ -3,26 +3,27 @@ package tcreborn.api.recipes.workbench;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
+import tcreborn.api.recipes.RecipeRemover;
+import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 
-import java.util.ArrayList;
-import java.util.List;
+public class WorkbenchRemover extends RecipeRemover {
 
-public class RecipeRemover {
-
-    @SuppressWarnings("rawtypes")
-    public static List recipes;
-    private static final ArrayList<Object> recipesToRemove = new ArrayList<>();
+    protected WorkbenchRemover() {
+        super();
+    }
 
     /**
      * Remove all recipes that have the ItemStack as output.
      * <p>This method checks : Item</p>
      */
-    public static void removeItem(ItemStack output) {
+    public void removeItem(ItemStack output) {
+        if (recipes == null || output == null || recipes.isEmpty()) throw new ParameterIsNullOrEmpty();
+        this.refresh();
         for (Object recipe : recipes) {
             IRecipe r = (IRecipe) recipe;
             boolean condition = r.getRecipeOutput() != null
                     && r.getRecipeOutput().getItem().equals(output.getItem());
-            if (condition) recipesToRemove.add(r);
+            if (condition) this.recipesToRemove.add(r);
         }
         removeFoundRecipes();
     }
@@ -30,13 +31,15 @@ public class RecipeRemover {
      * Remove all recipes that have the ItemStack as output.
      * <p>This method checks : Item and Amount</p>
      */
-    public static void removeAmount(ItemStack output) {
+    public void removeAmount(ItemStack output) {
+        if (recipes == null || output == null || recipes.isEmpty()) throw new ParameterIsNullOrEmpty();
+        this.refresh();
         for (Object recipe : recipes) {
             IRecipe r = (IRecipe) recipe;
             boolean condition = r.getRecipeOutput() != null
                     && r.getRecipeOutput().getItem().equals(output.getItem())
                     && r.getRecipeOutput().stackSize == output.stackSize;
-            if (condition) recipesToRemove.add(r);
+            if (condition) this.recipesToRemove.add(r);
         }
         removeFoundRecipes();
     }
@@ -44,13 +47,15 @@ public class RecipeRemover {
      * Remove all recipes that have the ItemStack as output.
      * <p>This method checks : Item and metadata.</p>
      */
-    public static void removeMeta(ItemStack output) {
+    public void removeMeta(ItemStack output) {
+        if (recipes == null || output == null || recipes.isEmpty()) throw new ParameterIsNullOrEmpty();
+        this.refresh();
         for (Object recipe : recipes) {
             IRecipe r = (IRecipe) recipe;
             boolean condition = r.getRecipeOutput() != null
                     && r.getRecipeOutput().getItem().equals(output.getItem())
                     && r.getRecipeOutput().getItemDamage() == output.getItemDamage();
-            if (condition) recipesToRemove.add(r);
+            if (condition) this.recipesToRemove.add(r);
         }
         removeFoundRecipes();
     }
@@ -58,42 +63,24 @@ public class RecipeRemover {
      * Remove all recipes that have the ItemStack as output.
      * <p>This method checks : Item, metadata, amount.</p>
      */
-    public static void removePrecise(ItemStack output) {
+    public void removePrecise(ItemStack output) {
+        if (recipes == null || output == null || recipes.isEmpty()) throw new ParameterIsNullOrEmpty();
+        this.refresh();
         for (Object recipe : recipes) {
             IRecipe r = (IRecipe) recipe;
             boolean condition = r.getRecipeOutput() != null
                     && r.getRecipeOutput().getItem().equals(output.getItem())
                     && r.getRecipeOutput().stackSize == output.stackSize
                     && r.getRecipeOutput().getItemDamage() == output.getItemDamage();
-            if (condition) recipesToRemove.add(r);
+            if (condition) this.recipesToRemove.add(r);
         }
         removeFoundRecipes();
     }
 
     /**
-     * Remove all recipes found by the other methods from the recipes list from CraftingManager.
+     * Refresh the collection with the vanilla recipes
      */
-    private static void removeFoundRecipes() {
-        for (Object removedRecipe : recipesToRemove)
-            recipes.remove(removedRecipe);
-        recipesToRemove.clear();
-    }
-
-    /**
-     * Refresh the list of recipes from CraftingManager.
-     * <p>Method to call when all recipes are initialized</p>
-     * @return The recipes list refreshed
-     */
-    @SuppressWarnings("rawtypes")
-    public static List refresh() {
-        return recipes = CraftingManager.getInstance().getRecipeList();
-    }
-
-    /**
-     * Returns the last recipe added to the CraftingManager.
-     * @return The last object of the recipes list
-     */
-    public static IRecipe getLastRecipeAdded() {
-        return (IRecipe) refresh().get(recipes.size() - 1);
+    public void refresh() {
+        recipes = CraftingManager.getInstance().getRecipeList();
     }
 }
