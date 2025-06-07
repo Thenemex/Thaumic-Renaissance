@@ -7,20 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("rawtypes")
-public abstract class RecipeRemover {
+public abstract class ARecipeRemover {
 
     protected final ArrayList<Object> recipesToRemove = new ArrayList<>();
     protected List recipes;
 
-    protected static RecipeRemover instance;
-
-    protected RecipeRemover() {
-        instance = this;
-    }
-
-    public static RecipeRemover i() {
-        return instance;
-    }
+    protected ARecipeRemover() {}
 
     public abstract void removeItem(ItemStack output);
     public abstract void removeAmount(ItemStack output);
