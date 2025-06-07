@@ -7,7 +7,6 @@ import net.minecraft.item.crafting.IRecipe;
 import tcreborn.api.thaumcraft.research.AResearch;
 import tcreborn.api.recipes.workbench.WorkbenchAdder;
 import tcreborn.api.recipes.workbench.WorkbenchRemover;
-import tcreborn.model.ArrayCollector;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.research.ResearchPage;
 
@@ -15,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static tcreborn.api.items.ItemFinder.findItemTC;
+import static tcreborn.model.ArrayCollector.getMagicalLogsToPlanks;
 import static tcreborn.model.config.ConfigOreDict.*;
 
 public class WoodBasicRecipes extends AResearch {
@@ -25,7 +25,7 @@ public class WoodBasicRecipes extends AResearch {
 
     @Override
     public void init() {
-        this.setNewResearch(0, 0, 1).setResearchProperties();
+        this.setNewResearch(0, 0, 1);
         this.setPages(new ResearchPage(research.getPageTag(1)),
                 new ResearchPage(addRecipesMundanePlanks()),
                 new ResearchPage(addRecipesMundaneSticks()),
@@ -51,8 +51,7 @@ public class WoodBasicRecipes extends AResearch {
         return WorkbenchAdder.addMultipleSingleRecipes(new ItemStack(Items.stick), false, recipes);
     }
     protected IRecipe[] addRecipesMagicalPlanks() {
-        IRecipe[] recipes = WorkbenchAdder.addMultipleSingleShapelessRecipes(
-                ArrayCollector.getMagicalLogsToPlanks(), 2, getOres(magicalLogsTag));
+        IRecipe[] recipes = WorkbenchAdder.addMultipleSingleShapelessRecipes(getMagicalLogsToPlanks(), 2, getOres(magicalLogsTag));
         return Arrays.copyOfRange(recipes, 0, 2);
     }
     protected IRecipe[] addRecipesMagicalSticks() {

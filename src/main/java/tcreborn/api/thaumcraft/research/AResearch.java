@@ -6,10 +6,11 @@ import tcreborn.api.thaumcraft.aspects.Aspects;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.research.ResearchPage;
 
+@SuppressWarnings({"UnusedReturnValue", "unused"})
 public abstract class AResearch {
 
     protected final String tab, tag;
-    protected Aspects aspects = null;
+    protected Aspects aspects;
     protected final ItemStack icon;
     protected Research research;
 
@@ -23,13 +24,21 @@ public abstract class AResearch {
 
     public abstract void init();
 
-    public void setResearchAspects(Aspect[] aspects, int ... amounts) {
-        this.aspects = new Aspects(aspects, amounts);
+    public AResearch setResearchAspects(Aspect aspect, int amount) {
+        this.aspects = new Aspects(aspect, amount);
+        return this;
     }
+    public AResearch setResearchAspects(Aspect[] aspects, int ... amounts) {
+        this.aspects = new Aspects(aspects, amounts);
+        return this;
+    }
+
     public AResearch setNewResearch(int x, int y, int complexity) {
         this.research = API.newResearch(tag, tab, aspects, x, y, complexity, icon);
+        this.setResearchProperties();
         return this.register();
     }
+
     public void removeRecipes() {}
 
     public void setPages(ResearchPage ... pages) {
@@ -41,5 +50,4 @@ public abstract class AResearch {
         research.registerResearchItem();
         return this;
     }
-
 }

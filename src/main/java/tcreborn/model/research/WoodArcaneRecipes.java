@@ -6,13 +6,14 @@ import tcreborn.api.recipes.arcane.ArcaneAdder;
 import tcreborn.api.thaumcraft.aspects.Aspects;
 import tcreborn.api.thaumcraft.research.AResearch;
 import tcreborn.model.config.ConfigTab;
-import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.crafting.IArcaneRecipe;
 import thaumcraft.api.research.ResearchPage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static tcreborn.api.items.ItemFinder.findItemTC;
+import static tcreborn.model.ArrayCollector.getMagicalLogsToPlanks;
 import static tcreborn.model.config.ConfigOreDict.*;
 import static thaumcraft.api.aspects.Aspect.*;
 
@@ -24,11 +25,13 @@ public class WoodArcaneRecipes extends AResearch {
 
     @Override
     public void init() {
-        this.setResearchAspects(new Aspect[]{EARTH}, 3);
-        this.setNewResearch(2,-1, 1).setResearchProperties();
+        this.setResearchAspects(EARTH, 3);
+        this.setNewResearch(2,-1, 1);
         this.setPages(new ResearchPage(research.getPageTag(1)),
                 new ResearchPage(addRecipesMundanePlanks()),
-                new ResearchPage(addRecipesMundaneSticks()));
+                new ResearchPage(addRecipesMundaneSticks()),
+                new ResearchPage(addRecipesMagicalPlanks()),
+                new ResearchPage(addRecipesMagicalSticks()));
         // Recipes already removed in WoodBasicRecipes
     }
 
@@ -44,9 +47,20 @@ public class WoodArcaneRecipes extends AResearch {
             recipes.add(new Object[]{" P", "P ", 'P', plank});
         return ArcaneAdder.addMultipleSingleArcane(tag, new Aspects(ENTROPY, 1), new ItemStack(Items.stick, 2), recipes);
     }
-    //private IArcaneRecipe[] addRecipesMagicalPlanks() {}
-    //private IArcaneRecipe[] addRecipesMagicalSticks() {}
-
+    protected IArcaneRecipe[] addRecipesMagicalPlanks() {
+        ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(magicalLogsTag).length);
+        for (ItemStack log : getOres(magicalLogsTag))
+            inputRecipes.add(new Object[]{"LL", "LL", 'L', log});
+        IArcaneRecipe[] recipes = ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 2), getMagicalLogsToPlanks(), 12, inputRecipes);
+        return Arrays.copyOfRange(recipes, 0, 2);
+    }
+    protected IArcaneRecipe[] addRecipesMagicalSticks() {
+        ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(magicalPlanksTag).length);
+        for (ItemStack plank : getOres(magicalPlanksTag))
+            inputRecipes.add(new Object[]{" P", "P ", 'P', plank});
+        IArcaneRecipe[] recipes = ArcaneAdder.addMultipleSingleArcane(tag, new Aspects(ENTROPY, 1), new ItemStack(Items.stick, 3), inputRecipes);
+        return Arrays.copyOfRange(recipes, 0, 2);
+    }
 
     @Override
     public void setResearchProperties() {
