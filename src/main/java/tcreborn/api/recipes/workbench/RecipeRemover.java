@@ -1,4 +1,4 @@
-package tcreborn.api.recipes;
+package tcreborn.api.recipes.workbench;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;

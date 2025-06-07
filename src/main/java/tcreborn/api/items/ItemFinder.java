@@ -3,7 +3,7 @@ package tcreborn.api.items;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import tcreborn.api.exceptions.ParameterIsNullOrEmpty;
+import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import thaumcraft.common.Thaumcraft;
 
 public class ItemFinder {

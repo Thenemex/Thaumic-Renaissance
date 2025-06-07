@@ -1,10 +1,11 @@
-package tcreborn.api;
+package tcreborn.api.util;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 
 import static tcreborn.ThaumicRenaissance.modID;
 
+@SuppressWarnings("unused")
 public class Logger {
 
     private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(modID);

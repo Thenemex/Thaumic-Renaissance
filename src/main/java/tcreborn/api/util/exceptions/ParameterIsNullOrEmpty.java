@@ -1,4 +1,4 @@
-package tcreborn.api.exceptions;
+package tcreborn.api.util.exceptions;
 
 public class ParameterIsNullOrEmpty extends TCRException{
 

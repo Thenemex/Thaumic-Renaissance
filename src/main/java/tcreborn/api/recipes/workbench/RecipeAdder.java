@@ -1,31 +1,33 @@
-package tcreborn.api.recipes;
+package tcreborn.api.recipes.workbench;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import tcreborn.api.exceptions.ParameterIsNullOrEmpty;
-import tcreborn.api.exceptions.ParameterArraysSizeException;
+import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
+import tcreborn.api.util.exceptions.ParameterArraysSizeException;
 
 import java.util.ArrayList;
 
 public class RecipeAdder {
 // Example for Object : new Object[]{"CRC","RRR","CRC", 'C', Blocks.coal_block, 'R', Items.redstone});
+
     /**
      * Adds a single recipe from multiple items
      * @param output The output ItemStack
      * @param isShapeless if the recipe is shapeless or not
-     * @param recipes The whole recipe object structure
+     * @param recipe The whole recipe object structure
      * @return The recipe generated
      */
-    public static IRecipe addRecipe(ItemStack output, boolean isShapeless, Object ... recipes) {
-        if (output == null || recipes == null || recipes.length == 0) throw new ParameterIsNullOrEmpty();
-        if (isShapeless) GameRegistry.addShapelessRecipe(output, recipes);
-        else GameRegistry.addShapedRecipe(output, recipes);
+    public static IRecipe addRecipe(ItemStack output, boolean isShapeless, Object ... recipe) {
+        if (output == null || recipe == null || recipe.length == 0) throw new ParameterIsNullOrEmpty();
+        if (isShapeless) GameRegistry.addShapelessRecipe(output, recipe);
+        else GameRegistry.addShapedRecipe(output, recipe);
         return RecipeRemover.getLastRecipeAdded();
     }
 
     /**
      * Adds multiple recipes that contain multiple items into the same output
+     * <p>The method will set the recipe as for exemple : input[0] -> output, input[1] -> output, etc ...</p>
      * @param output The output items
      * @param isShapeless if the recipe is shapeless or not
      * @param input The inputs items & recipe
@@ -39,8 +41,8 @@ public class RecipeAdder {
     }
 
     /**
-     * Adds recipes that contain one item into another.
-     * <p>The method will set the recipe as for exemple : input[0] -> output[0], etc ...</p>
+     * Adds recipes that contain only one item into another.
+     * <p>The method will set the recipe as for exemple : input[0] -> output[0], input[1] -> output[1], etc ...</p>
      * @param output The output items
      * @param input The input items
      * @return The recipes generated
@@ -54,14 +56,14 @@ public class RecipeAdder {
     }
 
     /**
-     * Adds recipes that contain one item into another
-     * <p>The method will set the recipe as for exemple : input[0] -> output[0], etc ...</p>
+     * Adds recipes that contain one item into another, with possibility to edit the amount of output items
+     * <p>The method will set the recipe as for exemple : input[0] -> output[0], input[1] -> output[1], etc ...</p>
      * @param output The output items
      * @param nb The number of output items wanted
      * @param input The input items
      * @return The recipes generated
      */
-    public static IRecipe[] addMultipleSingleShapelessRecipesWithNB(ItemStack[] output, int nb, ItemStack[] input) {
+    public static IRecipe[] addMultipleSingleShapelessRecipes(ItemStack[] output, int nb, ItemStack[] input) {
         if (output.length != input.length) throw new ParameterArraysSizeException(output.length, input.length);
         IRecipe[] recipes = new IRecipe[output.length];
         for (int i = 0; i < output.length; output[i].stackSize = nb, i++)

@@ -19,8 +19,14 @@ public class WoodArcaneRecipes extends AResearch {
         this.setResearchAspects(new Aspect[]{EARTH}, 3);
         this.setNewResearch(2,-1, 1).setResearchProperties();
         this.setPages(new ResearchPage(research.getPageTag(1)));
-        // ToDo Pages
+        // Recipes already removed in WoodBasicRecipes
     }
+
+    //private IArcaneRecipe[] addRecipesMundanePlanks() {}
+    //private IArcaneRecipe[] addRecipesMundaneSticks() {}
+    //private IArcaneRecipe[] addRecipesMagicalPlanks() {}
+    //private IArcaneRecipe[] addRecipesMagicalSticks() {}
+
 
     @Override
     public void setResearchProperties() {

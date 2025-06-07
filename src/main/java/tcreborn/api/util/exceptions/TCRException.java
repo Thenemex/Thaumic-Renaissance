@@ -1,4 +1,4 @@
-package tcreborn.api.exceptions;
+package tcreborn.api.util.exceptions;
 
 import static tcreborn.ThaumicRenaissance.modID;
 

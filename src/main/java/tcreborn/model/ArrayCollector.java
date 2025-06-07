@@ -2,7 +2,7 @@ package tcreborn.model;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import tcreborn.api.exceptions.ParameterIsNullOrEmpty;
+import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 
 import java.util.ArrayList;
 import java.util.Arrays;

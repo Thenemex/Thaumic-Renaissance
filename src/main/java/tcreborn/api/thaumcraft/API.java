@@ -26,10 +26,9 @@ public class API {
      * @param y Column position
      * @param complexity Research complexity
      * @param icon The item's icon
+     * @return The research
      */
     public static Research newResearch(String tag, String tab, AspectList aspects, int x, int y, int complexity, ItemStack icon) {
         return new Research(tag, tab, aspects, x, y, complexity, icon);
     }
-
-
 }

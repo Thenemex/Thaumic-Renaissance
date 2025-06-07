@@ -4,7 +4,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.integrations.ACompat;
 import tcreborn.api.items.ItemFinder;
-import tcreborn.api.recipes.RecipeRemover;
+import tcreborn.api.recipes.workbench.RecipeRemover;
 import tcreborn.model.ArrayCollector;
 
 public class ThaumicBasesCompat extends ACompat {

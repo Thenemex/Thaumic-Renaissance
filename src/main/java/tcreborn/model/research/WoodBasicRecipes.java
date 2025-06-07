@@ -5,8 +5,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import tcreborn.api.thaumcraft.research.AResearch;
-import tcreborn.api.recipes.RecipeAdder;
-import tcreborn.api.recipes.RecipeRemover;
+import tcreborn.api.recipes.workbench.RecipeAdder;
+import tcreborn.api.recipes.workbench.RecipeRemover;
 import tcreborn.model.ArrayCollector;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.research.ResearchPage;
@@ -52,7 +52,7 @@ public class WoodBasicRecipes extends AResearch {
         return RecipeAdder.addMultipleSingleRecipes(new ItemStack(Items.stick), false, recipes);
     }
     private IRecipe[] addRecipesMagicalPlanks() {
-        IRecipe[] recipes = RecipeAdder.addMultipleSingleShapelessRecipesWithNB(
+        IRecipe[] recipes = RecipeAdder.addMultipleSingleShapelessRecipes(
                 ArrayCollector.getMagicalLogsToPlanks(), 2, getOres(magicalLogsTag));
         return Arrays.copyOfRange(recipes, 0, 2);
     }
