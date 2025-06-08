@@ -8,6 +8,7 @@ import thaumcraft.api.research.ResearchItem;
 
 import static tcreborn.ThaumicRenaissance.modID;
 
+@SuppressWarnings("unused")
 public class Research extends ResearchItem {
 
     /**

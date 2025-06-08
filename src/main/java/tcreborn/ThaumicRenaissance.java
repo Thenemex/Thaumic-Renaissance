@@ -10,12 +10,12 @@ import tcreborn.model.config.ConfigIntegrations;
 import tcreborn.model.config.ConfigOreDict;
 import tcreborn.model.config.ConfigResearch;
 
+import static tcreborn.ThaumicRenaissance.modID;
+import static tcreborn.ThaumicRenaissance.dependencies;
+
 import java.io.File;
 
-@Mod(modid = "Thaumic Renaissance", useMetadata = true, dependencies = "required-after:Thaumcraft@[4.2.3.5,);" +
-                "after:ForbiddenMagic;" +
-                "after:TaintedMagic;" +
-                "after:thaumicbases")
+@Mod(modid = modID, useMetadata = true, dependencies = dependencies)
 public class ThaumicRenaissance {
 
     public static final String modID = "TCReborn";
@@ -34,4 +34,6 @@ public class ThaumicRenaissance {
 
         ConfigResearch.init();
     }
+
+    public static final String dependencies = "required-after:Thaumcraft@[4.2.3.5,);after:ForbiddenMagic;after:TaintedMagic;after:thaumicbases";
 }
