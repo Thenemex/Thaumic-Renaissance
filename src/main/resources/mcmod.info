@@ -9,7 +9,7 @@
         "updateUrl": "",
         "authorList": ["Thenemex"],
         "credits": "Thanks for Azanor for making Thaumcraft, awesome_hippo for helping the modding process, and NotSenna for discussing ideas and balancing recipes.",
-        "logoFile": "",
+        "logoFile": "TCRLogo.png",
         "screenshots": [],
         "dependencies": ["thaumcraft"]
     }
