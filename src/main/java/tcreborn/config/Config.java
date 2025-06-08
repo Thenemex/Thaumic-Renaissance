@@ -4,7 +4,7 @@ import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
 
-import static tcreborn.ThaumicRenaissance.modID;
+import static tcreborn.ThaumicRenaissance.modName;
 
 public class Config {
 
@@ -17,7 +17,7 @@ public class Config {
     public static void init(File configFolder) {
         configDir = configFolder;
         configDir.mkdirs();
-        config = new Configuration(new File(configDir, modID.concat(".cfg")));
+        config = new Configuration(new File(configDir, modName.concat(".cfg")));
         config.load();
         loadConfig();
         config.save();
@@ -35,8 +35,5 @@ public class Config {
 
     public static boolean newEntry(String tag, String key) {
         return config.get(tag, key, true).getBoolean(true);
-    }
-    public static boolean newEntry(String tag, String key, boolean def) {
-        return config.get(tag, key, def).getBoolean(def);
     }
 }

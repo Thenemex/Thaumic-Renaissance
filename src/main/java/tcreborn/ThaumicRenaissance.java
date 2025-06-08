@@ -18,11 +18,11 @@ import java.io.File;
 @Mod(modid = modID, useMetadata = true, dependencies = dependencies)
 public class ThaumicRenaissance {
 
-    public static final String modID = "TCReborn";
+    public static final String modID = "TCReborn", modName = "ThaumicRenaissance";
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        Config.init(new File(event.getModConfigurationDirectory(), modID));
+        Config.init(new File(event.getModConfigurationDirectory(), modName));
     }
     @Mod.EventHandler @SuppressWarnings("EmptyMethod")
     public void init(FMLInitializationEvent ignoredEvent) {}
