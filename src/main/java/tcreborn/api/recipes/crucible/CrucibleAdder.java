@@ -70,18 +70,4 @@ public class CrucibleAdder {
             recipes[i] = addRecipe(tag, aspects, output, input[i]);
         return recipes;
     }
-
-    /**
-     * Adds multiple crucible recipe that all output the same ItemStack, with editable output stacksize
-     * <p>Will follow this pattern : input[0] -> output,  input[1] -> output ...</p>
-     * @param tag Research's tag
-     * @param aspects Crucible aspects needed
-     * @param output The output ItemStack
-     * @param nb The new output stacksize
-     * @param input The recipe catalyst
-     * @return The recipe generated
-     */
-    public static CrucibleRecipe[] addMultipleSingleRecipe(String tag, Aspects aspects, ItemStack output, int nb, ItemStack ... input) {
-        return addMultipleSingleRecipe(tag, aspects, DeepCopy.i(output, nb), input);
-    }
 }
