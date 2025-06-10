@@ -24,12 +24,13 @@ compileJava {
     targetCompatibility = '1.8'
 }
 
-version = '1.0.0.1'
+version = '1.0.0.1.1'
 /* A.B.C.D
     A = Major version
     B = Adding content or researches/recipes
     C = Recipes tweaks or edits
     D = Bug patches
+    E = Forgotten things/typos
 */
 group = "com.thenemex.tcreborn" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Thaumic_Renaissance"
