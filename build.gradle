@@ -24,7 +24,7 @@ compileJava {
     targetCompatibility = '1.8'
 }
 
-version = "0.2a"
+version = '0.3a'
 group = "com.thenemex.tcreborn" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Thaumic_Renaissance"
 
@@ -32,7 +32,6 @@ archivesBaseName = "Thaumic_Renaissance"
 def domain = 'com.thenemex.tcreborn' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 def modid = 'modid'
 def mcversion = '1.7.10'
-version = '0.2a'
 // -SETTINGS
 
 group = "${domain}.${modid}"
