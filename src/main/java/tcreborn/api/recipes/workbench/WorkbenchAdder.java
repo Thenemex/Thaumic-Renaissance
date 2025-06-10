@@ -3,6 +3,7 @@ package tcreborn.api.recipes.workbench;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import tcreborn.api.items.DeepCopy;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import tcreborn.api.util.exceptions.ParameterArraysSizeException;
 
@@ -48,6 +49,7 @@ public class WorkbenchAdder {
      * @return The recipes generated
      */
     public static IRecipe[] addMultipleSingleShapelessRecipes(ItemStack[] output, ItemStack[] input) {
+        if (output == null || input == null) throw new ParameterIsNullOrEmpty();
         if (output.length != input.length) throw new ParameterArraysSizeException(output.length, input.length);
         IRecipe[] recipes = new IRecipe[output.length];
         for (int i = 0; i < output.length; i++)
@@ -64,14 +66,6 @@ public class WorkbenchAdder {
      * @return The recipes generated
      */
     public static IRecipe[] addMultipleSingleShapelessRecipes(ItemStack[] output, int nb, ItemStack[] input) {
-        if (output == null || input == null) throw new ParameterIsNullOrEmpty();
-        if (output.length != input.length) throw new ParameterArraysSizeException(output.length, input.length);
-        IRecipe[] recipes = new IRecipe[output.length];
-        ItemStack item;
-        for (int i = 0; i < output.length; i++) {
-            item = new ItemStack(output[i].getItem(), nb, output[i].getItemDamage());
-            recipes[i] = addRecipe(item, true, input[i]);
-        }
-        return recipes;
+        return addMultipleSingleShapelessRecipes(DeepCopy.i(output, nb), input);
     }
 }

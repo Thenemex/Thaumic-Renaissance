@@ -1,9 +1,11 @@
 package tcreborn.api.recipes.arcane;
 
 import net.minecraft.item.ItemStack;
+import tcreborn.api.items.DeepCopy;
 import tcreborn.api.util.exceptions.ParameterArraysSizeException;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import tcreborn.api.thaumcraft.aspects.Aspects;
+import tcreborn.api.util.exceptions.ParameterValueIsNegativeOrZero;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.crafting.IArcaneRecipe;
 
@@ -27,6 +29,7 @@ public class ArcaneAdder {
 
     /**
      * Adds multiple recipes
+     * <p>Will follow this pattern : input[0] -> output[0],  input[1] -> output[1] ...</p>
      * @param tag Research's tag
      * @param aspects Wand's vis used
      * @param output The output items
@@ -43,6 +46,7 @@ public class ArcaneAdder {
 
     /**
      * Adds multiple recipes, with possibility to edit the amount of output
+     * <p>Will follow this pattern : input[0] -> output[0],  input[1] -> output[1] ...</p>
      * @param tag Research's tag
      * @param aspects Wand's vis used
      * @param output The output items
@@ -51,18 +55,13 @@ public class ArcaneAdder {
      * @return The recipes generated
      */
     public static IArcaneRecipe[] addMultipleArcane(String tag, Aspects aspects, ItemStack[] output, int nb, ArrayList<Object[]> input) {
-        IArcaneRecipe[] recipes = new IArcaneRecipe[output.length];
-        ItemStack item;
-        for (int i = 0; i < output.length; i++) {
-            item = new ItemStack(output[i].getItem(), nb, output[i].getItemDamage());
-            recipes[i] = addArcane(tag, aspects, item, false, input.get(i));
-        }
-        return recipes;
+        if (nb < 1) throw new ParameterValueIsNegativeOrZero(nb);
+        return addMultipleArcane(tag, aspects, DeepCopy.i(output, nb), input);
     }
 
     /**
-     * Adds recipes that contain only one item into another (with same aspects for every recipe).
-     * <p>The method will set the recipe as for exemple : input[0] -> output[0], input[1] -> output[1] ...</p>
+     * Adds recipes that contain items into another unique item (with same aspects for every recipe).
+     * <p>The method will set the recipe as for exemple : input[0] -> output, input[1] -> output ...</p>
      * @param tag Research's tag
      * @param aspects Wand's vis used
      * @param output The single output
