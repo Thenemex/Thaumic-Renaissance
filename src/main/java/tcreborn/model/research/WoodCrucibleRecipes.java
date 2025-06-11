@@ -41,17 +41,17 @@ public class WoodCrucibleRecipes extends AResearch {
     }
 
     protected CrucibleRecipe[] addRecipesMundanePlanks() {
-         return CrucibleAdder.addMultipleRecipe(tag, mundane, getOres(mundanePlanksTag), 4, getOres(mundaneLogsTag));
+         return CrucibleAdder.addMultipleRecipe(tag, mundane, getOres(mundanePlanksTag), expert ? 4 : 10, getOres(mundaneLogsTag));
     }
     protected CrucibleRecipe[] addRecipesMundaneSticks() {
-        return CrucibleAdder.addMultipleSingleRecipe(tag, mundane, new ItemStack(Items.stick, 4), getOres(mundanePlanksTag));
+        return CrucibleAdder.addMultipleSingleRecipe(tag, mundane, new ItemStack(Items.stick, expert ? 4 : 10), getOres(mundanePlanksTag));
     }
     protected CrucibleRecipe[] addRecipesMagicalPlanks() {
-        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleRecipe(tag, magical, getMagicalLogsToPlanks(), 6, getOres(magicalLogsTag));
+        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleRecipe(tag, magical, getMagicalLogsToPlanks(), expert ? 6 : 15, getOres(magicalLogsTag));
         return Arrays.copyOfRange(recipes, 0, 2);
     }
     protected CrucibleRecipe[] addRecipesMagicalSticks() {
-        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleSingleRecipe(tag, magical, new ItemStack(Items.stick, 6), getOres(magicalPlanksTag));
+        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleSingleRecipe(tag, magical, new ItemStack(Items.stick, expert ? 6 : 15), getOres(magicalPlanksTag));
         return Arrays.copyOfRange(recipes, 0, 2);
     }
 
