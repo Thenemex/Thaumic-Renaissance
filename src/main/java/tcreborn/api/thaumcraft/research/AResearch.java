@@ -3,6 +3,7 @@ package tcreborn.api.thaumcraft.research;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.thaumcraft.API;
 import tcreborn.api.thaumcraft.aspects.Aspects;
+import tcreborn.config.Config;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.research.ResearchPage;
 
@@ -10,6 +11,7 @@ import thaumcraft.api.research.ResearchPage;
 public abstract class AResearch {
 
     protected final String tab, tag;
+    protected final boolean expert;
     protected Aspects aspects;
     protected final ItemStack icon;
     protected Research research;
@@ -18,6 +20,7 @@ public abstract class AResearch {
         this.tab = tab;
         this.tag = tag;
         this.icon = icon;
+        this.expert = Config.expertWoodRecipesEnabled;
         removeRecipes();
         init();
     }

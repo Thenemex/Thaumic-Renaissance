@@ -26,7 +26,7 @@ public class Config {
     private static void loadConfig() {
         String integCat = "Integrations", expertCat = "Expert";
         config.addCustomCategoryComment(expertCat, "You can disable/enable expert configurations from the mod here.");
-        expertWoodRecipesEnabled = newEntry(expertCat,"Planks/Sticks recipes");
+        expertWoodRecipesEnabled = newEntry(expertCat,"Planks/Sticks recipes", false);
         config.addCustomCategoryComment(integCat, "You can disable/enable mod integrations here.");
         forbiddenMagicCompat = newEntry(integCat, "Forbidden Magic");
         taintedMagicCompat = newEntry(integCat, "Tainted Magic");
@@ -34,6 +34,9 @@ public class Config {
     }
 
     public static boolean newEntry(String tag, String key) {
-        return config.get(tag, key, true).getBoolean(true);
+        return newEntry(tag, key, true);
+    }
+    public static boolean newEntry(String tag, String key, boolean enabled) {
+        return config.get(tag, key, enabled).getBoolean(enabled);
     }
 }

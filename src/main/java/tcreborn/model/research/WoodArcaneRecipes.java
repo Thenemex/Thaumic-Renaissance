@@ -64,6 +64,7 @@ public class WoodArcaneRecipes extends AResearch {
 
     @Override
     public void setResearchProperties() {
-        this.research.setSecondary().setParents("WOODBASICRECIPES");
+        if (expert) this.research.setParents("WOODBASICRECIPES");
+        this.research.setSecondary();
     }
 }
