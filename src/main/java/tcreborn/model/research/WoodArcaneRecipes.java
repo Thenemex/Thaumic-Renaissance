@@ -39,26 +39,26 @@ public class WoodArcaneRecipes extends AResearch {
         ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundaneLogsTag).length);
         for (ItemStack log : getOres(mundaneLogsTag))
             recipes.add(new Object[]{"LL", "LL", 'L', log});
-        return ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 1), getOres(mundanePlanksTag), 8, recipes);
+        return ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 1), getOres(mundanePlanksTag), expert ? 8 : 24, recipes);
     }
     protected IArcaneRecipe[] addRecipesMundaneSticks() {
         ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundanePlanksTag).length);
         for (ItemStack plank : getOres(mundanePlanksTag))
             recipes.add(new Object[]{" P", "P ", 'P', plank});
-        return ArcaneAdder.addMultipleSingleArcane(tag, new Aspects(ENTROPY, 1), new ItemStack(Items.stick, 2), recipes);
+        return ArcaneAdder.addMultipleSingleArcane(tag, new Aspects(ENTROPY, 1), new ItemStack(Items.stick, expert ? 2 : 6), recipes);
     }
     protected IArcaneRecipe[] addRecipesMagicalPlanks() {
         ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(magicalLogsTag).length);
         for (ItemStack log : getOres(magicalLogsTag))
             inputRecipes.add(new Object[]{"LL", "LL", 'L', log});
-        IArcaneRecipe[] recipes = ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 2), getMagicalLogsToPlanks(), 12, inputRecipes);
+        IArcaneRecipe[] recipes = ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 2), getMagicalLogsToPlanks(), expert ? 12 : 32, inputRecipes);
         return Arrays.copyOfRange(recipes, 0, 2);
     }
     protected IArcaneRecipe[] addRecipesMagicalSticks() {
         ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(magicalPlanksTag).length);
         for (ItemStack plank : getOres(magicalPlanksTag))
             inputRecipes.add(new Object[]{" P", "P ", 'P', plank});
-        IArcaneRecipe[] recipes = ArcaneAdder.addMultipleSingleArcane(tag, new Aspects(ENTROPY, 1), new ItemStack(Items.stick, 3), inputRecipes);
+        IArcaneRecipe[] recipes = ArcaneAdder.addMultipleSingleArcane(tag, new Aspects(ENTROPY, 1), new ItemStack(Items.stick, expert ? 3 : 8), inputRecipes);
         return Arrays.copyOfRange(recipes, 0, 2);
     }
 
