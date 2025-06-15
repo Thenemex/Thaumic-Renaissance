@@ -17,7 +17,7 @@ public class WoodCrucibleMagicalRecipes extends AResearch {
     @Override
     public void init() {
         this.setResearchAspects(new Aspect[]{MAGIC, TREE, EARTH}, 6, 3, 3);
-        this.setNewResearch(3, -4, 1);
+        this.setNewResearch(1, -4, 1);
         this.setPages(new ResearchPage(research.getPageTag(1)));
         // ToDo Move all researchs to the left, so non-expert looks great without spacing
     }

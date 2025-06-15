@@ -25,7 +25,7 @@ public class WoodBasicRecipes extends AResearch {
 
     @Override
     public void init() {
-        this.setNewResearch(0, 0, 1);
+        this.setNewResearch(-2, 0, 1);
         this.setPages(new ResearchPage(research.getPageTag(1)),
                 new ResearchPage(addRecipesMundanePlanks()),
                 new ResearchPage(addRecipesMundaneSticks()),

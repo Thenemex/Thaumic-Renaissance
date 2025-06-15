@@ -26,7 +26,7 @@ public class WoodArcaneRecipes extends AResearch {
     @Override
     public void init() {
         this.setResearchAspects(EARTH, 3);
-        this.setNewResearch(2,-1, 1);
+        this.setNewResearch(0,-1, 1);
         this.setPages(new ResearchPage(research.getPageTag(1)),
                 new ResearchPage(addRecipesMundanePlanks()),
                 new ResearchPage(addRecipesMundaneSticks()),

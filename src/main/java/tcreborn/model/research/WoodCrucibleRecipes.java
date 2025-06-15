@@ -31,7 +31,7 @@ public class WoodCrucibleRecipes extends AResearch {
         this.mundane = new Aspects(new Aspect[]{TREE, CRAFT, ENTROPY}, 3, 1, 1);
         this.magical = new Aspects(new Aspect[]{TREE, CRAFT, ENTROPY}, 4, 2, 2);
         this.setResearchAspects(new Aspect[]{TREE, MAGIC, EARTH}, 6, 3, 3);
-        this.setNewResearch(4, -2, 1);
+        this.setNewResearch(2, -2, 1);
         this.setPages(new ResearchPage(research.getPageTag(1)),
                 new ResearchPage(addRecipesMundanePlanks()),
                 new ResearchPage(addRecipesMundaneSticks()),
