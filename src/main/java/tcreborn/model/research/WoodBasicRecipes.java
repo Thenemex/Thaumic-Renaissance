@@ -20,7 +20,7 @@ import static tcreborn.model.config.ConfigOreDict.*;
 public class WoodBasicRecipes extends AResearch {
 
     public WoodBasicRecipes() {
-        super(ConfigTab.lumberjack, "WOODBASICRECIPES", new ItemStack(Blocks.crafting_table));
+        super(ConfigTab.lumberjack, "WOODBASICRECIPES", Blocks.crafting_table);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package tcreborn.api.thaumcraft.research;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.thaumcraft.API;
 import tcreborn.api.thaumcraft.aspects.Aspects;
@@ -23,6 +25,19 @@ public abstract class AResearch {
         this.expert = Config.expertWoodRecipesEnabled;
         removeRecipes();
         init();
+    }
+
+    public AResearch(String tab, String tag, Block block) {
+        this(tab, tag, new ItemStack(block));
+    }
+    public AResearch(String tab, String tag, Block block, int meta) {
+        this(tab, tag, new ItemStack(block, 1, meta));
+    }
+    public AResearch(String tab, String tag, Item item) {
+        this(tab, tag, new ItemStack(item));
+    }
+    public AResearch(String tab, String tag, Item item, int meta) {
+        this(tab, tag, new ItemStack(item, 1, meta));
     }
 
     public abstract void init();

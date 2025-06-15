@@ -23,7 +23,7 @@ public class WoodCrucibleRecipes extends AResearch {
     protected Aspects mundane, magical;
 
     public WoodCrucibleRecipes() {
-        super(ConfigTab.lumberjack, "WOODCRUCIBLERECIPES", findItemTC("blockMetalDevice", 0));
+        super(ConfigTab.lumberjack, "WOODCRUCIBLERECIPES", findItemTC("blockMetalDevice"));
     }
 
     @Override
