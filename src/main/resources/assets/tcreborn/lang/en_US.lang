@@ -27,3 +27,7 @@ tcreborn_research_name.WOODCRUCIBLERECIPES=Crucible Recipes
 tcreborn_research_text.WOODCRUCIBLERECIPES=Processing Wood with Essentia
 tcreborn_research_page.WOODCRUCIBLERECIPES.1=You were always the most clumsy guy on cauldron classes ...<BR>Even years later you still manage to make fall a WHOLE shelf filled with wood, crafting tables and cobblestone waiting to be processed.<LINE>You were suddenly swarmed by an overload of planks and sticks after the accident : you wrote down the exact quantites from what you saw.<BR>These recipes allows to get even more reliable output from processing logs and planks.
 #
+tcreborn_research_name.WOODCRUCIBLEMAGICALRECIPES=Adding some spices !
+tcreborn_research_text.WOODCRUCIBLEMAGICALRECIPES=A little bit of Praecantatio
+tcreborn_research_page.WOODCRUCIBLEMAGICALRECIPES.1=-Text to add-
+#
