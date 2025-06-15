@@ -28,12 +28,12 @@ public class ThaumicRenaissance {
     @Mod.EventHandler
     public void init(FMLInitializationEvent ignoredEvent) {
         ArrayCollector.init();
-        ConfigOreDict.init();
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent ignoredEvent) {
         ConfigIntegrations.init();
+        ConfigOreDict.init();
         ConfigResearch.init();
     }
 
