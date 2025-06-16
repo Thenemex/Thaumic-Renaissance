@@ -14,9 +14,8 @@ import static tcreborn.ThaumicRenaissance.modID;
 public abstract class WandEventHandler implements IWandTriggerManager {
 
     /**
-     * Constructor of the event
-     * @param target The targeted block
-     * @param meta The block metadata
+     * Constructor for handler.
+     * <p>You must use registerTriggerEvent() in your class constructor, to make the handler work</p>
      */
     public WandEventHandler() {}
 
@@ -52,8 +51,9 @@ public abstract class WandEventHandler implements IWandTriggerManager {
      * @param y The y coordinate of the targeted block
      * @param z The z coordinate of the targeted block
      * @param side The side of the targeted block
+     * @param event The event unique number
      * @return True is the trigger have been executed properly, false if not
      */
     @Override
-    public abstract boolean performTrigger(World world, ItemStack wand, EntityPlayer player, int x, int y, int z, int side, int ignored);
+    public abstract boolean performTrigger(World world, ItemStack wand, EntityPlayer player, int x, int y, int z, int side, int event);
 }
