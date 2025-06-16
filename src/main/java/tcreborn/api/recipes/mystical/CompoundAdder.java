@@ -10,8 +10,8 @@ import java.util.List;
 @SuppressWarnings("rawtypes")
 public class CompoundAdder {
 
-    public static List addCompoundRecipe(String tag, Aspects aspects, int width, int height, int length, List<Object> structure) {
-        return registerRecipe(tag, Arrays.asList(aspects, width, height, length, structure));
+    public static List addCompoundRecipe(String tag, Aspects aspects, int width, int height, int length, Object ... structure) {
+        return registerRecipe(tag, Arrays.asList(aspects, width, height, length, Arrays.asList(structure)));
     }
 
     protected static List registerRecipe(String key, List recipe) {

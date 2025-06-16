@@ -13,32 +13,34 @@ import static tcreborn.ThaumicRenaissance.modID;
 @SuppressWarnings("unused")
 public abstract class WandEventHandler implements IWandTriggerManager {
 
-    protected Block target;
-    protected int meta;
-
     /**
      * Constructor of the event
      * @param target The targeted block
      * @param meta The block metadata
      */
-    public WandEventHandler(Block target, int meta) {
-        this.target = target;
-        this.meta = meta;
-        registerTriggerEvent();
-    }
-    /**
-     * Constructor of the event
-     * @param target The targeted block, with meta = 0
-     */
-    public WandEventHandler(Block target) {
-        this(target, 0);
-    }
+    public WandEventHandler() {}
 
     /**
      * Register the event to the Thaumcraft 4 registry
      */
-    public void registerTriggerEvent() {
+    public void registerTriggerEvent(Block target, int meta) {
         WandTriggerRegistry.registerWandBlockTrigger(this, 0, target, meta, modID);
+    }
+    /**
+     * Register the event to the Thaumcraft 4 registry
+     */
+    public void registerTriggerEvent(Block target) {
+        registerTriggerEvent(target, 0);
+    }
+
+    /**
+     * Tests if the player had done a specific research
+     * @param player The player
+     * @param tag The research tag
+     * @return True if the research is done, else false
+     */
+    protected boolean isResearchComplete(EntityPlayer player, String tag) {
+        return ResearchManager.isResearchComplete(player.getCommandSenderName(), tag);
     }
 
     /**
@@ -54,14 +56,4 @@ public abstract class WandEventHandler implements IWandTriggerManager {
      */
     @Override
     public abstract boolean performTrigger(World world, ItemStack wand, EntityPlayer player, int x, int y, int z, int side, int ignored);
-
-    /**
-     * Tests if the player had done a specific research
-     * @param player The player
-     * @param tag The research tag
-     * @return True if the research is done, else false
-     */
-    protected boolean isResearchComplete(EntityPlayer player, String tag) {
-        return ResearchManager.isResearchComplete(player.getCommandSenderName(), tag);
-    }
 }
