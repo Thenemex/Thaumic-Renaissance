@@ -18,13 +18,13 @@ import static thaumcraft.api.aspects.Aspect.*;
 public class WoodCompoundRecipes extends AResearch {
 
     public WoodCompoundRecipes() {
-        super(ConfigTab.lumberjack, "WOODCOMPOUNDRECIPES", findItemTC("WandCasting"));
+        super(ConfigTab.lumberjack, "WOODCOMPOUNDRECIPES", Blocks.planks);
     }
 
     @Override
     public void init() {
         this.setResearchAspects(new Aspect[]{TREE, CRAFT, EARTH, ENTROPY}, 6, 3, 1, 1);
-        this.setNewResearch(5, 0, 2);
+        this.setNewResearch(-2, -2, 2);
         this.setPages(new ResearchPage(research.getPageTag(1)),
                 new ResearchPage(addRecipeMundanePlank()));
     }
@@ -37,6 +37,6 @@ public class WoodCompoundRecipes extends AResearch {
 
     @Override
     public void setResearchProperties() {
-        this.research.setParents("WOODCRUCIBLERECIPES").setSpecial();
+        this.research.setAutoUnlock().setRound();
     }
 }
