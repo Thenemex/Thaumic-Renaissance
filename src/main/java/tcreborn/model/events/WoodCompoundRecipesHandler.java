@@ -16,8 +16,9 @@ import static tcreborn.model.config.ConfigOreDict.*;
 public class WoodCompoundRecipesHandler extends WandEventHandler {
 
     public WoodCompoundRecipesHandler() {
+        int i = 0;
         for (BlockType log : getMundaneBlockLogs())
-            registerTriggerEvent(log);
+            registerTriggerEvent(log, i++);
     }
 
     @Override
