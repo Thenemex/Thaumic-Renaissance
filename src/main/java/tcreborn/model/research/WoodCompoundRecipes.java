@@ -23,7 +23,6 @@ public class WoodCompoundRecipes extends AResearch {
 
     @Override
     public void init() {
-        new WoodCompoundRecipesHandler();
         this.setResearchAspects(new Aspect[]{TREE, CRAFT, EARTH, ENTROPY}, 6, 3, 1, 1);
         this.setNewResearch(5, 0, 2);
         this.setPages(new ResearchPage(research.getPageTag(1)),
@@ -31,6 +30,7 @@ public class WoodCompoundRecipes extends AResearch {
     }
 
     protected List addRecipeMundanePlank() {
+        new WoodCompoundRecipesHandler();
         return CompoundAdder.addCompoundRecipe(tag, null, 1, 2, 1,
                 findItemTC("WandCasting"), new ItemStack(Blocks.log));
     }

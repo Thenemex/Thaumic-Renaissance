@@ -25,7 +25,6 @@ public class WoodCompoundRecipesHandler extends WandEventHandler {
         if (wand.getFocus(heldItem) != null) return false; // Needs no focus equipped on the wand
         // Code for editing world
         world.setBlockToAir(x, y, z);
-
         EntityItem drops = new EntityItem(world, (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, new ItemStack(Blocks.planks, 3));
         world.spawnEntityInWorld(drops);
         return true;
