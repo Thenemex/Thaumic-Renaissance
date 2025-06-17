@@ -25,13 +25,12 @@ public class WoodCompoundRecipesHandler extends WandEventHandler {
         if (wand.getFocus(heldItem) != null) return false; // Needs no focus equipped on the wand
         // Code for editing world
         world.setBlockToAir(x, y, z);
-        world.playSoundEffect((double) x + 0.5, (double) y + 0.5, (double) z + 0.5, "random.break", 1.0F, 1.0F);
+
         EntityItem drops = new EntityItem(world, (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, new ItemStack(Blocks.planks, 3));
         world.spawnEntityInWorld(drops);
         return true;
         // ToDo : Working with all mundane wood logs/planks
         // ToDo : Make recipes for sticks, from all mundane planks
-        // ToDo : Add a fancy wood breaking sound
         // ToDo : Consume aspects from the wand
         // ToDo : Add testing for CompoundAdder -> Throw exception when x*y*z != List.size()
         // ToDo : Add condition for research done or not in performTrigger()
