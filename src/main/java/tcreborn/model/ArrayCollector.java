@@ -1,7 +1,9 @@
 package tcreborn.model;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import tcreborn.api.items.types.BlockType;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 
 import java.util.ArrayList;
@@ -12,25 +14,28 @@ import static tcreborn.api.items.ItemFinder.findItemTC;
 public class ArrayCollector {
 
     private static final ArrayList<ItemStack> mundaneLogs, mundanePlanks, magicalLogs, magicalPlanks, magicalLogsToPlanks;
+    private static final ArrayList<BlockType> mundaneBlockLogs;
     static {
         mundanePlanks = new ArrayList<>();
         mundaneLogs = new ArrayList<>();
         magicalLogs = new ArrayList<>();
         magicalPlanks = new ArrayList<>();
         magicalLogsToPlanks = new ArrayList<>();
+
+        mundaneBlockLogs = new ArrayList<>();
     }
 
     public static void init() {
         // Add all metadata of vanilla logs/planks
-        for (int i = 0; i < 6; i++)
-            if (i < 4)
-                addMundaneLogAndPlank(
-                        new ItemStack(Blocks.log, 1, i),
-                        new ItemStack(Blocks.planks, 1, i));
-            else
-                addMundaneLogAndPlank(
-                        new ItemStack(Blocks.log2, 1, i - 4),
-                        new ItemStack(Blocks.planks, 1, i));
+        ItemStack log;
+        Block block;
+        for (int i = 0; i < 6; i++) {
+            block = i < 4 ? Blocks.log : Blocks.log2;
+            int meta = i < 4 ? i : i - 4;
+            log = new ItemStack(block, 1, meta);
+            addMundaneLogAndPlank(log, new ItemStack(Blocks.planks, 1, i));
+            addMundaneBlockLog(block, meta);
+        }
         // Adding Magical Logs & Planks - Other will be added by integrated mods
         addMagicalLog(findItemTC("blockMagicalLog", 0)); // Greatwood Log
         addMagicalLog(findItemTC("blockMagicalLog", 1)); // Silverwood Log
@@ -80,5 +85,13 @@ public class ArrayCollector {
     }
     public static ItemStack[] getMagicalLogsToPlanks() {
         return magicalLogsToPlanks.toArray(new ItemStack[0]);
+    }
+
+    public static void addMundaneBlockLog(Block block, int meta) {
+        mundaneBlockLogs.add(new BlockType(block, meta));
+    }
+
+    public static BlockType[] getMundaneBlockLogs() {
+        return mundaneBlockLogs.toArray(new BlockType[0]);
     }
 }
