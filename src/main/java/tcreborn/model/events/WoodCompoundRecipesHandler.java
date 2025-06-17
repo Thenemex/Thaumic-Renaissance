@@ -6,15 +6,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import tcreborn.api.events.WandEventHandler;
 import tcreborn.api.items.DeepCopy;
+import tcreborn.api.items.types.BlockType;
 import tcreborn.config.Config;
 import thaumcraft.common.items.wands.ItemWandCasting;
 
+import static tcreborn.model.ArrayCollector.getMundaneBlockLogs;
 import static tcreborn.model.config.ConfigOreDict.*;
 
 public class WoodCompoundRecipesHandler extends WandEventHandler {
 
     public WoodCompoundRecipesHandler() {
-        // ToDo Register all blocks from ArrayCollecter
+        for (BlockType log : getMundaneBlockLogs())
+            registerTriggerEvent(log);
     }
 
     @Override
@@ -32,12 +35,12 @@ public class WoodCompoundRecipesHandler extends WandEventHandler {
         EntityItem drops = new EntityItem(world, (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, item);
         world.spawnEntityInWorld(drops);
         return true;
-        // ToDo : Working with all mundane wood logs/planks
-        // ToDo : Make recipes for sticks, from all mundane planks
+        // ToDo : Make the research go auto-unlocked in Lumberjack Tab
+        // ToDo : Review idea for 1.5 amount drop for expert mode
         // ToDo : Add condition for research done or not in performTrigger()
     }
 
-    private ItemStack getDrops(int event) {
+    protected ItemStack getDrops(int event) {
         return DeepCopy.i(getOres(mundanePlanksTag)[event],
                 Config.expertWoodRecipesEnabled ? 1 : 5);
     }
