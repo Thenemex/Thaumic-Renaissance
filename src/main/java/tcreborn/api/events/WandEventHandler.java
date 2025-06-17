@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import tcreborn.api.items.types.BlockType;
 import thaumcraft.api.wands.IWandTriggerManager;
 import thaumcraft.api.wands.WandTriggerRegistry;
 import thaumcraft.common.lib.research.ResearchManager;
@@ -19,15 +20,15 @@ public abstract class WandEventHandler implements IWandTriggerManager {
      */
     public WandEventHandler() {}
 
-    /**
-     * Register the event to the Thaumcraft 4 registry
-     */
-    public void registerTriggerEvent(Block target, int meta) {
-        WandTriggerRegistry.registerWandBlockTrigger(this, 0, target, meta, modID);
+    public void registerTriggerEvent(BlockType log, int event) {
+        WandTriggerRegistry.registerWandBlockTrigger(this, event, log.block(), log.meta(), modID);
     }
-    /**
-     * Register the event to the Thaumcraft 4 registry
-     */
+    public void registerTriggerEvent(BlockType log) {
+        registerTriggerEvent(log, 0);
+    }
+    public void registerTriggerEvent(Block target, int event) {
+        WandTriggerRegistry.registerWandBlockTrigger(this, event, target, 0, modID);
+    }
     public void registerTriggerEvent(Block target) {
         registerTriggerEvent(target, 0);
     }
