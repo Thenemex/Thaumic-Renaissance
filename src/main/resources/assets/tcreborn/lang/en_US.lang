@@ -19,6 +19,10 @@ tcreborn_research_name.WOODBASICRECIPES=Basic Recipes
 tcreborn_research_text.WOODBASICRECIPES=Processing Wood
 tcreborn_research_page.WOODBASICRECIPES.1=While chopping some poor trees and making yourself a workbench, you noticed something wasn't right ...<BR>The logs would only give you one plank, and the same happened when making sticks.<LINE>You swore in bad words that you will find some way or another to get more planks and sticks out of these damn wood logs !
 #
+tcreborn_research_name.WOODCOMPOUNDRECIPES=Wand casting
+tcreborn_research_text.WOODCOMPOUNDRECIPES=You mean casting ... wood ?
+tcreborn_research_page.WOODCOMPOUNDRECIPES.1=Since you make that book you're reading by casting a spell on that innocent bookshelf, you've been wondering if this process can be applied to processing the resources around you.<LINE>When using your wand on some trees, the wood logs fell apart and transformed to planks ! The amount of planks you get is almost the same as the workbench though ; but you are confident that new discoveries will lead you to more in the future.
+#
 tcreborn_research_name.WOODARCANERECIPES=Arcane Recipes
 tcreborn_research_text.WOODARCANERECIPES=Processing Wood with Vis
 tcreborn_research_page.WOODARCANERECIPES.1=You slowly filled that wood wand of yours on the neighborhood aura node, then something became clear to your mind.<BR>What if the vis contained in your wand could help to achieve feats such as obtaining more wood ?<LINE>By infusing a bit of §lTerra§r vis, you're able to get one more plank and stick out of each recipe !
@@ -30,8 +34,4 @@ tcreborn_research_page.WOODCRUCIBLERECIPES.1=You were always the most clumsy guy
 tcreborn_research_name.WOODCRUCIBLEMAGICALRECIPES=Adding some spices !
 tcreborn_research_text.WOODCRUCIBLEMAGICALRECIPES=A little bit of Praecantatio
 tcreborn_research_page.WOODCRUCIBLEMAGICALRECIPES.1=You told yourself that these poor Greatwood and other magical wood logs deserved better than to be thrown in a mundane aspect soup ...<LINE>By using a very small amount of §lPraecantatio§r, you uncovered a new recipe that let you get even more output amounts compared to the standard Crucible recipes !
-#
-tcreborn_research_name.WOODCOMPOUNDRECIPES=Vis and wood logs
-tcreborn_research_text.WOODCOMPOUNDRECIPES=The stick shall rule them all !
-tcreborn_research_page.WOODCOMPOUNDRECIPES.1=Text to add
 #
