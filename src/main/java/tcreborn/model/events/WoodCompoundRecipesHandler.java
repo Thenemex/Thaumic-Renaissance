@@ -2,36 +2,43 @@ package tcreborn.model.events;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import tcreborn.api.events.WandEventHandler;
+import tcreborn.api.items.DeepCopy;
+import tcreborn.config.Config;
 import thaumcraft.common.items.wands.ItemWandCasting;
+
+import static tcreborn.model.config.ConfigOreDict.*;
 
 public class WoodCompoundRecipesHandler extends WandEventHandler {
 
     public WoodCompoundRecipesHandler() {
-        registerTriggerEvent(Blocks.log);
+        // ToDo Register all blocks from ArrayCollecter
     }
 
     @Override
-    public boolean performTrigger(World world, ItemStack wand, EntityPlayer player, int x, int y, int z, int side, int ignored) {
-        return dropWoodPlanks(world, wand, x, y, z);
+    public boolean performTrigger(World world, ItemStack wand, EntityPlayer player, int x, int y, int z, int side, int event) {
+        return dropWoodPlanks(world, wand, x, y, z, event);
     }
 
-    protected boolean dropWoodPlanks(World world, ItemStack heldItem,  int x, int y, int z) {
+    protected boolean dropWoodPlanks(World world, ItemStack heldItem,  int x, int y, int z, int event) {
         if (world.isRemote) return false;
         ItemWandCasting wand = (ItemWandCasting) heldItem.getItem();
         if (wand.getFocus(heldItem) != null) return false; // Needs no focus equipped on the wand
         // Code for editing world
         world.setBlockToAir(x, y, z);
-        EntityItem drops = new EntityItem(world, (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, new ItemStack(Blocks.planks, 3));
+        ItemStack item = getDrops(event);
+        EntityItem drops = new EntityItem(world, (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, item);
         world.spawnEntityInWorld(drops);
         return true;
         // ToDo : Working with all mundane wood logs/planks
         // ToDo : Make recipes for sticks, from all mundane planks
-        // ToDo : Consume aspects from the wand
-        // ToDo : Add testing for CompoundAdder -> Throw exception when x*y*z != List.size()
         // ToDo : Add condition for research done or not in performTrigger()
+    }
+
+    private ItemStack getDrops(int event) {
+        return DeepCopy.i(getOres(mundanePlanksTag)[event],
+                Config.expertWoodRecipesEnabled ? 1 : 5);
     }
 }
