@@ -5,13 +5,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import tcreborn.api.events.WandEventHandler;
-import tcreborn.api.items.DeepCopy;
 import tcreborn.api.items.types.BlockType;
 import tcreborn.config.Config;
+import tcreborn.model.ArrayCollector;
 import thaumcraft.common.items.wands.ItemWandCasting;
 
 import static tcreborn.model.ArrayCollector.getMundaneBlockLogs;
-import static tcreborn.model.config.ConfigOreDict.*;
 
 public class WoodCompoundRecipesHandler extends WandEventHandler {
 
@@ -42,7 +41,7 @@ public class WoodCompoundRecipesHandler extends WandEventHandler {
     }
 
     protected ItemStack getDrops(int event) {
-        return DeepCopy.i(getOres(mundanePlanksTag)[event],
-                Config.expertWoodRecipesEnabled ? 1 : 5);
+        int amount = Config.expertWoodRecipesEnabled ? 1 : 5;
+        return ArrayCollector.getPlank(event, amount);
     }
 }
