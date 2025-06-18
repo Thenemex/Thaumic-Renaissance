@@ -4,6 +4,7 @@ import net.minecraft.item.ItemStack;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import tcreborn.api.util.exceptions.ParameterValueIsNegativeOrZero;
 
+@SuppressWarnings("unused")
 public class DeepCopy {
 
     /**

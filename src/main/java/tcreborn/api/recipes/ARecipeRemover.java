@@ -6,7 +6,7 @@ import net.minecraft.item.crafting.IRecipe;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("rawtypes")
+@SuppressWarnings("rawtypes, unused")
 public abstract class ARecipeRemover {
 
     protected final ArrayList<Object> recipesToRemove = new ArrayList<>();

@@ -3,11 +3,13 @@ package tcreborn.model;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import tcreborn.api.items.DeepCopy;
 import tcreborn.api.items.types.BlockType;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import static tcreborn.api.items.ItemFinder.findBlockTC;
 import static tcreborn.api.items.ItemFinder.findItemTC;
@@ -17,6 +19,7 @@ public class ArrayCollector {
 
     private static final ArrayList<ItemStack> mundaneLogs, mundanePlanks, magicalLogs, magicalPlanks, magicalLogsToPlanks;
     private static final ArrayList<BlockType> mundaneBlockLogs, magicalBlockLogs;
+    private static final HashMap<Integer, ItemStack> mundaneLogToPlankMap;
     static {
         mundanePlanks = new ArrayList<>();
         mundaneLogs = new ArrayList<>();
@@ -26,13 +29,14 @@ public class ArrayCollector {
 
         mundaneBlockLogs = new ArrayList<>();
         magicalBlockLogs = new ArrayList<>();
+
+        mundaneLogToPlankMap = new HashMap<>();
     }
 
     public static void init() {
         // Add all metadata of vanilla logs/planks
         ItemStack log;
         Block block;
-        BlockType blockType;
         for (int i = 0; i < 6; i++) {
             block = i < 4 ? Blocks.log : Blocks.log2;
             int meta = i < 4 ? i : i - 4;
@@ -45,6 +49,13 @@ public class ArrayCollector {
         addMagicalLogAndBlock(findBlockTC("blockMagicalLog", 1)); // Silverwood Log
         addSameMagicalResultPlank(findItemTC("blockWoodenDevice", 6)); // Greatwood Planks
         addSameMagicalResultPlank(findItemTC("blockWoodenDevice", 7)); // Silverwood Planks
+        initMap();
+    }
+
+    private static void initMap() {
+        int i = 0;
+        for (ItemStack plank : mundanePlanks)
+            mundaneLogToPlankMap.put(i++, plank);
     }
 
     public static void addMundaneLogAndPlank(ItemStack log, ItemStack plank) {
@@ -115,5 +126,9 @@ public class ArrayCollector {
     }
     public static BlockType[] getMagicalBlockLogs() {
         return magicalBlockLogs.toArray(new BlockType[0]);
+    }
+
+    public static ItemStack getPlank(int keyEvent, int amount) {
+        return DeepCopy.i(mundaneLogToPlankMap.get(keyEvent), amount);
     }
 }
