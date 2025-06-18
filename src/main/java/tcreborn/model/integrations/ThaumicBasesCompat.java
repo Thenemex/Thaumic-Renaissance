@@ -16,7 +16,7 @@ public class ThaumicBasesCompat extends ACompat {
     @Override
     public void loadLogsPlanksSticks() {
         for (int i = 0; i < 3; i++) // Peaceful, Nether and Ender wood
-            ArrayCollector.addMagicalLog(ItemFinder.findItem(mod, "genLogs", i));
+            ArrayCollector.addMagicalLogAndBlock(ItemFinder.findBlock(mod, "genLogs", i));
         ArrayCollector.addPlankResultOfMagical(
                 new ItemStack(Blocks.planks, 1, 2),
                 new ItemStack(Blocks.planks, 1, 1));

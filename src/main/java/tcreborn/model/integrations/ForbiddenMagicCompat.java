@@ -14,6 +14,7 @@ public class ForbiddenMagicCompat extends ACompat {
 
     public void loadLogsPlanksSticks() {
         ItemStack log, plank;
+        ArrayCollector.addMagicalBlockLog(ItemFinder.findBlock(mod, "TaintLog"));
         log = ItemFinder.findItem(mod, "TaintLog"); // Tainted Log
         plank = ItemFinder.findItem(mod, "TaintPlank"); // Tainted Planks
         WorkbenchRemover.i().removeItem(plank);

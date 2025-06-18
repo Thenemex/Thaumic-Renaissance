@@ -15,6 +15,7 @@ public class TaintedMagicCompat extends ACompat {
     @Override
     public void loadLogsPlanksSticks() {
         ItemStack log, plank;
+        ArrayCollector.addMagicalBlockLog(ItemFinder.findBlock(mod, "BlockWarpwoodLog"));
         log = ItemFinder.findItem(mod, "BlockWarpwoodLog"); // Warpwood Log
         plank = ItemFinder.findItem(mod, "BlockWarpwoodPlanks"); // Warpwood Planks
         WorkbenchRemover.i().removeItem(plank);
