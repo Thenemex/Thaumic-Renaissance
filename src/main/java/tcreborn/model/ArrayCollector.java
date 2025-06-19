@@ -19,7 +19,7 @@ public class ArrayCollector {
 
     private static final ArrayList<ItemStack> mundaneLogs, mundanePlanks, magicalLogs, magicalPlanks, magicalLogsToPlanks;
     private static final ArrayList<BlockType> mundaneBlockLogs, magicalBlockLogs;
-    private static final HashMap<Integer, ItemStack> mundaneLogToPlankMap;
+    private static final HashMap<Integer, ItemStack> mundaneLogToPlankMap, magicalLogToPlankMap;
     static {
         mundanePlanks = new ArrayList<>();
         mundaneLogs = new ArrayList<>();
@@ -31,6 +31,7 @@ public class ArrayCollector {
         magicalBlockLogs = new ArrayList<>();
 
         mundaneLogToPlankMap = new HashMap<>();
+        magicalLogToPlankMap = new HashMap<>();
     }
 
     public static void init() {
@@ -56,6 +57,9 @@ public class ArrayCollector {
         int i = 0;
         for (ItemStack plank : mundanePlanks)
             mundaneLogToPlankMap.put(i++, plank);
+        i = 0;
+        for (ItemStack plank : magicalLogsToPlanks)
+            magicalLogToPlankMap.put(i++, plank);
     }
 
     public static void addMundaneLogAndPlank(ItemStack log, ItemStack plank) {
@@ -128,7 +132,11 @@ public class ArrayCollector {
         return magicalBlockLogs.toArray(new BlockType[0]);
     }
 
-    public static ItemStack getPlank(int keyEvent, int amount) {
+    public static ItemStack getMundanePlank(int keyEvent, int amount) {
         return DeepCopy.i(mundaneLogToPlankMap.get(keyEvent), amount);
     }
+    public static ItemStack getMagicalPlank(int keyEvent, int amount) {
+        return DeepCopy.i(mundaneLogToPlankMap.get(keyEvent), amount);
+    }
+
 }

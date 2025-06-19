@@ -42,6 +42,6 @@ public class WoodCompoundRecipesHandler extends WandEventHandler {
 
     protected ItemStack getDrops(int event) {
         int amount = Config.expertWoodRecipesEnabled ? 1 : 5;
-        return ArrayCollector.getPlank(event, amount);
+        return ArrayCollector.getMundanePlank(event, amount);
     }
 }
