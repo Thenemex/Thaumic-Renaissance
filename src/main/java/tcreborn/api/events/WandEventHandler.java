@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import tcreborn.api.items.types.BlockType;
+import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import thaumcraft.api.wands.IWandTriggerManager;
 import thaumcraft.api.wands.WandTriggerRegistry;
 import thaumcraft.common.lib.research.ResearchManager;
@@ -31,20 +32,23 @@ public abstract class WandEventHandler implements IWandTriggerManager {
     }
 
     public void registerTriggerEvent(BlockType[] blocks) {
+        if (blocks == null || blocks.length == 0) throw new ParameterIsNullOrEmpty();
         for (int i = 0; i < blocks.length; i++)
             registerTriggerEvent(blocks[i], i);
     }
     public void registerTriggerEvent(BlockType block, int event) {
+        if (block == null) throw new ParameterIsNullOrEmpty();
         WandTriggerRegistry.registerWandBlockTrigger(this, event, block.block(), block.meta(), modID);
     }
     public void registerTriggerEvent(BlockType block) {
         registerTriggerEvent(block, 0);
     }
-    public void registerTriggerEvent(Block target, int event) {
-        WandTriggerRegistry.registerWandBlockTrigger(this, event, target, 0, modID);
+    public void registerTriggerEvent(Block block, int event) {
+        if (block == null) throw new ParameterIsNullOrEmpty();
+        WandTriggerRegistry.registerWandBlockTrigger(this, event, block, 0, modID);
     }
-    public void registerTriggerEvent(Block target) {
-        registerTriggerEvent(target, 0);
+    public void registerTriggerEvent(Block block) {
+        registerTriggerEvent(block, 0);
     }
 
     /**

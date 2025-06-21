@@ -5,7 +5,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.items.DeepCopy;
 import tcreborn.api.items.types.BlockType;
-import tcreborn.api.util.Logger;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 
 import java.util.ArrayList;
@@ -52,7 +51,6 @@ public class ArrayCollector {
         addSameMagicalResultPlank(findItemTC("blockWoodenDevice", 6)); // Greatwood Planks
         addSameMagicalResultPlank(findItemTC("blockWoodenDevice", 7)); // Silverwood Planks
     }
-
     public static void initMap() {
         int i = 0;
         for (ItemStack plank : mundanePlanks)
