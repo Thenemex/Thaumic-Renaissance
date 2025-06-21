@@ -3,19 +3,24 @@ package tcreborn.api.thaumcraft.research;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import tcreborn.api.events.WandEventHandler;
 import tcreborn.api.thaumcraft.API;
 import tcreborn.api.thaumcraft.aspects.Aspects;
+import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import tcreborn.config.Config;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.research.ResearchPage;
+
+import java.util.Arrays;
 
 @SuppressWarnings({"UnusedReturnValue", "unused"})
 public abstract class AResearch {
 
     protected final String tab, tag;
     protected final boolean expert;
-    protected Aspects aspects;
     protected final ItemStack icon;
+    protected WandEventHandler handler;
+    protected Aspects aspects;
     protected Research research;
 
     public AResearch(String tab, String tag, ItemStack icon) {
@@ -41,6 +46,8 @@ public abstract class AResearch {
     }
 
     public abstract void init();
+    public abstract void setResearchProperties();
+    public void removeRecipes() {}
 
     public AResearch setResearchAspects(Aspect aspect, int amount) {
         this.aspects = new Aspects(aspect, amount);
@@ -50,6 +57,10 @@ public abstract class AResearch {
         this.aspects = new Aspects(aspects, amounts);
         return this;
     }
+    public AResearch setResearchAspects(Aspects aspects) {
+        this.aspects = aspects;
+        return this;
+    }
 
     public AResearch setNewResearch(int x, int y, int complexity) {
         this.research = API.newResearch(tag, tab, aspects, x, y, complexity, icon);
@@ -57,12 +68,30 @@ public abstract class AResearch {
         return this.register();
     }
 
-    public void removeRecipes() {}
-
-    public void setPages(ResearchPage ... pages) {
-        research.setPages(pages);
+    public AResearch setPages(ResearchPage ... pages) {
+        this.research.setPages(pages);
+        return this;
     }
-    public abstract void setResearchProperties();
+    public AResearch addPage(ResearchPage ... pages) {
+        if (pages == null || pages.length == 0) throw new ParameterIsNullOrEmpty();
+        int oldLength = getNbPages();
+        int newLength = oldLength + pages.length;
+        ResearchPage[] newPages = Arrays.copyOf(research.getPages(), newLength);
+        System.arraycopy(pages, 0, newPages, oldLength, pages.length);
+        this.setPages(newPages);
+        return this;
+    }
+    public int getNbPages() {
+        return research.getPages().length;
+    }
+
+    public WandEventHandler getHandler() {
+        return handler;
+    }
+    public AResearch setHandler(WandEventHandler handler) {
+        this.handler = handler;
+        return this;
+    }
 
     private AResearch register() {
         research.registerResearchItem();
