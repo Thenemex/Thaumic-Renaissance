@@ -136,8 +136,6 @@ public class ArrayCollector {
         return DeepCopy.i(mundaneLogToPlankMap.get(keyEvent), amount);
     }
     public static ItemStack getMagicalPlank(int keyEvent, int amount) {
-        Logger.logInfo("event = ", keyEvent);
-        Logger.logInfo("mapSize = ", magicalLogToPlankMap.size());
         return DeepCopy.i(magicalLogToPlankMap.get(keyEvent), amount);
     }
 
