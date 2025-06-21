@@ -3,6 +3,7 @@ package tcreborn.model.research;
 import tcreborn.api.recipes.mystical.CompoundAdder;
 import tcreborn.api.thaumcraft.research.AResearch;
 import tcreborn.model.config.ConfigTab;
+import tcreborn.model.events.WoodCompoundMagicalRecipesHandler;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.research.ResearchPage;
 
@@ -20,6 +21,7 @@ public class WoodCompoundMagicalRecipes extends AResearch {
 
     @Override
     public void init() {
+        this.setHandler(new WoodCompoundMagicalRecipesHandler());
         this.setResearchAspects(new Aspect[]{TREE, MAGIC, TOOL, EARTH},6, 3, 3, 3);
         this.setNewResearch(2, 2, 1);
         this.setPages(new ResearchPage(research.getPageTag(1)),

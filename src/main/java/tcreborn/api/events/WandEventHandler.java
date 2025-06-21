@@ -11,7 +11,7 @@ import thaumcraft.common.lib.research.ResearchManager;
 
 import static tcreborn.ThaumicRenaissance.modID;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "SameParameterValue"})
 public abstract class WandEventHandler implements IWandTriggerManager {
 
     /**
