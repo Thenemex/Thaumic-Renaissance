@@ -57,7 +57,7 @@ public class WoodCrucibleRecipes extends AResearch {
 
     @Override
     public void setResearchProperties() {
-        this.research.setParents("WOODARCANERECIPES").setConcealed().setItemTriggers(
+        this.research.setParents("WOODARCANERECIPES").setItemTriggers(
                 new ItemStack(Blocks.log, 1, 0), // Oak Log
                 new ItemStack(Blocks.planks, 1, 0), // Oak Plank
                 new ItemStack(Items.stick)); // Stick
