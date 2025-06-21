@@ -20,11 +20,25 @@ public abstract class WandEventHandler implements IWandTriggerManager {
      */
     public WandEventHandler() {}
 
-    public void registerTriggerEvent(BlockType log, int event) {
-        WandTriggerRegistry.registerWandBlockTrigger(this, event, log.block(), log.meta(), modID);
+    /**
+     * Constructor for handler.
+     * <p>Will automatic register all blocks from argument array as triggerEvents</p>
+     * <p>Each one will get a unique event number, starting from 0 and getting incremented by one with each register done.</p>
+     * @param blocks The triggers to be registered
+     */
+    public WandEventHandler(BlockType[] blocks) {
+        registerTriggerEvent(blocks);
     }
-    public void registerTriggerEvent(BlockType log) {
-        registerTriggerEvent(log, 0);
+
+    public void registerTriggerEvent(BlockType[] blocks) {
+        for (int i = 0; i < blocks.length; i++)
+            registerTriggerEvent(blocks[i], i);
+    }
+    public void registerTriggerEvent(BlockType block, int event) {
+        WandTriggerRegistry.registerWandBlockTrigger(this, event, block.block(), block.meta(), modID);
+    }
+    public void registerTriggerEvent(BlockType block) {
+        registerTriggerEvent(block, 0);
     }
     public void registerTriggerEvent(Block target, int event) {
         WandTriggerRegistry.registerWandBlockTrigger(this, event, target, 0, modID);
