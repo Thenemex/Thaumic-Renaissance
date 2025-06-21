@@ -5,19 +5,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import tcreborn.api.events.WandEventHandler;
-import tcreborn.api.items.types.BlockType;
 import tcreborn.config.Config;
 import tcreborn.model.ArrayCollector;
 import thaumcraft.common.items.wands.ItemWandCasting;
 
-import static tcreborn.model.ArrayCollector.getMundaneBlockLogs;
-
 public class WoodCompoundRecipesHandler extends WandEventHandler {
 
     public WoodCompoundRecipesHandler() {
-        int i = 0;
-        for (BlockType log : getMundaneBlockLogs())
-            registerTriggerEvent(log, i++);
+        super(ArrayCollector.getMundaneBlockLogs());
     }
 
     @Override
@@ -36,8 +31,7 @@ public class WoodCompoundRecipesHandler extends WandEventHandler {
         EntityItem drops = new EntityItem(world, (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, item);
         world.spawnEntityInWorld(drops);
         return true;
-        // ToDo : Review idea for 1.5 amount drop for expert mode
-        // ToDo : Add condition for research done or not in performTrigger()
+        // ToDo : Add condition for research done or not in performTrigger() -> Researches upgrades concept
     }
 
     protected ItemStack getDrops(int event) {
