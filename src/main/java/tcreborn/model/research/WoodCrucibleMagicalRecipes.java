@@ -6,6 +6,7 @@ import tcreborn.api.recipes.crucible.CrucibleAdder;
 import tcreborn.api.thaumcraft.aspects.Aspects;
 import tcreborn.api.thaumcraft.research.AResearch;
 import tcreborn.model.config.ConfigTab;
+import tcreborn.model.events.WoodCompoundMagicalRecipesHandler;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.research.ResearchPage;
@@ -22,7 +23,7 @@ public class WoodCrucibleMagicalRecipes extends AResearch {
     protected Aspects magical;
 
     public WoodCrucibleMagicalRecipes() {
-        super(ConfigTab.lumberjack, "WOODCRUCIBLEMAGICALRECIPES", findItemTC("blockMagicalLog"));
+        super(ConfigTab.lumberjack, "WOODCRUCIBLEMAGICALRECIPES", findItemTC("blockWoodenDevice", 6));
     }
 
     @Override
