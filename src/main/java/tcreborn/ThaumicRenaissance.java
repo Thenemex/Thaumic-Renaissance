@@ -35,6 +35,7 @@ public class ThaumicRenaissance {
     public void postInit(FMLPostInitializationEvent ignoredEvent) {
         ConfigIntegrations.init();
         ConfigOreDict.init();
+        ArrayCollector.initMap();
         // Registering researches
         ConfigResearch.init();
     }

@@ -5,6 +5,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.items.DeepCopy;
 import tcreborn.api.items.types.BlockType;
+import tcreborn.api.util.Logger;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 
 import java.util.ArrayList;
@@ -50,10 +51,9 @@ public class ArrayCollector {
         addMagicalLogAndBlock(findBlockTC("blockMagicalLog", 1)); // Silverwood Log
         addSameMagicalResultPlank(findItemTC("blockWoodenDevice", 6)); // Greatwood Planks
         addSameMagicalResultPlank(findItemTC("blockWoodenDevice", 7)); // Silverwood Planks
-        initMap();
     }
 
-    private static void initMap() {
+    public static void initMap() {
         int i = 0;
         for (ItemStack plank : mundanePlanks)
             mundaneLogToPlankMap.put(i++, plank);
@@ -136,7 +136,9 @@ public class ArrayCollector {
         return DeepCopy.i(mundaneLogToPlankMap.get(keyEvent), amount);
     }
     public static ItemStack getMagicalPlank(int keyEvent, int amount) {
-        return DeepCopy.i(mundaneLogToPlankMap.get(keyEvent), amount);
+        Logger.logInfo("event = ", keyEvent);
+        Logger.logInfo("mapSize = ", magicalLogToPlankMap.size());
+        return DeepCopy.i(magicalLogToPlankMap.get(keyEvent), amount);
     }
 
 }
