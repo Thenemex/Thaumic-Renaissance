@@ -6,7 +6,6 @@ import tcreborn.api.recipes.crucible.CrucibleAdder;
 import tcreborn.api.thaumcraft.aspects.Aspects;
 import tcreborn.api.thaumcraft.research.AResearch;
 import tcreborn.model.config.ConfigTab;
-import tcreborn.model.events.WoodCompoundMagicalRecipesHandler;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.research.ResearchPage;

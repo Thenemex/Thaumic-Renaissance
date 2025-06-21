@@ -31,7 +31,6 @@ public class WoodCompoundRecipesHandler extends WandEventHandler {
         EntityItem drops = new EntityItem(world, (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, item);
         world.spawnEntityInWorld(drops);
         return true;
-        // ToDo : Add condition for research done or not in performTrigger() -> Researches upgrades concept
     }
 
     protected ItemStack getDrops(int event) {
