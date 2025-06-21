@@ -12,7 +12,7 @@ public class WoodCompoundRecipesHandler extends SingleBlockWithDropsHandler {
     }
 
     protected ItemStack getDrops(int event) {
-        int amount = Config.expertWoodRecipesEnabled ? 1 : 6;
+        int amount = Config.expertWoodRecipesEnabled ? 1 : 5;
         return ArrayCollector.getMundanePlank(event, amount);
     }
 }
