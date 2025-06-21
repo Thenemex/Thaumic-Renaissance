@@ -21,7 +21,7 @@ public class WoodCompoundMagicalRecipes extends AResearch {
 
     @Override
     public void init() {
-        this.setHandler(new WoodCompoundMagicalRecipesHandler());
+        this.setHandler(new WoodCompoundMagicalRecipesHandler(tag));
         this.setResearchAspects(new Aspect[]{TREE, MAGIC, TOOL, EARTH},6, 3, 3, 3);
         this.setNewResearch(2, 2, 1);
         this.setPages(new ResearchPage(research.getPageTag(1)),
