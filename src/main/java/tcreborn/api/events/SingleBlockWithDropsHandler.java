@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import tcreborn.api.items.types.BlockType;
+import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import thaumcraft.common.items.wands.ItemWandCasting;
 
 public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
@@ -14,25 +15,46 @@ public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
     /**
      * Constructor for the Handler.
      * <p>This specific handler type, will delete the trigger blocks and make them drop specific items.</p>
-     * @param researchTag The researchTag (can be null)
-     * @param triggers The trigger blocks
+     * <p>Each block will receive an unique incremented event number.</p>
+     * <p>Exemple : blocks[0] -> event = 0, blocks[1] -> event = 1 ... </p>
+     * @param researchTag The researchTag : the trigger event won't be performed if the player didn't research that one yet (can be null)
+     * @param blocks The trigger blocks
+     * @throws ParameterIsNullOrEmpty If blocks is null or empty
      */
-    public SingleBlockWithDropsHandler(String researchTag, BlockType ... triggers) {
-        super(triggers);
+    public SingleBlockWithDropsHandler(String researchTag, BlockType ... blocks) {
+        super(blocks);
         if (researchTag != null) this.researchTag = researchTag;
     }
     /**
      * Constructor for the Handler
-     * @param triggers The trigger blocks
+     * @param blocks The trigger blocks
+     * @throws ParameterIsNullOrEmpty If blocks is null or empty
      */
-    public SingleBlockWithDropsHandler(BlockType ... triggers) {
-        this(null, triggers);
+    public SingleBlockWithDropsHandler(BlockType ... blocks) {
+        this(null, blocks);
     }
 
+    /**
+     * Code executed when registered trigger block is matched
+     * @param world The world
+     * @param wand The held wand item
+     * @param player The Player
+     * @param x The x coordinate of the targeted block
+     * @param y The y coordinate of the targeted block
+     * @param z The z coordinate of the targeted block
+     * @param side The side of the targeted block
+     * @param event The event unique number
+     * @return True is the trigger have been executed properly, false if not
+     */
     @Override
     public boolean performTrigger(World world, ItemStack wand, EntityPlayer player, int x, int y, int z, int side, int event) {
         return dropWoodPlanks(world, wand, player, x, y, z, event);
     }
+
+    /**
+     * Private method called by performTrigger()
+     * <p>Mainly used for code splitting</p>
+     */
     protected boolean dropWoodPlanks(World world, ItemStack heldItem, EntityPlayer player, int x, int y, int z, int event) {
         if (world.isRemote) return false;
         if (researchTag != null)

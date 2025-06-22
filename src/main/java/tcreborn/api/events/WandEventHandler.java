@@ -26,6 +26,7 @@ public abstract class WandEventHandler implements IWandTriggerManager {
      * <p>Will automatic register all blocks from argument array as triggerEvents</p>
      * <p>Each one will get a unique event number, starting from 0 and getting incremented by one with each register done.</p>
      * @param blocks The triggers to be registered
+     * @throws ParameterIsNullOrEmpty If blocks is null or empty
      */
     public WandEventHandler(BlockType[] blocks) {
         registerTriggerEvent(blocks);
@@ -94,7 +95,7 @@ public abstract class WandEventHandler implements IWandTriggerManager {
     }
 
     /**
-     * Code executed when input block from compound recipe is matched
+     * Code executed when registered trigger block is matched
      * @param world The world
      * @param wand The held wand item
      * @param player The Player
