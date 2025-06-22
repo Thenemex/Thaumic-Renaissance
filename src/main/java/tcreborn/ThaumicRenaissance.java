@@ -9,6 +9,7 @@ import tcreborn.model.ArrayCollector;
 import tcreborn.model.config.ConfigIntegrations;
 import tcreborn.model.config.ConfigOreDict;
 import tcreborn.model.config.ConfigResearch;
+import tcreborn.model.config.ConfigTab;
 
 import static tcreborn.ThaumicRenaissance.modID;
 import static tcreborn.ThaumicRenaissance.dependencies;
@@ -23,21 +24,22 @@ public class ThaumicRenaissance {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        Config.init(new File(event.getModConfigurationDirectory(), modName));
+        Config.init(new File(event.getModConfigurationDirectory(), modName)); // Custom folder with mod name
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent ignoredEvent) {
-        ArrayCollector.init();
+        ArrayCollector.init(); // Initializing arrays with data, for easier code
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent ignoredEvent) {
-        ConfigIntegrations.init();
-        ConfigOreDict.init();
-        ArrayCollector.initMap();
+        ConfigIntegrations.init(); // Initializing mod integrations, looking at config file
+        ConfigOreDict.init(); // Initializing ore dictionnary entries, depending on data inside ArrayCollector
+        ArrayCollector.initMap(); // Initializing maps with possible integrations added
         // Registering researches
-        ConfigResearch.init();
+        ConfigTab.init(); // Initializing Thaumonomicon new tabs
+        ConfigResearch.init(); // Initializing Thaumonomicon new researches
     }
 
     public static final String dependencies = "required-after:Thaumcraft@[4.2.3.5,);after:ForbiddenMagic;after:TaintedMagic;after:thaumicbases";
