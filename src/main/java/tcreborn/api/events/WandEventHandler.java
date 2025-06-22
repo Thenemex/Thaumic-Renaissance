@@ -31,22 +31,54 @@ public abstract class WandEventHandler implements IWandTriggerManager {
         registerTriggerEvent(blocks);
     }
 
+    /**
+     * Register wand triggers on blocks to the Thaumcraft 4 Registry
+     * <p>Each block will be given an event number incremented at each loop</p>
+     * <p>Exemple : blocks[0] will have event = 0, block[1] will have event = 1 ...</p>
+     * @param blocks The blocks that trigger the event
+     * @throws ParameterIsNullOrEmpty If blocks is null or empty
+     */
     public void registerTriggerEvent(BlockType[] blocks) {
         if (blocks == null || blocks.length == 0) throw new ParameterIsNullOrEmpty();
         for (int i = 0; i < blocks.length; i++)
             registerTriggerEvent(blocks[i], i);
     }
+    /**
+     * Register wand triggers on block to the Thaumcraft 4 Registry
+     * @param block The block that trigger the event
+     * @param event The event number
+     * @throws ParameterIsNullOrEmpty If block is null
+     */
     public void registerTriggerEvent(BlockType block, int event) {
         if (block == null) throw new ParameterIsNullOrEmpty();
         WandTriggerRegistry.registerWandBlockTrigger(this, event, block.block(), block.meta(), modID);
     }
+    /**
+     * Register wand triggers on block to the Thaumcraft 4 Registry
+     * <p>Event number will be set to 0</p>
+     * @param block The block that trigger the event
+     * @throws ParameterIsNullOrEmpty If blocks is null
+     */
     public void registerTriggerEvent(BlockType block) {
         registerTriggerEvent(block, 0);
     }
+    /**
+     * Register wand triggers on block to the Thaumcraft 4 Registry
+     * <p>The block metadata will be set to 0</p>
+     * @param block The block that trigger the event
+     * @param event The event number
+     * @throws ParameterIsNullOrEmpty If block is null
+     */
     public void registerTriggerEvent(Block block, int event) {
         if (block == null) throw new ParameterIsNullOrEmpty();
         WandTriggerRegistry.registerWandBlockTrigger(this, event, block, 0, modID);
     }
+    /**
+     * Register wand triggers on block to the Thaumcraft 4 Registry
+     * <p>The block metadata AND event number will be set to 0</p>
+     * @param block The block that trigger the event
+     * @throws ParameterIsNullOrEmpty If block is null
+     */
     public void registerTriggerEvent(Block block) {
         registerTriggerEvent(block, 0);
     }
