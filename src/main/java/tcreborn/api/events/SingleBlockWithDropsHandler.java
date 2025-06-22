@@ -8,6 +8,14 @@ import tcreborn.api.items.types.BlockType;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import thaumcraft.common.items.wands.ItemWandCasting;
 
+/**
+ * Class for handling events linked to wands. Have to be instantiated in AResearch class fields.
+ * <p>It's a specific handler with pre-made code, that will destroy the targeted block and drop some items.</p>
+ * <p>You extend this class, and code the two main things linked to it :</p>
+ * <p> - Registering blocks + event number, for triggering the method "performTrigger()" when targeted block is matched.</p>
+ * <p> - Coding the method getDrops() ; it will return the items that will be dropped by destroying the block in performTrigger().
+ * Be smart when registering your blocks, as the event number will be in the same order.</p>
+ */
 public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
 
     protected String researchTag;

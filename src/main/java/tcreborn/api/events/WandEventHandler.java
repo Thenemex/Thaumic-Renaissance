@@ -12,6 +12,13 @@ import thaumcraft.common.lib.research.ResearchManager;
 
 import static tcreborn.ThaumicRenaissance.modID;
 
+/**
+ * Class for handling events linked to wands. Have to be instantiated in AResearch class fields.
+ * <p>You extend this class, and code the two main things linked to it :</p>
+ * <p> - Registering blocks + event number, for triggering the method "performTrigger()" when targeted block is matched.</p>
+ * <p> - Coding the method "performTrigger()" ; this method will be called upon targeting a registered block with your wand.
+ * You can code whatever you want inside : change the world blocks, drop items, summon entities, etc ... </p>
+ */
 @SuppressWarnings({"unused", "SameParameterValue"})
 public abstract class WandEventHandler implements IWandTriggerManager {
 
