@@ -4,6 +4,9 @@ import net.minecraft.item.ItemStack;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import tcreborn.api.util.exceptions.ParameterValueIsNegativeOrZero;
 
+/**
+ * Class used for making deep copy for some objects from Minecraft/Forge code
+ */
 @SuppressWarnings("unused")
 public class DeepCopy {
 
