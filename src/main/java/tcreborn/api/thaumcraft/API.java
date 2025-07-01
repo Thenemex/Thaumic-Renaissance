@@ -3,9 +3,15 @@ package tcreborn.api.thaumcraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import tcreborn.api.thaumcraft.research.Research;
+import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
+import tcreborn.api.util.exceptions.ResearchDoesNotExists;
 import thaumcraft.api.aspects.AspectList;
-import thaumcraft.api.research.ResearchCategories;
+import thaumcraft.api.research.ResearchItem;
 
+import static thaumcraft.api.research.ResearchCategories.registerCategory;
+import static thaumcraft.api.research.ResearchCategories.researchCategories;
+
+@SuppressWarnings({"UnusedReturnValue", "unused"})
 public class API {
 
     /**
@@ -14,7 +20,7 @@ public class API {
      * @param icon The icon
      */
     public static void newCategory(String tag, ResourceLocation icon) {
-        ResearchCategories.registerCategory(tag, icon, new ResourceLocation("thaumcraft","textures/gui/gui_researchback.png"));
+        registerCategory(tag, icon, new ResourceLocation("thaumcraft","textures/gui/gui_researchback.png"));
     }
 
     /**
@@ -30,5 +36,18 @@ public class API {
      */
     public static Research newResearch(String tag, String tab, AspectList aspects, int x, int y, int complexity, ItemStack icon) {
         return new Research(tag, tab, aspects, x, y, complexity, icon);
+    }
+
+    /**
+     * Get the research from the Thaumcraft 4 registry
+     * @param tab Thaumonomicon Tab
+     * @param tag Research's Tag
+     * @return The research
+     */
+    public static ResearchItem getResearch(String tab, String tag) {
+        if (tab == null || tag == null) throw new ParameterIsNullOrEmpty();
+        ResearchItem research = researchCategories.get(tab).research.get(tag);
+        if (research == null) throw new ResearchDoesNotExists(tab, tag);
+        return research;
     }
 }
