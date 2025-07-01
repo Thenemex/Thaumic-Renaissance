@@ -6,10 +6,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import tcreborn.config.Config;
 import tcreborn.model.ArrayCollector;
-import tcreborn.model.config.ConfigIntegrations;
-import tcreborn.model.config.ConfigOreDict;
-import tcreborn.model.config.ConfigResearch;
-import tcreborn.model.config.ConfigTab;
+import tcreborn.model.config.*;
 
 import static tcreborn.ThaumicRenaissance.modID;
 import static tcreborn.ThaumicRenaissance.dependencies;

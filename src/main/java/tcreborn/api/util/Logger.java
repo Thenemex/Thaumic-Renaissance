@@ -13,7 +13,7 @@ public class Logger {
     public static void logInfo(Object ... messages) {
         String message = "";
         for (Object o : messages)
-            message = message.concat(o.toString());
+            message = (o != null) ? message.concat(o.toString()) : "null";
         logger.log(Level.INFO, modID.concat(" : ").concat(message));
     }
     public static void logError(Object message) {
