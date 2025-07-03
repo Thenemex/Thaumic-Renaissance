@@ -83,11 +83,17 @@ public class ArcaneAdder {
      * @param input The recipe structures
      * @return The recipes generated
      */
-    public static IArcaneRecipe[] addMultipleSingleArcane(String tag, Aspects aspects, ItemStack output, ArrayList<Object[]> input) {
+    public static IArcaneRecipe[] addMultipleSingleArcane(String tag, Aspects aspects, boolean isShapeless, ItemStack output, ArrayList<Object[]> input) {
+        if (input == null) throw new ParameterIsNullOrEmpty();
+        if (input.isEmpty()) throw new ParameterIsNullOrEmpty();
         IArcaneRecipe[] recipes = new IArcaneRecipe[input.size()];
         for (int i = 0; i < input.size(); i++)
-            recipes[i] = addArcane(tag, aspects, output, false, input.get(i));
+            recipes[i] = addArcane(tag, aspects, output, isShapeless, input.get(i));
         return recipes;
+    }
+
+    public static IArcaneRecipe[] addMultipleSingleArcane(String tag, Aspects aspects, ItemStack output, ArrayList<Object[]> input) {
+        return addMultipleSingleArcane(tag, aspects, false, output, input);
     }
 
 
