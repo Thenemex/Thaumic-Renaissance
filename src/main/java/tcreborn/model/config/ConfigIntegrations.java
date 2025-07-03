@@ -19,7 +19,7 @@ public class ConfigIntegrations {
             new TaintedMagicCompat(taintedMagic);
         if (modIsLoaded(thaumicBases, thaumicBasesCompat))
             new ThaumicBasesCompat(thaumicBases);
-        if (modIsLoaded(thaumcraft4Tweaks, thaumcraft4TweaksCompat));
+        if (modIsLoaded(thaumcraft4Tweaks, thaumcraft4TweaksCompat))
             new Thaumcraft4TweaksCompat(thaumcraft4Tweaks);
     }
 
