@@ -7,11 +7,27 @@ import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import tcreborn.api.thaumcraft.aspects.Aspects;
 import tcreborn.api.util.exceptions.ParameterValueIsNegativeOrZero;
 import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.IArcaneRecipe;
+import thaumcraft.api.crafting.ShapedArcaneRecipe;
+import thaumcraft.api.crafting.ShapelessArcaneRecipe;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("unchecked, unused")
 public class ArcaneAdder {
+
+    protected static ShapedArcaneRecipe registerShapedArcanePRIORITY(String research, ItemStack result, AspectList aspects, Object... recipe) {
+        ShapedArcaneRecipe r = new ShapedArcaneRecipe(research, result, aspects, recipe);
+        ThaumcraftApi.getCraftingRecipes().add(0, r);
+        return r;
+    }
+    protected static ShapelessArcaneRecipe registerShapelessArcanePRIORITY(String research, ItemStack result, AspectList aspects, Object... recipe) {
+        ShapelessArcaneRecipe r = new ShapelessArcaneRecipe(research, result, aspects, recipe);
+        ThaumcraftApi.getCraftingRecipes().add(r);
+        return r;
+    }
+
 
     /**
      * Adds a single arcane recipe from multiple items
@@ -75,10 +91,11 @@ public class ArcaneAdder {
     }
 
     /**
-     * Adds recipes that contain items into another unique item (with same aspects for every recipe).
+     * Adds recipes that contain items into another unique item (with same aspects for every recipe) ; with shapeless option
      * <p>The method will set the recipe as for exemple : input[0] -> output, input[1] -> output ...</p>
      * @param tag Research's tag
      * @param aspects Wand's vis used
+     * @param isShapeless If true, the recipe will be shapeless
      * @param output The single output
      * @param input The recipe structures
      * @return The recipes generated
@@ -92,6 +109,15 @@ public class ArcaneAdder {
         return recipes;
     }
 
+    /**
+     * Adds recipes that contain items into another unique item (with same aspects for every recipe).
+     * <p>The method will set the recipe as for exemple : input[0] -> output, input[1] -> output ...</p>
+     * @param tag Research's tag
+     * @param aspects Wand's vis used
+     * @param output The single output
+     * @param input The recipe structures
+     * @return The recipes generated
+     */
     public static IArcaneRecipe[] addMultipleSingleArcane(String tag, Aspects aspects, ItemStack output, ArrayList<Object[]> input) {
         return addMultipleSingleArcane(tag, aspects, false, output, input);
     }
