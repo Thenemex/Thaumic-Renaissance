@@ -13,5 +13,5 @@ public abstract class ACompat {
         loadLogsPlanksSticks();
     }
 
-    public abstract void loadLogsPlanksSticks();
+    public void loadLogsPlanksSticks() {};
 }
