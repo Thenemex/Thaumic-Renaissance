@@ -36,11 +36,11 @@ public class ArcaneAdder {
      * @param input The recipe structures
      * @return The recipes generated
      */
-    public static IArcaneRecipe[] addMultipleArcane(String tag, Aspects aspects, ItemStack[] output, ArrayList<Object[]> input) {
+    public static IArcaneRecipe[] addMultipleArcane(String tag, Aspects aspects, boolean isShapeless, ItemStack[] output, ArrayList<Object[]> input) {
         if (output.length != input.size()) throw new ParameterArraysSizeException(output.length, input.size());
         IArcaneRecipe[] recipes = new IArcaneRecipe[output.length];
         for (int i = 0; i < output.length; i++)
-            recipes[i] = addArcane(tag, aspects, output[i], false, input.get(i));
+            recipes[i] = addArcane(tag, aspects, output[i], isShapeless, input.get(i));
         return recipes;
     }
 
@@ -56,7 +56,22 @@ public class ArcaneAdder {
      */
     public static IArcaneRecipe[] addMultipleArcane(String tag, Aspects aspects, ItemStack[] output, int nb, ArrayList<Object[]> input) {
         if (nb < 1) throw new ParameterValueIsNegativeOrZero(nb);
-        return addMultipleArcane(tag, aspects, DeepCopy.i(output, nb), input);
+        return addMultipleArcane(tag, aspects, false, DeepCopy.i(output, nb), input);
+    }
+
+    /**
+     * Adds multiple recipes, with possibility to edit the amount of output ; and to make it shapeless
+     * <p>Will follow this pattern : input[0] -> output[0],  input[1] -> output[1] ...</p>
+     * @param tag Research's tag
+     * @param aspects Wand's vis used
+     * @param isShapeless If true, the recipe will be shapeless
+     * @param output The output items
+     * @param nb The number of output items wanted
+     * @param input The recipe structures
+     * @return The recipes generated
+     */
+    public static IArcaneRecipe[] addMultipleArcane(String tag, Aspects aspects, boolean isShapeless, ItemStack[] output, int nb, ArrayList<Object[]> input) {
+        return addMultipleArcane(tag, aspects, isShapeless, DeepCopy.i(output, nb), input);
     }
 
     /**
