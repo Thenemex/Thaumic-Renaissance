@@ -6,7 +6,7 @@ import static tcreborn.config.Config.expertWoodRecipesEnabled;
 
 public class ConfigResearch {
 
-    public static boolean isArcaneCheckingVanillaWorkbenchRecipes = true;
+    public static boolean isArcaneCheckingWorkbenchRecipes = true;
 
     public static void init() {
         initLumberjack();

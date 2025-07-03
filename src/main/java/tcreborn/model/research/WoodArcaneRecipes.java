@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import tcreborn.api.recipes.arcane.ArcaneAdder;
 import tcreborn.api.thaumcraft.aspects.Aspects;
 import tcreborn.api.thaumcraft.research.AResearch;
+import tcreborn.model.config.ConfigResearch;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.crafting.IArcaneRecipe;
 import thaumcraft.api.research.ResearchPage;
@@ -19,12 +20,15 @@ import static thaumcraft.api.aspects.Aspect.*;
 
 public class WoodArcaneRecipes extends AResearch {
 
+    protected boolean isArcanePluginOn;
+
     public WoodArcaneRecipes() {
         super(ConfigTab.lumberjack, "WOODARCANERECIPES", findItemTC("blockTable", 15));
     }
 
     @Override
     public void init() {
+        this.isArcanePluginOn = !ConfigResearch.isArcaneCheckingWorkbenchRecipes;
         this.setResearchAspects(EARTH, 3);
         this.setNewResearch(0,-1, 1);
         this.setPages(new ResearchPage(research.getPageTag(1)),
@@ -38,8 +42,8 @@ public class WoodArcaneRecipes extends AResearch {
     protected IArcaneRecipe[] addRecipesMundanePlanks() {
         ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundaneLogsTag).length);
         for (ItemStack log : getOres(mundaneLogsTag))
-            recipes.add(new Object[]{"LL", "LL", 'L', log});
-        return ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 1), getOres(mundanePlanksTag), expert ? 8 : 24, recipes);
+            recipes.add(isArcanePluginOn ? new Object[]{log} : new Object[]{"LL", "LL", 'L', log});
+        return ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 1), isArcanePluginOn, getOres(mundanePlanksTag), isArcanePluginOn ? (expert ? 2 : 6) : (expert ? 8 : 24), recipes);
     }
     protected IArcaneRecipe[] addRecipesMundaneSticks() {
         ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundanePlanksTag).length);
