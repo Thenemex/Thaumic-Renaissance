@@ -2,6 +2,8 @@ package tcreborn.api.items.types;
 
 import net.minecraft.block.Block;
 
+import java.util.Objects;
+
 /**
  * Class used for storing the Block and it's metadata.
  */
@@ -42,5 +44,16 @@ public class BlockType {
     @Override
     public String toString() {
         return getClass().getSimpleName().concat("{block = " + block() + ", meta = " + meta + "}");
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BlockType)) return false;
+        BlockType blockType = (BlockType) o;
+        return meta == blockType.meta && Objects.equals(block, blockType.block);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(block, meta);
     }
 }

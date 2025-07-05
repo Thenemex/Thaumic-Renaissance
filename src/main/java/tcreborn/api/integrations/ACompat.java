@@ -18,7 +18,7 @@ public abstract class ACompat {
         loadLogsPlanksSticks();
     }
 
-    public void loadLogsPlanksSticks() {};
+    public void loadLogsPlanksSticks() {}
 
     @Override
     public String toString() {
