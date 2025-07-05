@@ -30,6 +30,10 @@ tcreborn_research_page.WOODCRUCIBLERECIPES.1=You were always the most clumsy guy
 tcreborn_research_name.WOODCRUCIBLEMAGICALRECIPES=Adding some spices !
 tcreborn_research_text.WOODCRUCIBLEMAGICALRECIPES=A little bit of Praecantatio
 tcreborn_research_page.WOODCRUCIBLEMAGICALRECIPES.1=You told yourself that these poor Greatwood and other magical wood logs deserved better than to be thrown in a mundane aspect soup ...<LINE>By using a very small amount of §lPraecantatio§r, you uncovered a new recipe that let you get even more output amounts compared to the standard Crucible recipes !
+#
+tcreborn_research_name.WOODCRUCIBLEINSTRUMENTUMRECIPES=Cutting through fibers
+tcreborn_research_text.WOODCRUCIBLEINSTRUMENTUMRECIPES=Some Instrumentum will make that perfect
+tcreborn_research_page.WOODCRUCIBLEINSTRUMENTUMRECIPES.1=These silex are sharp for sure. They contains some rare type of blue essentia called §lInstrumentum§r, present in all items related to human and tools. You wondered if there is some glimpse chance that this type of essentia could help with your woody bloody problems ...<LINE>A bit of that precious essentia with some other aspects allow you to get more items out of magical wood logs and planks !
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 tcreborn_research_name.WOODCOMPOUNDRECIPES=Wand casting
 tcreborn_research_text.WOODCOMPOUNDRECIPES=You mean casting ... wood ?
@@ -38,4 +42,4 @@ tcreborn_research_page.WOODCOMPOUNDRECIPES.1=Since you make that book you're rea
 tcreborn_research_name.WOODCOMPOUNDMAGICALRECIPES=Casting magical wood
 tcreborn_research_text.WOODCOMPOUNDMAGICALRECIPES=Abracadabra, you're now a plank !
 tcreborn_research_page.WOODCOMPOUNDMAGICALRECIPES.1=You found a way to apply your wand casting knowledge to the magical tree logs out there : you can transform them to planks without having to chop them down !<LINE> The amount of planks you get with this process is still not that good, you are convinced that something is missing ...
-#
+
