@@ -40,16 +40,18 @@ public class WoodArcaneRecipes extends AResearch {
     }
 
     protected IArcaneRecipe[] addRecipesMundanePlanks() {
-        ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundaneLogsTag).length);
+        ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(mundaneLogsTag).length);
         for (ItemStack log : getOres(mundaneLogsTag))
-            recipes.add(isArcanePluginOn ? new Object[]{log} : new Object[]{"LL", "LL", 'L', log});
-        return ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 1), isArcanePluginOn, getOres(mundanePlanksTag), isArcanePluginOn ? (expert ? 2 : 6) : (expert ? 8 : 24), recipes);
+            inputRecipes.add(isArcanePluginOn ? new Object[]{log} : new Object[]{"LL", "LL", 'L', log});
+        IArcaneRecipe[] recipes = ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 1), isArcanePluginOn, getOres(mundanePlanksTag), isArcanePluginOn ? (expert ? 2 : 6) : (expert ? 8 : 24), inputRecipes);
+        return Arrays.copyOfRange(recipes, 0, 6);
     }
     protected IArcaneRecipe[] addRecipesMundaneSticks() {
-        ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundanePlanksTag).length);
+        ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(mundanePlanksTag).length);
         for (ItemStack plank : getOres(mundanePlanksTag))
-            recipes.add(isArcanePluginOn ? new Object[]{"P", "P", 'P', plank} : new Object[]{" P", "P ", 'P', plank});
-        return ArcaneAdder.addMultipleSingleArcane(tag, new Aspects(ENTROPY, 1), new ItemStack(Items.stick, expert ? 2 : 6), recipes);
+            inputRecipes.add(isArcanePluginOn ? new Object[]{"P", "P", 'P', plank} : new Object[]{" P", "P ", 'P', plank});
+        IArcaneRecipe[] recipes = ArcaneAdder.addMultipleSingleArcane(tag, new Aspects(ENTROPY, 1), new ItemStack(Items.stick, expert ? 2 : 6), inputRecipes);
+        return Arrays.copyOfRange(recipes, 0, 6);
     }
     protected IArcaneRecipe[] addRecipesMagicalPlanks() {
         ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(magicalLogsTag).length);

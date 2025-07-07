@@ -42,13 +42,15 @@ public class WoodBasicRecipes extends AResearch {
     }
 
     protected IRecipe[] addRecipesMundanePlanks() {
-        return WorkbenchAdder.addMultipleSingleShapelessRecipes(getOres(mundanePlanksTag), getOres(mundaneLogsTag));
+        IRecipe[] recipes = WorkbenchAdder.addMultipleSingleShapelessRecipes(getOres(mundanePlanksTag), getOres(mundaneLogsTag));
+        return Arrays.copyOfRange(recipes, 0, 6);
     }
     protected IRecipe[] addRecipesMundaneSticks() {
-        ArrayList<Object[]> recipes = new ArrayList<>(getOres(mundanePlanksTag).length);
+        ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(mundanePlanksTag).length);
         for (ItemStack plank : getOres(mundanePlanksTag))
-            recipes.add(new Object[]{"P ", "P ", 'P', plank});
-        return WorkbenchAdder.addMultipleSingleRecipes(new ItemStack(Items.stick), false, recipes);
+            inputRecipes.add(new Object[]{"P ", "P ", 'P', plank});
+        IRecipe[] recipes = WorkbenchAdder.addMultipleSingleRecipes(new ItemStack(Items.stick), false, inputRecipes);
+        return Arrays.copyOfRange(recipes, 0, 6);
     }
     protected IRecipe[] addRecipesMagicalPlanks() {
         IRecipe[] recipes = WorkbenchAdder.addMultipleSingleShapelessRecipes(getMagicalLogsToPlanks(), 2, getOres(magicalLogsTag));
