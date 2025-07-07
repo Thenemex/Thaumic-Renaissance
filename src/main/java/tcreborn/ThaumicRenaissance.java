@@ -14,7 +14,7 @@ import static tcreborn.ThaumicRenaissance.dependencies;
 import java.io.File;
 
 @SuppressWarnings("unused")
-@Mod(modid = modID, useMetadata = true, dependencies = dependencies)
+@Mod(modid = modID, useMetadata = true, version = "1.2.2", dependencies = dependencies)
 public class ThaumicRenaissance {
 
     public static final String modID = "TCReborn", modName = "ThaumicRenaissance";
