@@ -11,7 +11,7 @@ public class Config {
     private static Configuration config;
     public static File configDir;
     public static boolean expertWoodRecipesEnabled;
-    public static boolean forbiddenMagicCompat, taintedMagicCompat, thaumicBasesCompat, thaumcraft4TweaksCompat;
+    public static boolean forbiddenMagicCompat, taintedMagicCompat, thaumicBasesCompat, twilightForestCompat, thaumcraft4TweaksCompat;
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void init(File configFolder) {
@@ -31,6 +31,7 @@ public class Config {
         forbiddenMagicCompat = newEntry(integCat, "Forbidden Magic");
         taintedMagicCompat = newEntry(integCat, "Tainted Magic");
         thaumicBasesCompat = newEntry(integCat, "Thaumic Bases");
+        twilightForestCompat = newEntry(integCat, "Twilight Forest");
         thaumcraft4TweaksCompat = newEntry(integCat, "Thaumcraft 4 Tweaks");
     }
 
