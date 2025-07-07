@@ -1,6 +1,7 @@
 package tcreborn.api.items.types;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 
 import java.util.Objects;
 
@@ -12,6 +13,15 @@ public class BlockType {
     protected final Block block;
     protected final int meta;
 
+    /**
+     * Constructor for the class
+     * <p>Set meta to 0</p>
+     * @param block The block
+     */
+    public BlockType(Block block) {
+        this.block = block;
+        this.meta = 0;
+    }
     /**
      * Constructor for the class
      * @param block The block
@@ -35,6 +45,14 @@ public class BlockType {
      */
     public int meta() {
         return meta;
+    }
+
+    /**
+     * Return the ItemStack related to the BlockType
+     * @return The ItemStack, with block and meta
+     */
+    public ItemStack toItemStack() {
+        return new ItemStack(block(), 1, meta());
     }
 
     /**

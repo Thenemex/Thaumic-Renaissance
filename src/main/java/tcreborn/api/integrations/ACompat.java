@@ -1,6 +1,7 @@
 package tcreborn.api.integrations;
 
 import tcreborn.api.util.Logger;
+import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 
 import java.util.Objects;
 
@@ -9,6 +10,7 @@ public abstract class ACompat {
     protected final String mod;
 
     public ACompat(String mod) {
+        if (mod == null) throw new ParameterIsNullOrEmpty();
         this.mod = mod;
         init();
         Logger.logInfo("Successfully loaded integration for mod : ".concat(mod));
