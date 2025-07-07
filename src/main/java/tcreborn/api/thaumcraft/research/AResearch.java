@@ -99,7 +99,7 @@ public abstract class AResearch {
         return this;
     }
 
-    private AResearch register() {
+    protected AResearch register() {
         research.registerResearchItem();
         return this;
     }

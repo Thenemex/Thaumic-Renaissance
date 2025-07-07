@@ -8,7 +8,7 @@ import static tcreborn.ThaumicRenaissance.modID;
 @SuppressWarnings("unused")
 public class Logger {
 
-    private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(modID);
+    protected static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(modID);
 
     public static void logInfo(Object ... messages) {
         String message = "";
@@ -16,6 +16,7 @@ public class Logger {
             message = (o != null) ? message.concat(o.toString()) : "null";
         logger.log(Level.INFO, modID.concat(" : ").concat(message));
     }
+
     public static void logError(Object message) {
         logger.log(Level.ERROR, modID.concat(" : ").concat(message.toString()));
     }
