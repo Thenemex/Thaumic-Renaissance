@@ -8,6 +8,7 @@ import java.util.Objects;
 /**
  * Class used for storing the Block and it's metadata.
  */
+@SuppressWarnings("unused")
 public class BlockType {
 
     protected final Block block;
