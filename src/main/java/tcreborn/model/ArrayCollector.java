@@ -17,9 +17,9 @@ import static tcreborn.api.items.ItemFinder.findItemTC;
 @SuppressWarnings("unused")
 public class ArrayCollector {
 
-    private static final ArrayList<ItemStack> mundaneLogs, mundanePlanks, magicalLogs, magicalPlanks, magicalLogsToPlanks;
-    private static final ArrayList<BlockType> mundaneBlockLogs, magicalBlockLogs;
-    private static final HashMap<Integer, ItemStack> mundaneLogToPlankMap, magicalLogToPlankMap;
+    protected static final ArrayList<ItemStack> mundaneLogs, mundanePlanks, magicalLogs, magicalPlanks, magicalLogsToPlanks;
+    protected static final ArrayList<BlockType> mundaneBlockLogs, magicalBlockLogs;
+    protected static final HashMap<Integer, ItemStack> mundaneLogToPlankMap, magicalLogToPlankMap;
     static {
         mundanePlanks = new ArrayList<>();
         mundaneLogs = new ArrayList<>();
@@ -82,12 +82,9 @@ public class ArrayCollector {
         if (planks == null || planks.length == 0) throw new ParameterIsNullOrEmpty();
         magicalPlanks.addAll(Arrays.asList(planks));
     }
-    public static void addMagicalAndResultPlank(ItemStack magicalPlank, ItemStack resultPlank) {
-        addMagicalPlank(magicalPlank);
-        addPlankResultOfMagical(resultPlank);
-    }
     public static void addSameMagicalResultPlank(ItemStack plank) {
-        addMagicalAndResultPlank(plank, plank);
+        addMagicalPlank(plank);
+        addPlankResultOfMagical(plank);
     }
     public static void addPlankResultOfMagical(ItemStack ... planks) {
         if (planks == null || planks.length == 0) throw new ParameterIsNullOrEmpty();
