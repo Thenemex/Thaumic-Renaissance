@@ -1,16 +1,13 @@
 package tcreborn.model.config;
 
 import cpw.mods.fml.common.Loader;
-import tcreborn.model.integrations.ForbiddenMagicCompat;
-import tcreborn.model.integrations.TaintedMagicCompat;
-import tcreborn.model.integrations.Thaumcraft4TweaksCompat;
-import tcreborn.model.integrations.ThaumicBasesCompat;
+import tcreborn.model.integrations.*;
 
 import static tcreborn.config.Config.*;
 
 public class ConfigIntegrations {
 
-    private static final String forbiddenMagic = "ForbiddenMagic",
+    protected static final String forbiddenMagic = "ForbiddenMagic",
             taintedMagic = "TaintedMagic",
             thaumicBases = "thaumicbases",
             twilightForest = "TwilightForest",
@@ -23,6 +20,8 @@ public class ConfigIntegrations {
             new TaintedMagicCompat(taintedMagic);
         if (modIsLoaded(thaumicBases, thaumicBasesCompat))
             new ThaumicBasesCompat(thaumicBases);
+        if (modIsLoaded(twilightForest, twilightForestCompat))
+            new TwilightForestCompat(twilightForest);
         if (modIsLoaded(thaumcraft4Tweaks, thaumcraft4TweaksCompat))
             new Thaumcraft4TweaksCompat(thaumcraft4Tweaks);
     }
