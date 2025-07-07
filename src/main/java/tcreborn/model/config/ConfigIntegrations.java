@@ -10,7 +10,11 @@ import static tcreborn.config.Config.*;
 
 public class ConfigIntegrations {
 
-    private static final String forbiddenMagic = "ForbiddenMagic", taintedMagic = "TaintedMagic", thaumicBases = "thaumicbases", thaumcraft4Tweaks = "tc4tweak";
+    private static final String forbiddenMagic = "ForbiddenMagic",
+            taintedMagic = "TaintedMagic",
+            thaumicBases = "thaumicbases",
+            twilightForest = "TwilightForest",
+            thaumcraft4Tweaks = "tc4tweak";
 
     public static void init() {
         if (modIsLoaded(forbiddenMagic, forbiddenMagicCompat))
