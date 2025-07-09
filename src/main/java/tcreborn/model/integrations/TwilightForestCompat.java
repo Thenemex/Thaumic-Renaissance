@@ -2,7 +2,6 @@ package tcreborn.model.integrations;
 
 import net.minecraft.item.ItemStack;
 import tcreborn.api.integrations.ACompat;
-import tcreborn.api.items.DeepCopy;
 import tcreborn.api.items.types.BlockType;
 import tcreborn.api.recipes.workbench.WorkbenchAdder;
 import tcreborn.api.recipes.workbench.WorkbenchRemover;
@@ -21,7 +20,7 @@ public class TwilightForestCompat extends ACompat {
     }
 
     protected void patchTowerwoodPlanksRecipe() {
-        ItemStack towerwoodPlanks = DeepCopy.i(findItem(mod, "tile.TFTowerStone", 0), 9);
+        ItemStack towerwoodPlanks = findItem(mod, "tile.TFTowerStone", 0);
         WorkbenchRemover.i().removeMeta(towerwoodPlanks);
         WorkbenchAdder.addRecipe(towerwoodPlanks, true, findItem(mod, "tile.TFLog", 3));
     }
