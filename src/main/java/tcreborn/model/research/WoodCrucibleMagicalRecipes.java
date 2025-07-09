@@ -19,7 +19,7 @@ import static thaumcraft.api.aspects.Aspect.*;
 
 public class WoodCrucibleMagicalRecipes extends AResearch {
 
-    protected Aspects magical;
+    protected Aspects magical, stick;
 
     public WoodCrucibleMagicalRecipes() {
         super(ConfigTab.lumberjack, "WOODCRUCIBLEMAGICALRECIPES", findItemTC("blockWoodenDevice", 6));
@@ -28,6 +28,7 @@ public class WoodCrucibleMagicalRecipes extends AResearch {
     @Override
     public void init() {
         this.magical = new Aspects(new Aspect[]{MAGIC, TREE, CRAFT, ENTROPY}, 1, 5, 1, 3);
+        this.stick = new Aspects(new Aspect[]{MAGIC, TREE, ENTROPY}, 1, 1, 1);
         this.setResearchAspects(new Aspect[]{MAGIC, TREE, EARTH}, 6, 3, 3);
         this.setNewResearch(1, -4, 1);
         this.setPages(new ResearchPage(research.getPageTag(1)),
@@ -40,7 +41,7 @@ public class WoodCrucibleMagicalRecipes extends AResearch {
         return Arrays.copyOfRange(recipes, 0, 2);
     }
     protected CrucibleRecipe[] addRecipesMagicalSticks() {
-        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleSingleRecipe(tag, magical, new ItemStack(Items.stick, expert ? 9 : 20), getOres(magicalPlanksTag));
+        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleSingleRecipe(tag, stick, new ItemStack(Items.stick, expert ? 9 : 20), getOres(magicalPlanksTag));
         return Arrays.copyOfRange(recipes, 0, 2);
     }
 

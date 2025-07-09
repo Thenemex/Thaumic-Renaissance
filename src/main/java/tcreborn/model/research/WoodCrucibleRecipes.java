@@ -20,7 +20,7 @@ import static thaumcraft.api.aspects.Aspect.*;
 
 public class WoodCrucibleRecipes extends AResearch {
 
-    protected Aspects mundane, magical;
+    protected Aspects mundane, magical, stick;
 
     public WoodCrucibleRecipes() {
         super(ConfigTab.lumberjack, "WOODCRUCIBLERECIPES", findItemTC("blockMetalDevice"));
@@ -30,6 +30,7 @@ public class WoodCrucibleRecipes extends AResearch {
     public void init() {
         this.mundane = new Aspects(new Aspect[]{TREE, CRAFT, ENTROPY}, 3, 1, 1);
         this.magical = new Aspects(new Aspect[]{TREE, CRAFT, ENTROPY}, 4, 2, 2);
+        this.stick = new Aspects(new Aspect[]{TREE, ENTROPY}, 1, 2);
         this.setResearchAspects(new Aspect[]{TREE, MAGIC, EARTH}, 6, 3, 3);
         this.setNewResearch(2, -2, 1);
         this.setPages(new ResearchPage(research.getPageTag(1)),
@@ -45,7 +46,7 @@ public class WoodCrucibleRecipes extends AResearch {
         return Arrays.copyOfRange(recipes, 0, 6);
     }
     protected CrucibleRecipe[] addRecipesMundaneSticks() {
-        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleSingleRecipe(tag, mundane, new ItemStack(Items.stick, expert ? 4 : 10), getOres(mundanePlanksTag));
+        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleSingleRecipe(tag, stick, new ItemStack(Items.stick, expert ? 4 : 10), getOres(mundanePlanksTag));
         return Arrays.copyOfRange(recipes, 0, 6);
     }
     protected CrucibleRecipe[] addRecipesMagicalPlanks() {
@@ -53,7 +54,7 @@ public class WoodCrucibleRecipes extends AResearch {
         return Arrays.copyOfRange(recipes, 0, 2);
     }
     protected CrucibleRecipe[] addRecipesMagicalSticks() {
-        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleSingleRecipe(tag, magical, new ItemStack(Items.stick, expert ? 6 : 15), getOres(magicalPlanksTag));
+        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleSingleRecipe(tag, stick, new ItemStack(Items.stick, expert ? 6 : 15), getOres(magicalPlanksTag));
         return Arrays.copyOfRange(recipes, 0, 2);
     }
 
