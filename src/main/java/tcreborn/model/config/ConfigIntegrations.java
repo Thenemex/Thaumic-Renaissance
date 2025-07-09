@@ -14,6 +14,8 @@ public class ConfigIntegrations {
             thaumcraft4Tweaks = "tc4tweak";
 
     public static void init() {
+        if (modIsLoaded(thaumcraft4Tweaks, thaumcraft4TweaksCompat))
+            new Thaumcraft4TweaksCompat(thaumcraft4Tweaks);
         if (modIsLoaded(forbiddenMagic, forbiddenMagicCompat))
             new ForbiddenMagicCompat(forbiddenMagic);
         if (modIsLoaded(taintedMagic, taintedMagicCompat))
@@ -22,8 +24,6 @@ public class ConfigIntegrations {
             new ThaumicBasesCompat(thaumicBases);
         if (modIsLoaded(twilightForest, twilightForestCompat))
             new TwilightForestCompat(twilightForest);
-        if (modIsLoaded(thaumcraft4Tweaks, thaumcraft4TweaksCompat))
-            new Thaumcraft4TweaksCompat(thaumcraft4Tweaks);
     }
 
     public static boolean modIsLoaded(String mod, boolean config) {
