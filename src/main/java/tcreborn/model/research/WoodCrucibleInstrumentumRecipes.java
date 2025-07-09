@@ -36,11 +36,11 @@ public class WoodCrucibleInstrumentumRecipes extends AResearch {
     }
 
     protected CrucibleRecipe[] addRecipesMagicalPlanks() {
-        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleRecipe(tag, magical, getMagicalLogsToPlanks(), expert ? 6 : 15, getOres(magicalLogsTag));
+        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleRecipe(tag, magical, getMagicalLogsToPlanks(), expert ? 9 : 20, getOres(magicalLogsTag));
         return Arrays.copyOfRange(recipes, 0, 2);
     }
     protected CrucibleRecipe[] addRecipesMagicalSticks() {
-        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleSingleRecipe(tag, magical, new ItemStack(Items.stick, expert ? 6 : 15), getOres(magicalPlanksTag));
+        CrucibleRecipe[] recipes = CrucibleAdder.addMultipleSingleRecipe(tag, magical, new ItemStack(Items.stick, expert ? 9 : 20), getOres(magicalPlanksTag));
         return Arrays.copyOfRange(recipes, 0, 2);
     }
 
