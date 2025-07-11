@@ -29,9 +29,8 @@ public class WoodCompoundMagicalRecipes extends AResearch {
     }
 
     protected List addRecipeMagicalPlank() {
-        List recipes = CompoundAdder.addCompoundRecipe(tag, null, 1, 2, 1,
+        return CompoundAdder.addCompoundRecipe(tag, null, 1, 2, 1,
                 findItemTC("WandCasting"), findItemTC("blockMagicalLog"));
-        return recipes.subList(0, 2);
     }
 
     @Override

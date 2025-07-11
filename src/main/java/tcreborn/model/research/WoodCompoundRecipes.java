@@ -31,9 +31,8 @@ public class WoodCompoundRecipes extends AResearch {
     }
 
     protected List addRecipeMundanePlank() {
-        List recipes = CompoundAdder.addCompoundRecipe(tag, null, 1, 2, 1,
+        return CompoundAdder.addCompoundRecipe(tag, null, 1, 2, 1,
                 findItemTC("WandCasting"), new ItemStack(Blocks.log));
-        return recipes.subList(0, 2);
     }
 
     @Override
