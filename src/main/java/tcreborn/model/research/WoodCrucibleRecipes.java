@@ -1,6 +1,5 @@
 package tcreborn.model.research;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.recipes.crucible.CrucibleAdder;
@@ -32,8 +31,7 @@ public class WoodCrucibleRecipes extends AResearch {
         this.magical = new Aspects(new Aspect[]{TREE, CRAFT, ENTROPY}, 4, 2, 2);
         this.stick = new Aspects(new Aspect[]{TREE, ENTROPY}, 1, 2);
         this.setResearchAspects(new Aspect[]{TREE, MAGIC, EARTH}, 6, 3, 3);
-        this.setNewResearch(2, -2, 1);
-        this.setPages(new ResearchPage(research.getPageTag(1)),
+        this.setNewResearch(2, -2, 1).setPages(newTextPage(1),
                 new ResearchPage(addRecipesMundanePlanks()),
                 new ResearchPage(addRecipesMundaneSticks()),
                 new ResearchPage(addRecipesMagicalPlanks()),
@@ -60,9 +58,6 @@ public class WoodCrucibleRecipes extends AResearch {
 
     @Override
     public void setResearchProperties() {
-        this.research.setParents("WOODARCANERECIPES").setItemTriggers(
-                new ItemStack(Blocks.log, 1, 0), // Oak Log
-                new ItemStack(Blocks.planks, 1, 0), // Oak Plank
-                new ItemStack(Items.stick)); // Stick
+        this.research.setParents("WOODARCANERECIPES");
     }
 }

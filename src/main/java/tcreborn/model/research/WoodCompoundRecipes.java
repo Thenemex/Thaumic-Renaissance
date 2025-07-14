@@ -25,8 +25,7 @@ public class WoodCompoundRecipes extends AResearch {
     public void init() {
         this.setHandler(new WoodCompoundRecipesHandler());
         this.setResearchAspects(new Aspect[]{TREE, CRAFT, EARTH, ENTROPY}, 6, 3, 1, 1);
-        this.setNewResearch(0, 1, 2);
-        this.setPages(new ResearchPage(research.getPageTag(1)),
+        this.setNewResearch(0, 1, 2).setPages(newTextPage(1),
                 new ResearchPage(addRecipeMundanePlank()));
     }
 

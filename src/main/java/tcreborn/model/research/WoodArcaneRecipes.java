@@ -30,8 +30,7 @@ public class WoodArcaneRecipes extends AResearch {
     public void init() {
         this.isArcanePluginOn = !ConfigResearch.isArcaneCheckingWorkbenchRecipes;
         this.setResearchAspects(EARTH, 3);
-        this.setNewResearch(0,-1);
-        this.setPages(new ResearchPage(research.getPageTag(1)),
+        this.setNewResearch(0,-1).setPages(newTextPage(1),
                 new ResearchPage(addRecipesMundanePlanks()),
                 new ResearchPage(addRecipesMundaneSticks()),
                 new ResearchPage(addRecipesMagicalPlanks()),
