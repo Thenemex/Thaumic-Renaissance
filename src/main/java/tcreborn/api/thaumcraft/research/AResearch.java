@@ -72,6 +72,9 @@ public abstract class AResearch {
         this.setResearchProperties();
         return this.register();
     }
+    public AResearch setNewResearch(int x, int y) {
+        return setNewResearch(x, y, 1);
+    }
 
     public AResearch setPages(ResearchPage ... pages) {
         this.research.setPages(pages);
