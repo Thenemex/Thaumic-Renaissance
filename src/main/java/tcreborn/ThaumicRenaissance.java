@@ -34,6 +34,8 @@ public class ThaumicRenaissance {
         ConfigIntegrations.init(); // Initializing mod integrations, looking at config file
         ConfigOreDict.init(); // Initializing ore dictionnary entries, depending on data inside ArrayCollector
         ArrayCollector.initMap(); // Initializing maps with possible integrations added
+        // Initializing handlers
+        ConfigHandlers.init();
         // Registering researches
         ConfigResearch.init(); // Initializing Thaumonomicon new researches
     }
