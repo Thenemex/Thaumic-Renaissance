@@ -30,7 +30,7 @@ public class WoodCrucibleInstrumentumRecipes extends AResearch {
         this.magical = new Aspects(new Aspect[]{TOOL, TREE, CRAFT, ENTROPY}, 2, 5, 1, 2);
         this.stick = new Aspects(new Aspect[]{TOOL, TREE, ENTROPY}, 1, 1, 1);
         this.setResearchAspects(new Aspect[]{TOOL, TREE, EARTH}, 6, 3, 3);
-        this.setNewResearch(3, -4, 1);
+        this.setNewResearch(3, -4);
         this.setPages(new ResearchPage(research.getPageTag(1)),
                 new ResearchPage(addRecipesMagicalPlanks()),
                 new ResearchPage(addRecipesMagicalSticks()));
