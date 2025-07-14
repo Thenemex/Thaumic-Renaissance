@@ -4,8 +4,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import tcreborn.api.recipes.mystical.CompoundAdder;
 import tcreborn.api.thaumcraft.research.AResearch;
+import tcreborn.model.config.ConfigHandlers;
 import tcreborn.model.config.ConfigTab;
-import tcreborn.model.events.WoodCompoundRecipesHandler;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.research.ResearchPage;
 
@@ -23,7 +23,7 @@ public class WoodCompoundRecipes extends AResearch {
 
     @Override
     public void init() {
-        this.setHandler(new WoodCompoundRecipesHandler());
+        this.setHandler(ConfigHandlers.mundaneWoodCompoundHandler);
         this.setResearchAspects(new Aspect[]{TREE, CRAFT, EARTH, ENTROPY}, 6, 3, 1, 1);
         this.setNewResearch(0, 1, 2).setPages(newTextPage(1),
                 new ResearchPage(addRecipeMundanePlank()));
