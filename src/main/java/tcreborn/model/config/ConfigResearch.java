@@ -21,5 +21,6 @@ public class ConfigResearch {
         new WoodCompoundRecipes();
         new WoodCompoundMagicalRecipes();
         new WoodCrucibleInstrumentumRecipes();
+        new WoodCompoundUpgradeRecipes();
     }
 }
