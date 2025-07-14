@@ -92,6 +92,9 @@ public abstract class AResearch {
     public int getNbPages() {
         return research.getPages().length;
     }
+    public ResearchPage newTextPage(int number) {
+        return new ResearchPage(research.getPageTag(number));
+    }
 
     public WandEventHandler getHandler() throws FieldIsNull {
         if (handler == null) throw new FieldIsNull();
