@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import tcreborn.api.recipes.mystical.CompoundAdder;
 import tcreborn.api.thaumcraft.aspects.Aspects;
 import tcreborn.api.thaumcraft.research.AResearch;
+import tcreborn.model.config.ConfigHandlers;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.research.ResearchPage;
@@ -23,7 +24,9 @@ public class WoodCompoundUpgradeRecipes extends AResearch {
 
     @Override
     public void init() {
-        this.setHandler(null); // ToDo Handler with vis cost
+        // ToDo Localized research name, description and page 1
+        // ToDo Refactor handler to add Vis Usage from wand
+        this.setHandler(ConfigHandlers.mundaneWoodCompoundHandler);
         this.setResearchAspects(new Aspect[]{TREE, TOOL, EARTH, ENTROPY}, 6, 3, 3, 6);
         this.setNewResearch(3, 4).setPages(newTextPage(1),
                 new ResearchPage(addRecipeMundanePlank()));
