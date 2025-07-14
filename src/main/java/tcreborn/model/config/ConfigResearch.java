@@ -9,6 +9,7 @@ public class ConfigResearch {
     public static boolean isArcaneCheckingWorkbenchRecipes = true;
 
     public static void init() {
+        ConfigTab.init();
         initLumberjack();
         // Add new AResearch here
     }

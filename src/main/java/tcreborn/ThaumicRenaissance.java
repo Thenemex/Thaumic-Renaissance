@@ -35,7 +35,6 @@ public class ThaumicRenaissance {
         ConfigOreDict.init(); // Initializing ore dictionnary entries, depending on data inside ArrayCollector
         ArrayCollector.initMap(); // Initializing maps with possible integrations added
         // Registering researches
-        ConfigTab.init(); // Initializing Thaumonomicon new tabs
         ConfigResearch.init(); // Initializing Thaumonomicon new researches
     }
 
