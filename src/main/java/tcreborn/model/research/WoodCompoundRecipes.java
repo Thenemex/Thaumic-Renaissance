@@ -18,7 +18,7 @@ import static thaumcraft.api.aspects.Aspect.*;
 public class WoodCompoundRecipes extends AResearch {
 
     public WoodCompoundRecipes() {
-        super(ConfigTab.lumberjack, "WOODCOMPOUNDRECIPES", Blocks.planks);
+        super(ConfigTab.lumberjack, "WOODCOMPOUNDRECIPES", Blocks.log);
     }
 
     @Override
