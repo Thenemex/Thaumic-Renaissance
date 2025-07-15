@@ -24,7 +24,6 @@ public class WoodCompoundUpgradeRecipes extends AResearch {
 
     @Override
     public void init() {
-        // ToDo Localized research name, description and page 1
         // ToDo Refactor handler to add Vis Usage from wand
         this.setHandler(ConfigHandlers.mundaneWoodCompoundHandler);
         this.setResearchAspects(new Aspect[]{TREE, TOOL, EARTH, ENTROPY}, 6, 3, 3, 6);
@@ -39,6 +38,6 @@ public class WoodCompoundUpgradeRecipes extends AResearch {
 
     @Override
     public void setResearchProperties() {
-        this.research.setParents("WOODCOMPOUNDMAGICALRECIPES").setConcealed().setSecondary();
+        this.research.setParents("WOODCOMPOUNDMAGICALRECIPES").setParentsHidden("WOODARCANERECIPES").setConcealed().setSecondary();
     }
 }
