@@ -11,8 +11,8 @@ public class WoodCompoundRecipesHandler extends SingleBlockWithDropsHandler {
         super(ArrayCollector.getMundaneBlockLogs());
     }
 
-    protected ItemStack getDrops(int event) {
-        int amount = Config.expertWoodRecipesEnabled ? 1 : 5;
+    protected ItemStack getDrops(int event, boolean upgrade) {
+        int amount = upgrade ? Config.expertWoodRecipesEnabled ? 1 : 5 : Config.expertWoodRecipesEnabled ? 2 : 6;
         return ArrayCollector.getMundanePlank(event, amount);
     }
 }
