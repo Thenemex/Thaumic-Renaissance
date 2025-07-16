@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import tcreborn.api.items.types.BlockType;
+import tcreborn.api.thaumcraft.aspects.Aspects;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import thaumcraft.api.wands.IWandTriggerManager;
 import thaumcraft.api.wands.WandTriggerRegistry;
@@ -23,11 +24,17 @@ import static tcreborn.ThaumicRenaissance.modID;
 public abstract class WandEventHandler implements IWandTriggerManager {
 
     /**
+     * The field isVisNeeded is to be kept read-only, and should not be edited alone.
+     * <p>Any standalone modification can break the code, and lead to exceptions thrown when performing the wand trigger</p>
+     */
+    protected boolean isVisNeeded = false;
+    private Aspects vis = null;
+
+    /**
      * Constructor for handler.
      * <p>You must use registerTriggerEvent() in your class constructor, to make the handler work</p>
      */
     public WandEventHandler() {}
-
     /**
      * Constructor for handler.
      * <p>Will automatic register all blocks from argument array as triggerEvents</p>
@@ -37,6 +44,35 @@ public abstract class WandEventHandler implements IWandTriggerManager {
      */
     public WandEventHandler(BlockType[] blocks) {
         registerTriggerEvent(blocks);
+    }
+    /**
+     * Constructor for handler.
+     * <p>Will automatic register all blocks from argument array as triggerEvents</p>
+     * <p>Each one will get a unique event number, starting from 0 and getting incremented by one with each register done.</p>
+     * @param blocks The triggers to be registered
+     * @param vis The primal aspects that will be consumed on the held wand by the recipe
+     * @throws ParameterIsNullOrEmpty If blocks is null or empty
+     */
+    public WandEventHandler(BlockType[] blocks, Aspects vis) {
+        this(blocks);
+        if (vis != null) setVis(vis);
+    }
+
+    /**
+     * Getter for the vis aspects
+     * @return If vis is not null, it will return the aspects. If it is null, it will return null;
+     */
+    public Aspects getVis() {
+        if (isVisNeeded) return vis;
+        return null;
+    }
+    /**
+     * Setter for the vis usage
+     * @param vis The aspect vis
+     */
+    public void setVis(Aspects vis) {
+        this.vis = vis;
+        this.isVisNeeded = true;
     }
 
     /**
