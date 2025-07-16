@@ -1,7 +1,5 @@
 package tcreborn.model.research;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import tcreborn.api.recipes.mystical.CompoundAdder;
 import tcreborn.api.thaumcraft.aspects.Aspects;
 import tcreborn.api.thaumcraft.research.AResearch;
@@ -14,7 +12,6 @@ import java.util.List;
 import static tcreborn.api.items.ItemFinder.findItemTC;
 import static tcreborn.model.config.ConfigHandlers.magicalWoodCompoundHandler;
 import static thaumcraft.api.aspects.Aspect.*;
-import static thaumcraft.api.aspects.Aspect.EARTH;
 
 @SuppressWarnings("rawtypes")
 public class WoodCompoundMagicalUpgradeRecipes extends AResearch {
@@ -25,7 +22,7 @@ public class WoodCompoundMagicalUpgradeRecipes extends AResearch {
 
     @Override
     public void init() {
-        this.setHandler(magicalWoodCompoundHandler.setUpgradeResearchTag(tag).setVis(new Aspects(ENTROPY, 1)));
+        this.setHandler(magicalWoodCompoundHandler.setUpgradeResearchTag(tag).setVis(new Aspects(ENTROPY, 2)));
         this.setResearchAspects(new Aspect[]{MAGIC, TREE, TOOL, EARTH, ENTROPY}, 6, 6, 3, 3, 3);
         this.setNewResearch(1, 4).setPages(newTextPage(1),
                 new ResearchPage(addRecipeMagicalPlank()));
