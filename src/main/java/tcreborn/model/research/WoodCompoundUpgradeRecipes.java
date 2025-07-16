@@ -13,6 +13,7 @@ import thaumcraft.api.research.ResearchPage;
 import java.util.List;
 
 import static tcreborn.api.items.ItemFinder.findItemTC;
+import static tcreborn.model.config.ConfigHandlers.mundaneWoodCompoundHandler;
 import static thaumcraft.api.aspects.Aspect.*;
 
 @SuppressWarnings("rawtypes")
@@ -24,8 +25,7 @@ public class WoodCompoundUpgradeRecipes extends AResearch {
 
     @Override
     public void init() {
-        // ToDo Refactor handler to add Vis Usage from wand
-        this.setHandler(ConfigHandlers.mundaneWoodCompoundHandler.setUpgradeResearchTag(tag).setVis(new Aspects(ENTROPY, 1)));
+        this.setHandler(mundaneWoodCompoundHandler.setUpgradeResearchTag(tag).setVis(new Aspects(ENTROPY, 1)));
         this.setResearchAspects(new Aspect[]{TREE, TOOL, EARTH, ENTROPY}, 6, 3, 3, 6);
         this.setNewResearch(3, 4).setPages(newTextPage(1),
                 new ResearchPage(addRecipeMundanePlank()));
