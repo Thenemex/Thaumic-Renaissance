@@ -136,8 +136,8 @@ public abstract class WandEventHandler implements IWandTriggerManager {
      * @param tag The research tag
      * @return True if the research is done, else false
      */
-    protected boolean isResearchComplete(EntityPlayer player, String tag) {
-        return ResearchManager.isResearchComplete(player.getCommandSenderName(), tag);
+    protected boolean isResearchNotComplete(EntityPlayer player, String tag) {
+        return !ResearchManager.isResearchComplete(player.getCommandSenderName(), tag);
     }
 
     /**

@@ -18,6 +18,7 @@ import thaumcraft.common.items.wands.ItemWandCasting;
  * <p> - Coding the method getDrops() ; it will return the items that will be dropped by destroying the block in performTrigger().
  * Be smart when registering your blocks, as the event number will be in the same order.</p>
  */
+@SuppressWarnings("unused")
 public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
 
     /**
@@ -102,7 +103,7 @@ public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
     protected boolean dropWoodPlanks(World world, ItemStack heldItem, EntityPlayer player, int x, int y, int z, int event) {
         if (world.isRemote) return false;
         if (researchTag != null)
-            if (!isResearchComplete(player, researchTag)) return false; // Needs research to perform recipe
+            if (isResearchNotComplete(player, researchTag)) return false; // Needs research to perform recipe
         ItemWandCasting wand = (ItemWandCasting) heldItem.getItem();
         if (wand.getFocus(heldItem) != null) return false; // Needs no focus equipped on the wand
         if (!player.isSneaking()) return false; // Player needs to be sneaking
@@ -112,7 +113,7 @@ public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
         // Checks if upgradable
         if (isUpgradable) {
             // Checks if upgrade research is done
-            if (!isResearchComplete(player, upgradeResearchTag)) item = getDrops(event, false);
+            if (isResearchNotComplete(player, upgradeResearchTag)) item = getDrops(event, false);
             // Checks if vis is needed
             else if (isVisNeeded) item = getDrops(event, wand.consumeAllVisCrafting(heldItem, player, getVis(), true));
             // Else get standard output

@@ -15,7 +15,6 @@ import java.util.Arrays;
 import static tcreborn.model.ArrayCollector.getMagicalLogsToPlanks;
 import static tcreborn.model.config.ConfigOreDict.*;
 import static thaumcraft.api.aspects.Aspect.*;
-import static thaumcraft.api.aspects.Aspect.ENTROPY;
 
 public class WoodCrucibleInstrumentumRecipes extends AResearch {
 

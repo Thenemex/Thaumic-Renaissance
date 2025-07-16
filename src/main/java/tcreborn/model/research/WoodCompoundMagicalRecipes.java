@@ -4,7 +4,6 @@ import tcreborn.api.recipes.mystical.CompoundAdder;
 import tcreborn.api.thaumcraft.research.AResearch;
 import tcreborn.model.config.ConfigHandlers;
 import tcreborn.model.config.ConfigTab;
-import tcreborn.model.events.WoodCompoundMagicalRecipesHandler;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.research.ResearchPage;
 

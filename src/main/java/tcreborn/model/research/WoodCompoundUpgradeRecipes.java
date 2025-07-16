@@ -5,7 +5,6 @@ import net.minecraft.item.ItemStack;
 import tcreborn.api.recipes.mystical.CompoundAdder;
 import tcreborn.api.thaumcraft.aspects.Aspects;
 import tcreborn.api.thaumcraft.research.AResearch;
-import tcreborn.model.config.ConfigHandlers;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.research.ResearchPage;
