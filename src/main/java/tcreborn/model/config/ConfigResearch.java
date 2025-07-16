@@ -11,7 +11,6 @@ public class ConfigResearch {
     public static void init() {
         ConfigTab.init();
         initLumberjack();
-        // Add new AResearch here
     }
 
     protected static void initLumberjack() {
@@ -19,9 +18,10 @@ public class ConfigResearch {
         new WoodArcaneRecipes();
         new WoodCrucibleRecipes();
         new WoodCrucibleMagicalRecipes();
+        new WoodCrucibleInstrumentumRecipes();
         new WoodCompoundRecipes();
         new WoodCompoundMagicalRecipes();
-        new WoodCrucibleInstrumentumRecipes();
         new WoodCompoundUpgradeRecipes();
+        new WoodCompoundMagicalUpgradeRecipes();
     }
 }

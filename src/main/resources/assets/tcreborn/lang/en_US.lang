@@ -46,4 +46,8 @@ tcreborn_research_page.WOODCOMPOUNDMAGICALRECIPES.1=You found a way to apply you
 tcreborn_research_name.WOODCOMPOUNDUPGRADERECIPES=[Upgrade] Vis casting
 tcreborn_research_text.WOODCOMPOUNDUPGRADERECIPES=Casting with vis for common wood
 tcreborn_research_page.WOODCOMPOUNDUPGRADERECIPES.1=You discovered a upgrade for casting mundane wood !<BR>Finally you can now reach the same output amount as arcane crafting, by using a bit of perditio.<LINE>As this is a casting upgrade ; if you don't have enough perditio vis, it will fall back to the basic wand casting recipe without vis usage.
+#
+tcreborn_research_name.WOODCOMPOUNDMAGICALUPGRADERECIPES=[Upgrade] Vis casting
+tcreborn_research_text.WOODCOMPOUNDMAGICALUPGRADERECIPES=Casting with vis for magical wood
+tcreborn_research_page.WOODCOMPOUNDMAGICALUPGRADERECIPES.1=You discovered a upgrade for casting magical wood !<BR>Finally you can now reach the same output amount as arcane crafting, by using some perditio vis.<LINE>As this is a casting upgrade ; if you don't have enough perditio vis, it will fall back to the basic wand casting recipe without vis usage.
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
