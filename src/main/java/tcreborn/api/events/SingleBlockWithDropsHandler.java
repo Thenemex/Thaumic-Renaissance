@@ -9,7 +9,7 @@ import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import thaumcraft.common.items.wands.ItemWandCasting;
 
 /**
- * Class for handling events linked to wands. Have to be instantiated in AResearch class fields.
+ * Class for handling events linked to wands.
  * <p>It's a specific handler with pre-made code, that will destroy the targeted block and drop some items.</p>
  * <p>You extend this class, and code the two main things linked to it :</p>
  * <p> - Registering blocks + event number, for triggering the method "performTrigger()" when targeted block is matched.</p>
@@ -18,7 +18,8 @@ import thaumcraft.common.items.wands.ItemWandCasting;
  */
 public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
 
-    protected String researchTag;
+    protected String researchTag, upgradeResearchTag;
+    protected boolean isUpgradable = false;
 
     /**
      * Constructor for the Handler.
@@ -40,6 +41,16 @@ public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
      */
     public SingleBlockWithDropsHandler(BlockType ... blocks) {
         this(null, blocks);
+    }
+
+    /**
+     * Setter for the upgrade research tag
+     * @param upgradeResearchTag The upgrade research tag
+     * @return Itself
+     */
+    public SingleBlockWithDropsHandler setUpgradeResearchTag(String upgradeResearchTag) {
+        this.upgradeResearchTag = upgradeResearchTag;
+        return this;
     }
 
     /**

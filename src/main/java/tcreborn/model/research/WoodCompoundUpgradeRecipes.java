@@ -25,7 +25,7 @@ public class WoodCompoundUpgradeRecipes extends AResearch {
     @Override
     public void init() {
         // ToDo Refactor handler to add Vis Usage from wand
-        this.setHandler(ConfigHandlers.mundaneWoodCompoundHandler);
+        this.setHandler(ConfigHandlers.mundaneWoodCompoundHandler.setUpgradeResearchTag(tag));
         this.setResearchAspects(new Aspect[]{TREE, TOOL, EARTH, ENTROPY}, 6, 3, 3, 6);
         this.setNewResearch(3, 4).setPages(newTextPage(1),
                 new ResearchPage(addRecipeMundanePlank()));
