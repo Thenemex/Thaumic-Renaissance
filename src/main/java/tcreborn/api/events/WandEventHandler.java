@@ -24,7 +24,8 @@ import static tcreborn.ThaumicRenaissance.modID;
 public abstract class WandEventHandler implements IWandTriggerManager {
 
     /**
-     * The field isVisNeeded is to be kept read-only, and should not be edited alone.
+     * These fields are to be kept read-only, and should not be edited alone.
+     * <p>Usage of the methods like "setVis()" are hugely advised, as it will keep the good values here</p>
      * <p>Any standalone modification can break the code, and lead to exceptions thrown when performing the wand trigger</p>
      */
     protected boolean isVisNeeded = false;
@@ -71,7 +72,7 @@ public abstract class WandEventHandler implements IWandTriggerManager {
      * @param vis The aspect vis
      */
     public void setVis(Aspects vis) {
-        this.vis = vis;
+        if (vis != null) this.vis = vis;
         this.isVisNeeded = true;
     }
 

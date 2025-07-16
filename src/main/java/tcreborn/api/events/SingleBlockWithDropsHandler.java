@@ -5,12 +5,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import tcreborn.api.items.types.BlockType;
+import tcreborn.api.thaumcraft.aspects.Aspects;
 import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 import thaumcraft.common.items.wands.ItemWandCasting;
 
 /**
  * Class for handling events linked to wands.
  * <p>It's a specific handler with pre-made code, that will destroy the targeted block and drop some items.</p>
+ * <p>An upgrade can be added, and will use the vis from mother class to perform this one.</p>
  * <p>You extend this class, and code the two main things linked to it :</p>
  * <p> - Registering blocks + event number, for triggering the method "performTrigger()" when targeted block is matched.</p>
  * <p> - Coding the method getDrops() ; it will return the items that will be dropped by destroying the block in performTrigger().
@@ -18,8 +20,12 @@ import thaumcraft.common.items.wands.ItemWandCasting;
  */
 public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
 
-    protected String researchTag, upgradeResearchTag;
+    /**
+     * The field isVisNeeded is to be kept read-only, and should not be edited alone.
+     * <p>Any standalone modification can break the code, and lead to exceptions thrown when performing the wand trigger</p>
+     */
     protected boolean isUpgradable = false;
+    protected String researchTag, upgradeResearchTag;
 
     /**
      * Constructor for the Handler.
@@ -35,6 +41,22 @@ public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
         if (researchTag != null) this.researchTag = researchTag;
     }
     /**
+     * Constructor for the Handler.
+     * <p>This specific handler type, will delete the trigger blocks and make them drop specific items.</p>
+     * <p>Each block will receive an unique incremented event number.</p>
+     * <p>Exemple : blocks[0] -> event = 0, blocks[1] -> event = 1 ... </p>
+     * @param researchTag The researchTag : the trigger event won't be performed if the player didn't research that one yet (can be null)
+     * @param upgradeResearchTag This tag will be checked for upgrade alongside vis aspects from mother class
+     * @param blocks The trigger blocks
+     * @throws ParameterIsNullOrEmpty If blocks is null or empty
+     */
+    public SingleBlockWithDropsHandler(String researchTag, String upgradeResearchTag, Aspects vis, BlockType ... blocks) {
+        this(researchTag, blocks);
+        if (upgradeResearchTag == null) throw new ParameterIsNullOrEmpty();
+        else setUpgradeResearchTag(upgradeResearchTag);
+        setVis(vis);
+    }
+    /**
      * Constructor for the Handler
      * @param blocks The trigger blocks
      * @throws ParameterIsNullOrEmpty If blocks is null or empty
@@ -47,9 +69,12 @@ public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
      * Setter for the upgrade research tag
      * @param upgradeResearchTag The upgrade research tag
      * @return Itself
+     * @throws ParameterIsNullOrEmpty If upgradeResearchTag is null
      */
     public SingleBlockWithDropsHandler setUpgradeResearchTag(String upgradeResearchTag) {
+        if (upgradeResearchTag == null) throw new ParameterIsNullOrEmpty();
         this.upgradeResearchTag = upgradeResearchTag;
+        this.isUpgradable = true;
         return this;
     }
 
@@ -82,8 +107,17 @@ public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
         if (wand.getFocus(heldItem) != null) return false; // Needs no focus equipped on the wand
         if (!player.isSneaking()) return false; // Player needs to be sneaking
         // Code for editing world
+        ItemStack item;
         world.setBlockToAir(x, y, z);
-        ItemStack item = getDrops(event);
+        if (isUpgradable) { // Checks if upgradable
+            // Checks if upgrade research is done
+            if (!isResearchComplete(player, upgradeResearchTag)) item = getDrops(event, false);
+            // Checks if vis is needed
+            else if (isVisNeeded) item = getDrops(event, wand.consumeAllVisCrafting(heldItem, player, getVis(), true));
+            // Else get standard output
+            else item = getDrops(event, true);
+        } else item = getDrops(event, false);
+
         EntityItem drops = new EntityItem(world, (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, item);
         world.spawnEntityInWorld(drops);
         return true;
@@ -96,5 +130,5 @@ public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
      * @param event The event number (can be ignored depending on your needs)
      * @return The items that will be dropped on trigger
      */
-    protected abstract ItemStack getDrops(int event);
+    protected abstract ItemStack getDrops(int event, boolean upgrade);
 }
