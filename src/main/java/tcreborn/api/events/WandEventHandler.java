@@ -70,10 +70,12 @@ public abstract class WandEventHandler implements IWandTriggerManager {
     /**
      * Setter for the vis usage
      * @param vis The aspect vis
+     * @return Itself
      */
-    public void setVis(Aspects vis) {
+    public WandEventHandler setVis(Aspects vis) {
         if (vis != null) this.vis = vis;
         this.isVisNeeded = true;
+        return this;
     }
 
     /**
