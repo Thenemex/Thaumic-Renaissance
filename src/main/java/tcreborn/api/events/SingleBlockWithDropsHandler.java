@@ -109,7 +109,8 @@ public abstract class SingleBlockWithDropsHandler extends WandEventHandler {
         // Code for editing world
         ItemStack item;
         world.setBlockToAir(x, y, z);
-        if (isUpgradable) { // Checks if upgradable
+        // Checks if upgradable
+        if (isUpgradable) {
             // Checks if upgrade research is done
             if (!isResearchComplete(player, upgradeResearchTag)) item = getDrops(event, false);
             // Checks if vis is needed
