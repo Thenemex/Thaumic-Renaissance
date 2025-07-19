@@ -1,4 +1,4 @@
-# Thaumcraft : Reborn
+# Thaumic Renaissance
 
 An addon for Thaumcraft 4, in Minecraft 1.7.10. Try to bring a fresh and modern air to the mod.
 
@@ -7,5 +7,5 @@ An addon for Thaumcraft 4, in Minecraft 1.7.10. Try to bring a fresh and modern 
 Mod is made by Thenemex.
 
 Big thanks and hugs to my helpers :
-- awesome_hippo, for learning me the basics of modding in old versions
-- NotSenna, for active playing, testing, and discussing the balancing of recipes
+- awesome_hippo, for learning me the basics of modding in old MC versions
+- NotSenna & Arctic_Howler, for active playing, testing, and discussing the balancing of recipes
