@@ -1,5 +1,7 @@
 package tcreborn.model.config;
 
+import nemexlib.api.thaumcraft.research.Research;
+import tcreborn.ThaumicRenaissance;
 import tcreborn.model.research.*;
 
 import static tcreborn.config.Config.expertWoodRecipesEnabled;
@@ -9,6 +11,7 @@ public class ConfigResearch {
     public static boolean isArcaneCheckingWorkbenchRecipes = true;
 
     public static void init() {
+        Research.modID = ThaumicRenaissance.modID;
         ConfigTab.init();
         initLumberjack();
     }
