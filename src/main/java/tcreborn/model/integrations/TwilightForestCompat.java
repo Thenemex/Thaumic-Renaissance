@@ -1,22 +1,20 @@
 package tcreborn.model.integrations;
 
+import nemexlib.api.integrations.ACompat;
+import nemexlib.api.items.types.BlockType;
+import nemexlib.api.recipes.workbench.WorkbenchAdder;
+import nemexlib.api.recipes.workbench.WorkbenchRemover;
 import net.minecraft.item.ItemStack;
-import tcreborn.api.integrations.ACompat;
-import tcreborn.api.items.types.BlockType;
-import tcreborn.api.recipes.workbench.WorkbenchAdder;
-import tcreborn.api.recipes.workbench.WorkbenchRemover;
 import tcreborn.model.config.ConfigResearch;
 
-import static tcreborn.api.items.ItemFinder.findBlock;
-import static tcreborn.api.items.ItemFinder.findItem;
+import static nemexlib.api.items.ItemFinder.findBlock;
+import static nemexlib.api.items.ItemFinder.findItem;
 import static tcreborn.model.ArrayCollector.*;
 
 public class TwilightForestCompat extends ACompat {
 
     public TwilightForestCompat(String mod) {
         super(mod);
-        if (!ConfigResearch.isArcaneCheckingWorkbenchRecipes)
-            patchTowerwoodPlanksRecipe();
     }
 
     protected void patchTowerwoodPlanksRecipe() {
@@ -26,7 +24,7 @@ public class TwilightForestCompat extends ACompat {
     }
 
     @Override
-    public void loadLogsPlanksSticks() {
+    public void loadIntegration() {
         BlockType log, plank;
         for (int i = 0; i <= 3; i++) {
             log = findBlock(mod, "tile.TFLog", i);
@@ -42,5 +40,8 @@ public class TwilightForestCompat extends ACompat {
             addMagicalLogAndBlock(log);
             addSameMagicalResultPlank(plank.toItemStack());
         }
+
+        if (!ConfigResearch.isArcaneCheckingWorkbenchRecipes)
+            patchTowerwoodPlanksRecipe();
     }
 }

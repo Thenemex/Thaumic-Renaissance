@@ -1,7 +1,7 @@
 package tcreborn.model.config;
 
+import nemexlib.api.thaumcraft.API;
 import net.minecraft.util.ResourceLocation;
-import tcreborn.api.thaumcraft.API;
 
 public class ConfigTab {
 

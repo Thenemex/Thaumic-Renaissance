@@ -1,10 +1,10 @@
 package tcreborn.model.research;
 
+import nemexlib.api.recipes.crucible.CrucibleAdder;
+import nemexlib.api.thaumcraft.aspects.Aspects;
+import nemexlib.api.thaumcraft.research.AResearch;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import tcreborn.api.recipes.crucible.CrucibleAdder;
-import tcreborn.api.thaumcraft.aspects.Aspects;
-import tcreborn.api.thaumcraft.research.AResearch;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.crafting.CrucibleRecipe;
@@ -12,7 +12,7 @@ import thaumcraft.api.research.ResearchPage;
 
 import java.util.Arrays;
 
-import static tcreborn.api.items.ItemFinder.findItemTC;
+import static nemexlib.api.items.ItemFinder.findItemTC;
 import static tcreborn.model.ArrayCollector.getMagicalLogsToPlanks;
 import static tcreborn.model.config.ConfigOreDict.*;
 import static thaumcraft.api.aspects.Aspect.*;

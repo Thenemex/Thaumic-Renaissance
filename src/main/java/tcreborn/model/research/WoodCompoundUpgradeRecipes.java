@@ -1,17 +1,17 @@
 package tcreborn.model.research;
 
+import nemexlib.api.recipes.mystical.CompoundAdder;
+import nemexlib.api.thaumcraft.aspects.Aspects;
+import nemexlib.api.thaumcraft.research.AResearch;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import tcreborn.api.recipes.mystical.CompoundAdder;
-import tcreborn.api.thaumcraft.aspects.Aspects;
-import tcreborn.api.thaumcraft.research.AResearch;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.research.ResearchPage;
 
 import java.util.List;
 
-import static tcreborn.api.items.ItemFinder.findItemTC;
+import static nemexlib.api.items.ItemFinder.findItemTC;
 import static tcreborn.model.config.ConfigHandlers.mundaneWoodCompoundHandler;
 import static thaumcraft.api.aspects.Aspect.*;
 

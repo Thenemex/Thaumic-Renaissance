@@ -1,10 +1,10 @@
 package tcreborn.model.integrations;
 
+import nemexlib.api.integrations.ACompat;
+import nemexlib.api.items.ItemFinder;
+import nemexlib.api.recipes.workbench.WorkbenchRemover;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import tcreborn.api.integrations.ACompat;
-import tcreborn.api.items.ItemFinder;
-import tcreborn.api.recipes.workbench.WorkbenchRemover;
 import tcreborn.model.ArrayCollector;
 
 public class ThaumicBasesCompat extends ACompat {
@@ -14,7 +14,7 @@ public class ThaumicBasesCompat extends ACompat {
     }
 
     @Override
-    public void loadLogsPlanksSticks() {
+    public void loadIntegration() {
         for (int i = 0; i < 3; i++) // Peaceful, Nether and Ender wood
             ArrayCollector.addMagicalLogAndBlock(ItemFinder.findBlock(mod, "genLogs", i));
         ArrayCollector.addPlankResultOfMagical(

@@ -1,18 +1,18 @@
 package tcreborn.model;
 
+import nemexlib.api.items.DeepCopy;
+import nemexlib.api.items.types.BlockType;
+import nemexlib.api.util.exceptions.ParameterIsNullOrEmpty;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import tcreborn.api.items.DeepCopy;
-import tcreborn.api.items.types.BlockType;
-import tcreborn.api.util.exceptions.ParameterIsNullOrEmpty;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import static tcreborn.api.items.ItemFinder.findBlockTC;
-import static tcreborn.api.items.ItemFinder.findItemTC;
+import static nemexlib.api.items.ItemFinder.findBlockTC;
+import static nemexlib.api.items.ItemFinder.findItemTC;
 
 @SuppressWarnings("unused")
 public class ArrayCollector {

@@ -1,8 +1,8 @@
 package tcreborn.model.config;
 
+import nemexlib.api.oredict.AOreDict;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import tcreborn.api.oredict.AOreDict;
 
 import static tcreborn.model.ArrayCollector.*;
 

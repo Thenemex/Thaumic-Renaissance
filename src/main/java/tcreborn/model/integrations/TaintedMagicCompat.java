@@ -1,9 +1,9 @@
 package tcreborn.model.integrations;
 
+import nemexlib.api.integrations.ACompat;
+import nemexlib.api.items.ItemFinder;
+import nemexlib.api.recipes.workbench.WorkbenchRemover;
 import net.minecraft.item.ItemStack;
-import tcreborn.api.integrations.ACompat;
-import tcreborn.api.items.ItemFinder;
-import tcreborn.api.recipes.workbench.WorkbenchRemover;
 import tcreborn.model.ArrayCollector;
 
 public class TaintedMagicCompat extends ACompat {
@@ -13,7 +13,7 @@ public class TaintedMagicCompat extends ACompat {
     }
 
     @Override
-    public void loadLogsPlanksSticks() {
+    public void loadIntegration() {
         ItemStack log, plank;
         ArrayCollector.addMagicalBlockLog(ItemFinder.findBlock(mod, "BlockWarpwoodLog"));
         log = ItemFinder.findItem(mod, "BlockWarpwoodLog"); // Warpwood Log

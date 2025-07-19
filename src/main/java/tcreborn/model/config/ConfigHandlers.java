@@ -1,6 +1,6 @@
 package tcreborn.model.config;
 
-import tcreborn.api.events.SingleBlockWithDropsHandler;
+import nemexlib.api.events.SingleBlockWithDropsHandler;
 import tcreborn.model.events.WoodCompoundMagicalRecipesHandler;
 import tcreborn.model.events.WoodCompoundRecipesHandler;
 

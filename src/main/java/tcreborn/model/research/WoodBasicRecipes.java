@@ -1,19 +1,19 @@
 package tcreborn.model.research;
 
+import nemexlib.api.recipes.workbench.WorkbenchAdder;
+import nemexlib.api.recipes.workbench.WorkbenchRemover;
+import nemexlib.api.thaumcraft.research.AResearch;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import tcreborn.api.thaumcraft.research.AResearch;
-import tcreborn.api.recipes.workbench.WorkbenchAdder;
-import tcreborn.api.recipes.workbench.WorkbenchRemover;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.research.ResearchPage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static tcreborn.api.items.ItemFinder.findItemTC;
+import static nemexlib.api.items.ItemFinder.findItemTC;
 import static tcreborn.model.ArrayCollector.getMagicalLogsToPlanks;
 import static tcreborn.model.config.ConfigOreDict.*;
 
