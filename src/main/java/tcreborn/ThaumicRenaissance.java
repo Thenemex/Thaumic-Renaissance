@@ -4,6 +4,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import nemexlib.config.AConfig;
 import tcreborn.config.Config;
 import tcreborn.model.ArrayCollector;
 import tcreborn.model.config.*;
@@ -11,17 +12,16 @@ import tcreborn.model.config.*;
 import static tcreborn.ThaumicRenaissance.modID;
 import static tcreborn.ThaumicRenaissance.dependencies;
 
-import java.io.File;
-
 @SuppressWarnings("unused")
-@Mod(modid = modID, useMetadata = true, version = "1.4", dependencies = dependencies)
+@Mod(modid = modID, useMetadata = true, version = "1.5", dependencies = dependencies)
 public class ThaumicRenaissance {
 
-    public static final String modID = "TCReborn", modName = "ThaumicRenaissance";
+    public static final String modID = "TCReborn", modName = "ThaumicRenaissance", configVersion = "1.0";
+    public static AConfig config;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        Config.init(new File(event.getModConfigurationDirectory(), modName)); // Custom folder with mod name
+        config = new Config(event, configVersion).init(); // Init config
     }
 
     @Mod.EventHandler
@@ -40,5 +40,5 @@ public class ThaumicRenaissance {
         ConfigResearch.init(); // Initializing Thaumonomicon new researches
     }
 
-    public static final String dependencies = "required-after:Thaumcraft@[4.2.3.5,);after:ForbiddenMagic;after:TaintedMagic;after:thaumicbases;after:TwilightForest;after:tc4tweak";
+    public static final String dependencies = "required-after:Thaumcraft@[4.2.3.5,);required-after:NemexLib@[1.0,);after:ForbiddenMagic;after:TaintedMagic;after:thaumicbases;after:TwilightForest;after:tc4tweak";
 }
