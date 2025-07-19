@@ -13,7 +13,7 @@ import static tcreborn.ThaumicRenaissance.modID;
 import static tcreborn.ThaumicRenaissance.dependencies;
 
 @SuppressWarnings("unused")
-@Mod(modid = modID, useMetadata = true, version = "1.5", dependencies = dependencies)
+@Mod(modid = modID, useMetadata = true, version = "1.5.0.1", dependencies = dependencies)
 public class ThaumicRenaissance {
 
     public static final String modID = "TCReborn", modName = "ThaumicRenaissance", configVersion = "1.0";
