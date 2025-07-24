@@ -15,39 +15,39 @@
 #
 tc.research_category.LUMBERJACK=Lumberjack
 #
-tcreborn_research_name.WOODBASICRECIPES=Basic Recipes
-tcreborn_research_text.WOODBASICRECIPES=Processing Wood
-tcreborn_research_page.WOODBASICRECIPES.1=While chopping some poor trees and making yourself a workbench, you noticed something wasn't right ...<BR>The logs would only give you one plank, and the same happened when making sticks.<LINE>You swore in bad words that you will find some way or another to get more planks and sticks out of these damn wood logs !
+mod_research_name.WOODBASICRECIPES=Basic Recipes
+mod_research_text.WOODBASICRECIPES=Processing Wood
+mod_research_page.WOODBASICRECIPES.1=While chopping some poor trees and making yourself a workbench, you noticed something wasn't right ...<BR>The logs would only give you one plank, and the same happened when making sticks.<LINE>You swore in bad words that you will find some way or another to get more planks and sticks out of these damn wood logs !
 #
-tcreborn_research_name.WOODARCANERECIPES=Arcane Recipes
-tcreborn_research_text.WOODARCANERECIPES=Processing Wood with Vis
-tcreborn_research_page.WOODARCANERECIPES.1=You slowly filled that wood wand of yours on the neighborhood aura node, then something became clear to your mind.<BR>What if the vis contained in your wand could help to achieve feats such as obtaining more wood ?<LINE>By infusing a bit of §lTerra§r vis, you're able to get one more plank and stick out of each recipe !
+mod_research_name.WOODARCANERECIPES=Arcane Recipes
+mod_research_text.WOODARCANERECIPES=Processing Wood with Vis
+mod_research_page.WOODARCANERECIPES.1=You slowly filled that wood wand of yours on the neighborhood aura node, then something became clear to your mind.<BR>What if the vis contained in your wand could help to achieve feats such as obtaining more wood ?<LINE>By infusing a bit of §lTerra§r vis, you're able to get one more plank and stick out of each recipe !
 #
-tcreborn_research_name.WOODCRUCIBLERECIPES=Crucible Recipes
-tcreborn_research_text.WOODCRUCIBLERECIPES=Processing Wood with Essentia
-tcreborn_research_page.WOODCRUCIBLERECIPES.1=You were always the most clumsy guy on cauldron classes ...<BR>Even years later you still manage to make fall a WHOLE shelf filled with wood, crafting tables and cobblestone waiting to be processed.<LINE>You were suddenly swarmed by an overload of planks and sticks after the accident : you wrote down the exact quantites from what you saw.<BR>These recipes allows to get even more reliable output from processing logs and planks.
+mod_research_name.WOODCRUCIBLERECIPES=Crucible Recipes
+mod_research_text.WOODCRUCIBLERECIPES=Processing Wood with Essentia
+mod_research_page.WOODCRUCIBLERECIPES.1=You were always the most clumsy guy on cauldron classes ...<BR>Even years later you still manage to make fall a WHOLE shelf filled with wood, crafting tables and cobblestone waiting to be processed.<LINE>You were suddenly swarmed by an overload of planks and sticks after the accident : you wrote down the exact quantites from what you saw.<BR>These recipes allows to get even more reliable output from processing logs and planks.
 #
-tcreborn_research_name.WOODCRUCIBLEMAGICALRECIPES=Adding some spices !
-tcreborn_research_text.WOODCRUCIBLEMAGICALRECIPES=A little bit of Praecantatio
-tcreborn_research_page.WOODCRUCIBLEMAGICALRECIPES.1=You told yourself that these poor Greatwood and other magical wood logs deserved better than to be thrown in a mundane aspect soup ...<LINE>By using a very small amount of §lPraecantatio§r, you uncovered a new recipe that let you get even more output amounts compared to the standard Crucible recipes !
+mod_research_name.WOODCRUCIBLEMAGICALRECIPES=Adding some spices !
+mod_research_text.WOODCRUCIBLEMAGICALRECIPES=A little bit of Praecantatio
+mod_research_page.WOODCRUCIBLEMAGICALRECIPES.1=You told yourself that these poor Greatwood and other magical wood logs deserved better than to be thrown in a mundane aspect soup ...<LINE>By using a very small amount of §lPraecantatio§r, you uncovered a new recipe that let you get even more output amounts compared to the standard Crucible recipes !
 #
-tcreborn_research_name.WOODCRUCIBLEINSTRUMENTUMRECIPES=Cutting through fibers
-tcreborn_research_text.WOODCRUCIBLEINSTRUMENTUMRECIPES=Some Instrumentum will make that perfect
-tcreborn_research_page.WOODCRUCIBLEINSTRUMENTUMRECIPES.1=These silex are sharp for sure. They contains some rare type of blue essentia called §lInstrumentum§r, present in all items related to human and tools. You wondered if there is some glimpse chance that this type of essentia could help with your woody bloody problems ...<LINE>A bit of that precious essentia with some other aspects allow you to get more items out of magical wood logs and planks !
+mod_research_name.WOODCRUCIBLEINSTRUMENTUMRECIPES=Cutting through fibers
+mod_research_text.WOODCRUCIBLEINSTRUMENTUMRECIPES=Some Instrumentum will make that perfect
+mod_research_page.WOODCRUCIBLEINSTRUMENTUMRECIPES.1=These silex are sharp for sure. They contains some rare type of blue essentia called §lInstrumentum§r, present in all items related to human and tools. You wondered if there is some glimpse chance that this type of essentia could help with your woody bloody problems ...<LINE>A bit of that precious essentia with some other aspects allow you to get more items out of magical wood logs and planks !
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-tcreborn_research_name.WOODCOMPOUNDRECIPES=Wand casting
-tcreborn_research_text.WOODCOMPOUNDRECIPES=You mean casting ... wood ?
-tcreborn_research_page.WOODCOMPOUNDRECIPES.1=Since you make that book you're reading by casting a spell on that innocent bookshelf, you've been wondering if this process can be applied to processing the resources around you.<LINE>When using your wand while §lsneaking§r on some trees, the wood logs fell apart and transformed to planks ! The amount of planks you get is almost the same as the workbench though ; but you are confident that new discoveries will lead you to more in the future.
+mod_research_name.WOODCOMPOUNDRECIPES=Wand casting
+mod_research_text.WOODCOMPOUNDRECIPES=You mean casting ... wood ?
+mod_research_page.WOODCOMPOUNDRECIPES.1=Since you make that book you're reading by casting a spell on that innocent bookshelf, you've been wondering if this process can be applied to processing the resources around you.<LINE>When using your wand while §lsneaking§r on some trees, the wood logs fell apart and transformed to planks ! The amount of planks you get is almost the same as the workbench though ; but you are confident that new discoveries will lead you to more in the future.
 #
-tcreborn_research_name.WOODCOMPOUNDMAGICALRECIPES=Casting magical wood
-tcreborn_research_text.WOODCOMPOUNDMAGICALRECIPES=Abracadabra, you're now a plank !
-tcreborn_research_page.WOODCOMPOUNDMAGICALRECIPES.1=You found a way to apply your wand casting knowledge to the magical tree logs out there : you can transform them to planks without having to chop them down !<LINE> The amount of planks you get with this process is still not that good, you are convinced that something is missing ...
+mod_research_name.WOODCOMPOUNDMAGICALRECIPES=Casting magical wood
+mod_research_text.WOODCOMPOUNDMAGICALRECIPES=Abracadabra, you're now a plank !
+mod_research_page.WOODCOMPOUNDMAGICALRECIPES.1=You found a way to apply your wand casting knowledge to the magical tree logs out there : you can transform them to planks without having to chop them down !<LINE> The amount of planks you get with this process is still not that good, you are convinced that something is missing ...
 #
-tcreborn_research_name.WOODCOMPOUNDUPGRADERECIPES=[Upgrade] Vis casting
-tcreborn_research_text.WOODCOMPOUNDUPGRADERECIPES=Casting with vis for common wood
-tcreborn_research_page.WOODCOMPOUNDUPGRADERECIPES.1=You discovered a upgrade for casting mundane wood !<BR>Finally you can now reach the same output amount as arcane crafting, by using a bit of perditio.<LINE>As this is a casting upgrade ; if you don't have enough perditio vis, it will fall back to the basic wand casting recipe without vis usage.
+mod_research_name.WOODCOMPOUNDUPGRADERECIPES=[Upgrade] Vis casting
+mod_research_text.WOODCOMPOUNDUPGRADERECIPES=Casting with vis for common wood
+mod_research_page.WOODCOMPOUNDUPGRADERECIPES.1=You discovered a upgrade for casting mundane wood !<BR>Finally you can now reach the same output amount as arcane crafting, by using a bit of perditio.<LINE>As this is a casting upgrade ; if you don't have enough perditio vis, it will fall back to the basic wand casting recipe without vis usage.
 #
-tcreborn_research_name.WOODCOMPOUNDMAGICALUPGRADERECIPES=[Upgrade] Vis casting
-tcreborn_research_text.WOODCOMPOUNDMAGICALUPGRADERECIPES=Casting with vis for magical wood
-tcreborn_research_page.WOODCOMPOUNDMAGICALUPGRADERECIPES.1=You discovered a upgrade for casting magical wood !<BR>Finally you can now reach the same output amount as arcane crafting, by using some perditio vis.<LINE>As this is a casting upgrade ; if you don't have enough perditio vis, it will fall back to the basic wand casting recipe without vis usage.
+mod_research_name.WOODCOMPOUNDMAGICALUPGRADERECIPES=[Upgrade] Vis casting
+mod_research_text.WOODCOMPOUNDMAGICALUPGRADERECIPES=Casting with vis for magical wood
+mod_research_page.WOODCOMPOUNDMAGICALUPGRADERECIPES.1=You discovered a upgrade for casting magical wood !<BR>Finally you can now reach the same output amount as arcane crafting, by using some perditio vis.<LINE>As this is a casting upgrade ; if you don't have enough perditio vis, it will fall back to the basic wand casting recipe without vis usage.
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -11,7 +11,6 @@ public class ConfigResearch {
     public static boolean isArcaneCheckingWorkbenchRecipes = true;
 
     public static void init() {
-        Research.modID = ThaumicRenaissance.modID;
         ConfigTab.init();
         initLumberjack();
     }
