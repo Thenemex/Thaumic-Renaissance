@@ -21,6 +21,7 @@ public class WoodBasicRecipes extends AResearch {
 
     public WoodBasicRecipes() {
         super(ConfigTab.lumberjack, "WOODBASICRECIPES", Blocks.crafting_table);
+        AResearch.expert = true; // Constructor is only called if expert is loaded
     }
 
     @Override

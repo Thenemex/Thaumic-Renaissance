@@ -1,7 +1,5 @@
 package tcreborn.model.config;
 
-import nemexlib.api.thaumcraft.research.Research;
-import tcreborn.ThaumicRenaissance;
 import tcreborn.model.research.*;
 
 import static tcreborn.config.Config.expertWoodRecipesEnabled;
