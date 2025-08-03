@@ -38,6 +38,8 @@ public class ThaumicRenaissance {
         ConfigHandlers.init();
         // Registering researches
         ConfigResearch.init(); // Initializing Thaumonomicon new researches
+        // Registering additionnal recipes
+        ConfigRecipes.init();
     }
 
     public static final String dependencies = "required-after:Thaumcraft@[4.2.3.5,);required-after:NemexLib@[1.0.0.4,);after:ForbiddenMagic;after:TaintedMagic;after:thaumicbases;after:TwilightForest;after:tc4tweak";
