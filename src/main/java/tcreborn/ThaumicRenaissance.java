@@ -16,12 +16,12 @@ import static tcreborn.ThaumicRenaissance.dependencies;
 @Mod(modid = modID, useMetadata = true, version = "1.5.0.3", dependencies = dependencies)
 public class ThaumicRenaissance {
 
-    public static final String modID = "TCReborn", modName = "ThaumicRenaissance", configVersion = "1.0";
+    public static final String modID = "TCReborn", modName = "ThaumicRenaissance";
     public static AConfig config;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        config = new Config(event, configVersion).init(); // Init config
+        config = new Config(event, "1.1").init(); // Init config
     }
 
     @Mod.EventHandler
@@ -42,5 +42,5 @@ public class ThaumicRenaissance {
         ConfigRecipes.init();
     }
 
-    public static final String dependencies = "required-after:Thaumcraft@[4.2.3.5,);required-after:NemexLib@[1.0.0.4,);after:ForbiddenMagic;after:TaintedMagic;after:thaumicbases;after:TwilightForest;after:tc4tweak";
+    public static final String dependencies = "required-after:Thaumcraft@[4.2.3.5,);required-after:NemexLib@[1.0.0.5,);after:ForbiddenMagic;after:TaintedMagic;after:thaumicbases;after:TwilightForest;after:tc4tweak";
 }
