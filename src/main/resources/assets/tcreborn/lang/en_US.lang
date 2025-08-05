@@ -50,4 +50,8 @@ mod_research_page.WOODCOMPOUNDUPGRADERECIPES.1=You discovered a upgrade for cast
 mod_research_name.WOODCOMPOUNDMAGICALUPGRADERECIPES=[Upgrade] Vis casting
 mod_research_text.WOODCOMPOUNDMAGICALUPGRADERECIPES=Casting with vis for magical wood
 mod_research_page.WOODCOMPOUNDMAGICALUPGRADERECIPES.1=You discovered a upgrade for casting magical wood !<BR>Finally you can now reach the same output amount as arcane crafting, by using some perditio vis.<LINE>As this is a casting upgrade ; if you don't have enough perditio vis, it will fall back to the basic wand casting recipe without vis usage.
+#
+mod_research_name.TORCHBASICRECIPES=Basic Recipes
+mod_research_text.TORCHBASICRECIPES=Where there's light there's hope !
+mod_research_page.TORCHBASICRECIPES.1=You'll find here all the current recipes for torches, and even the new ones !<LINE>You're sure you'll later find some ways to craft torches from more materials.
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
