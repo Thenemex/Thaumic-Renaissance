@@ -1,4 +1,4 @@
-package tcreborn.model.research;
+package tcreborn.model.research.wood;
 
 import nemexlib.api.recipes.mystical.CompoundAdder;
 import nemexlib.api.thaumcraft.research.AResearch;

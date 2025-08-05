@@ -1,4 +1,4 @@
-package tcreborn.model.research;
+package tcreborn.model.research.wood;
 
 import nemexlib.api.recipes.workbench.WorkbenchAdder;
 import nemexlib.api.recipes.workbench.WorkbenchRemover;

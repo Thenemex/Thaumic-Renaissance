@@ -1,4 +1,4 @@
-package tcreborn.model.research;
+package tcreborn.model.research.wood;
 
 import nemexlib.api.recipes.arcane.ArcaneAdder;
 import nemexlib.api.thaumcraft.aspects.Aspects;
