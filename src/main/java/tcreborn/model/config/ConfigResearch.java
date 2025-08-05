@@ -1,6 +1,7 @@
 package tcreborn.model.config;
 
-import tcreborn.model.research.*;
+import tcreborn.model.research.light.TorchBasicRecipes;
+import tcreborn.model.research.wood.*;
 
 import static tcreborn.config.Config.expertWoodRecipesEnabled;
 
@@ -23,5 +24,7 @@ public class ConfigResearch {
         new WoodCompoundMagicalRecipes();
         new WoodCompoundUpgradeRecipes();
         new WoodCompoundMagicalUpgradeRecipes();
+
+        new TorchBasicRecipes();
     }
 }
