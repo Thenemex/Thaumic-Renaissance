@@ -44,8 +44,6 @@ public class ArrayCollector {
             log = new ItemStack(block, 1, meta);
             addMundaneLogAndPlank(log, new ItemStack(Blocks.planks, 1, i));
             addMundaneBlockLog(block, meta);
-            addMundaneBlockLog(block, meta + 4);
-            addMundaneBlockLog(block, meta + 8);
         }
         // Adding Magical Logs & Planks - Other will be added by integrated mods
         addMagicalLogAndBlock(findBlockTC("blockMagicalLog", 0)); // Greatwood Log
@@ -56,12 +54,10 @@ public class ArrayCollector {
     public static void initMap() {
         int i = 0;
         for (ItemStack plank : mundanePlanks)
-            for (int j = 0; j < 3; j++)
-                mundaneLogToPlankMap.put(i++, plank);
+            mundaneLogToPlankMap.put(i++, plank);
         i = 0;
         for (ItemStack plank : magicalLogsToPlanks)
-            for (int j = 0; j < 3; j++)
-                magicalLogToPlankMap.put(i++, plank);
+            magicalLogToPlankMap.put(i++, plank);
     }
 
     public static void addMundaneLogAndPlank(ItemStack log, ItemStack plank) {
@@ -79,7 +75,7 @@ public class ArrayCollector {
     public static void addMagicalLogAndBlock(BlockType ... logs) {
         for (BlockType V : logs) {
             addMagicalBlockLog(V);
-            addMagicalLog(new ItemStack(V.block(), 1, V.meta()));
+            addMagicalLog(V.toItemStack());
         }
     }
     public static void addMagicalPlank(ItemStack ... planks) {
