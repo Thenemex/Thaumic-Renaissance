@@ -21,7 +21,7 @@ public class ThaumicRenaissance {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        config = new Config(event, "1.1").init(); // Init config
+        config = new Config(event).init(); // Init config
     }
 
     @Mod.EventHandler

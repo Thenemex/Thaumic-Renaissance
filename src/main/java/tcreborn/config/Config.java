@@ -5,6 +5,7 @@ import nemexlib.config.AConfig;
 
 import static tcreborn.ThaumicRenaissance.modName;
 
+@SuppressWarnings("unused")
 public class Config extends AConfig {
 
     public static boolean expertWoodRecipesEnabled;
@@ -12,8 +13,8 @@ public class Config extends AConfig {
     public static boolean glowstoneTorches;
     public static int glowstoneTorchesOutput;
 
-    public Config(FMLPreInitializationEvent event, String version) {
-        super(event, modName, modName, version);
+    public Config(FMLPreInitializationEvent event) {
+        super(event, modName, modName, "1.1");
     }
 
     @Override
@@ -32,5 +33,9 @@ public class Config extends AConfig {
         config.addCustomCategoryComment(additRecipes, "You can disable/enable additionnal recipes here.");
         glowstoneTorches = newEntry(additRecipes, "Glowstone Torches", "Allows for crafting torches from stick and glowstone");
         glowstoneTorchesOutput = newEntry(additRecipes, "Glowstone Torches output", 5);
+    }
+
+    public String getVersion() {
+        return this.config.getDefinedConfigVersion();
     }
 }
