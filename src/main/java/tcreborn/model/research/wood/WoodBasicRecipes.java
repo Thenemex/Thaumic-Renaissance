@@ -1,5 +1,6 @@
 package tcreborn.model.research.wood;
 
+import nemexlib.api.recipes.workbench.OreDictAdder;
 import nemexlib.api.recipes.workbench.WorkbenchAdder;
 import nemexlib.api.recipes.workbench.WorkbenchRemover;
 import nemexlib.api.thaumcraft.research.AResearch;
@@ -10,7 +11,6 @@ import net.minecraft.item.crafting.IRecipe;
 import tcreborn.model.config.ConfigTab;
 import thaumcraft.api.research.ResearchPage;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import static nemexlib.api.items.ItemFinder.findItemTC;
@@ -45,23 +45,15 @@ public class WoodBasicRecipes extends AResearch {
         IRecipe[] recipes = WorkbenchAdder.addMultipleSingleShapelessRecipes(getOres(mundanePlanksTag), getOres(mundaneLogsTag));
         return Arrays.copyOfRange(recipes, 0, 6);
     }
-    protected IRecipe[] addRecipesMundaneSticks() {
-        ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(mundanePlanksTag).length);
-        for (ItemStack plank : getOres(mundanePlanksTag))
-            inputRecipes.add(new Object[]{"P ", "P ", 'P', plank});
-        IRecipe[] recipes = WorkbenchAdder.addMultipleSingleRecipes(new ItemStack(Items.stick), false, inputRecipes);
-        return Arrays.copyOfRange(recipes, 0, 6);
+    protected IRecipe addRecipesMundaneSticks() {
+        return OreDictAdder.addShapedRecipe(Items.stick, "P", "P", 'P', mundanePlanksTag);
     }
     protected IRecipe[] addRecipesMagicalPlanks() {
         IRecipe[] recipes = WorkbenchAdder.addMultipleSingleShapelessRecipes(getMagicalLogsToPlanks(), 2, getOres(magicalLogsTag));
         return Arrays.copyOfRange(recipes, 0, 2);
     }
-    protected IRecipe[] addRecipesMagicalSticks() {
-        ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(magicalPlanksTag).length);
-        for (ItemStack plank : getOres(magicalPlanksTag))
-            inputRecipes.add(new Object[]{"P ", "P ", 'P', plank});
-        IRecipe[] recipes = WorkbenchAdder.addMultipleSingleRecipes(new ItemStack(Items.stick, 2), false, inputRecipes);
-        return Arrays.copyOfRange(recipes, 0, 2);
+    protected IRecipe addRecipesMagicalSticks() {
+        return OreDictAdder.addShapedRecipe(new ItemStack(Items.stick, 2), "P", "P", 'P', magicalPlanksTag);
     }
 
     @Override
