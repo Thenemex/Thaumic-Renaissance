@@ -45,12 +45,14 @@ public class WoodArcaneRecipes extends AResearch {
         IArcaneRecipe[] recipes = ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 1), isArcanePluginOn, getOres(mundanePlanksTag), isArcanePluginOn ? (expert ? 2 : 6) : (expert ? 8 : 24), inputRecipes);
         return Arrays.copyOfRange(recipes, 0, 6);
     }
-    protected IArcaneRecipe[] addRecipesMundaneSticks() {
-        ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(mundanePlanksTag).length);
-        for (ItemStack plank : getOres(mundanePlanksTag))
-            inputRecipes.add(isArcanePluginOn ? new Object[]{"P", "P", 'P', plank} : new Object[]{" P", "P ", 'P', plank});
-        IArcaneRecipe[] recipes = ArcaneAdder.addMultipleSingleArcane(tag, new Aspects(ENTROPY, 1), new ItemStack(Items.stick, expert ? 2 : 6), inputRecipes);
-        return Arrays.copyOfRange(recipes, 0, 6);
+    protected IArcaneRecipe addRecipesMundaneSticks() {
+        return ArcaneAdder.addArcane(
+                tag, new Aspects(ENTROPY, 1),
+                false, false,
+                new ItemStack(Items.stick, expert ? 2 : 6),
+                isArcanePluginOn
+                        ? new Object[]{"P", "P", 'P', mundanePlanksTag}
+                        : new Object[]{" P", "P ", 'P', mundanePlanksTag});
     }
     protected IArcaneRecipe[] addRecipesMagicalPlanks() {
         ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(magicalLogsTag).length);
@@ -59,12 +61,14 @@ public class WoodArcaneRecipes extends AResearch {
         IArcaneRecipe[] recipes = ArcaneAdder.addMultipleArcane(tag, new Aspects(ENTROPY, 2), isArcanePluginOn, getMagicalLogsToPlanks(), isArcanePluginOn ? (expert ? 3 : 8) :(expert ? 12 : 32), inputRecipes);
         return Arrays.copyOfRange(recipes, 0, 2);
     }
-    protected IArcaneRecipe[] addRecipesMagicalSticks() {
-        ArrayList<Object[]> inputRecipes = new ArrayList<>(getOres(magicalPlanksTag).length);
-        for (ItemStack plank : getOres(magicalPlanksTag))
-            inputRecipes.add(isArcanePluginOn ? new Object[]{"P", "P", 'P', plank} : new Object[]{" P", "P ", 'P', plank});
-        IArcaneRecipe[] recipes = ArcaneAdder.addMultipleSingleArcane(tag, new Aspects(ENTROPY, 1), new ItemStack(Items.stick, expert ? 3 : 8), inputRecipes);
-        return Arrays.copyOfRange(recipes, 0, 2);
+    protected IArcaneRecipe addRecipesMagicalSticks() {
+        return ArcaneAdder.addArcane(
+                tag, new Aspects(ENTROPY, 1),
+                false, false,
+                new ItemStack(Items.stick, expert ? 3 : 8),
+                isArcanePluginOn
+                        ? new Object[]{"P", "P", 'P', magicalPlanksTag}
+                        : new Object[]{" P", "P ", 'P', magicalPlanksTag});
     }
 
     @Override
