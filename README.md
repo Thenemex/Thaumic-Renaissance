@@ -9,3 +9,4 @@ Mod is made by Thenemex.
 Big thanks and hugs to my helpers :
 - awesome_hippo, for learning me the basics of modding in old MC versions
 - NotSenna & Arctic_Howler, for active playing, testing, and discussing the balancing of recipes
+- neverwindy, for translating the mod in Russian (ru_RU)
